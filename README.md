@@ -1,2 +1,2 @@
 # ultra-tumblr-theme
-The worlds greatests Tumblr Theme
+The Worlds greatests Tumblr Theme
