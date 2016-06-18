@@ -1,104 +1,128 @@
 <!DOCTYPE html>
 <html>
-    <head>
+<head>
 
-        <title>blank tumblr theme</title>
-        <!-- DEFAULT COLORS -->
-        <meta name="color:Background" content="#110f23"/>
-        <meta name="color:Title" content="#FFF"/>
-        <meta name="color:Description" content="#FFF"/>
-        <meta name="color:Text" content="#707070"/>
-        <meta name="color:Link" content="#FFF"/>
-        <meta name="color:Link Hover" content="#FFF"/>
-        <meta name="color:Date and Post Header" content="#FFF"/>
-        <meta name="color:Image Frame" content="#FFF"/>
-        <meta name="color:Chat Border" content="#FFF"/>
-        <meta name="color:Random Lines" content="#707070"/>
-        <meta name="color:Search Input" content="#000"/>
-        <!-- END DEFAULT COLORS -->
+<title>{Title}{block:PostSummary}, {PostSummary}{/block:PostSummary}</title>
+{block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
+<link href="{Favicon}" rel="shortcut icon" type="image/x-icon" />
+<link rel="icon" href="{Favicon}" type="image/x-icon" />
+<link rel="shortcut icon" href="{Favicon}" type="image/x-icon" />
 
-        <!-- <link rel="shortcut icon" href="{Favicon}"/> -->
-        <link href="http://static.tumblr.com/q0etgkr/dT5koqlw1/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        <link rel="icon" href="http://static.tumblr.com/q0etgkr/dT5koqlw1/favicon.ico" type="image/x-icon" />
-        <link rel="shortcut icon" href="http://static.tumblr.com/q0etgkr/dT5koqlw1/favicon.ico" type="image/x-icon" />
+<!-- DEFAULT COLORS -->
+<meta name="color:Background" content="#110f23"/>
+<meta name="color:Title" content="#FFF"/>
+<meta name="color:Description" content="#FFF"/>
+<meta name="color:Text" content="#707070"/>
+<meta name="color:Link" content="#FFF"/>
+<meta name="color:Link Hover" content="#FFF"/>
+<meta name="color:Date and Post Header" content="#FFF"/>
+<meta name="color:Image Frame" content="#FFF"/>
+<meta name="color:Chat Border" content="#FFF"/>
+<meta name="color:Random Lines" content="#707070"/>
+<meta name="color:Search Input" content="#000"/>
+<!-- END DEFAULT COLORS -->
 
-        <script src="http://codysherman.com/tools/infinite-scrolling/code"></script>
-    </head>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto+Slab:400,700" rel="stylesheet"> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.3/css/uikit.min.css" rel="stylesheet" />
 
-    <body>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.3/js/uikit.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.3/js/components/grid.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.3/js/components/lightbox.js"></script>
+<script src="https://static.tumblr.com/vizevuc/g0Yo8wjk6/infinite.js"></script>
 
-    <div id="contain">
+</head>
 
-        <div id="content">
+<body>
 
-    <!-- Loops for each post-type -->
+<div id="contain" class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
 
-            <!--search block-->
+<h1 class="uk-margin-top uk-margin-small-bottom">{Title}</h1>
+<hr class="uk-margin-small" />
+{block:Description}
+<h2 id="description" class="uk-h5 uk-margin-small-top">{Description}</h2>
+{/block:Description}
 
+<div id="content" class="uk-margin-large">
+<div>
 
-
-            <div class = "autopagerize_page_element">
+<div class="uk-grid uk-grid-width-small-1-2 uk-grid-width-medium-1-4  autopagerize_page_element" data-uk-grid="{gutter: 20}">
+	
             {block:Posts}
                 {block:Text}
-                  <article class="post text">
+                <div>
+                  <div class="post text uk-panel uk-panel-space uk-block-primary">
                     {block:Title}
                     <header>
-                      <h2> <a href="{Permalink}" class="entry-title">{Title}</a></h2>
+                      <h5> <a href="{Permalink}" class="entry-title">{Title}</a></h5>
                     </header>
                     {/block:Title}
                     <p>
                       {Body}
                     </p>
+                  </div>
+                </div>
                 {/block:Text}
 
                 {block:Photo}
-                  <article class="post photo">
-                    <figure>
-                      {LinkOpenTag}
-                        {block:IfUseHighResPhotos}
+                <div>
+                  <div class="post photo uk-panel uk-panel-space uk-block-primary">
+                    <figure class="uk-thumbnail">
                           <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
-                        {/block:IfUseHighResPhotos}
-                        {block:IfNotUseHighResPhotos}
-                          <img src="{PhotoURL-500}" alt="{PhotoAlt}" />
-                        {/block:IfNotUseHighResPhotos}
-                      {LinkCloseTag}
 
-                      {block:IfNotUseHighResPhotos}
-                        {block:HighRes}
-                        <a class="high-res" href="{PhotoURL-HighRes}">High-Res</a>
-                        {/block:HighRes}
-                      {/block:IfNotUseHighResPhotos}
-
-                      {block:Caption}
-                        <figcaption>
-                          {Caption}
+                        <figcaption class="uk-text-small uk-text-muted uk-thumbnail-caption">
+                        {PhotoAlt}
                         </figcaption>
-                      {/block:Caption}
+
                     </figure>
+
+					<div class="uk-margin-top">                						
+						<a href="{LikeButtonURL}" class="uk-float-left uk-margin-small-right"><i class="uk-text-contrast uk-icon-small uk-icon-heart"></i></a>
+						<a href="{ReblogURL}" class="uk-float-left uk-margin-small-right"><i class="uk-text-contrast uk-icon-small uk-icon-retweet"></i></a>
+						<div class="uk-float-left uk-margin-small-right">{LinkOpenTag}<i class="uk-text-contrast uk-icon-small uk-icon-link"></i>{LinkCloseTag}</div>
+						<i class="uk-text-contrast uk-icon-mini uk-margin-small-top uk-icon-camera uk-float-right"></i>
+					</div>                    
+
+                  </div>
+                </div>
                 {/block:Photo}
 
                 {block:Photoset}
-                  <article class="post photoset">
-                    <figure>
-                      {Photoset-500}
-                      {block:Caption}
-                        <figcaption>
-                          {Caption}
-                        </figcaption>
-                      {/block:Caption}
-                    </figure>
+                <div>
+                  <div class="post photoset uk-panel uk-panel-space uk-block-primary">
+	                  
+    {block:Photos}
+        <img src="{PhotoURL-500}"
+            width="{PhotoWidth-500}"height="{PhotoHeight-500}" />
+
+        {block:Caption}
+            {Caption}
+        {/block:Caption}
+
+        {block:Exif}
+            <ul>...</ul>
+        {/block:Exif}
+    {/block:Photos}
+
+    {block:Caption}
+        {Caption}
+    {/block:Caption}	                  
+	                  
+                  </div>
+                </div>
                 {/block:Photoset}
 
                 {block:Quote}
-                  <article class="post quote">
+                  <div class="post quote uk-panel uk-panel-space uk-block-primary">
                     <blockquote>{Quote}</blockquote>
                     {block:Source}
                       <footer>{Source}</footer>
                     {/block:Source}
+                  </div>
                 {/block:Quote}
 
                 {block:Link}
-                  <article class="post link">
+                  <div class="post link uk-panel uk-panel-space uk-block-primary">
                     <header>
                       <h2>
                         <a href="{URL}" {Target}>{Name}</a>
@@ -107,11 +131,12 @@
                     {block:Description}
                     <p> {Description} </p>
                     {/block:Description}
+                  </div>
                 {/block:Link}
 
 
                 {block:Chat}
-                  <article class="post chat">
+                  <div class="post chat uk-panel uk-panel-space uk-block-primary">
                     {block:Title}
                     <header>
                       <h2>{Title}</h2>
@@ -127,10 +152,11 @@
                         <dd> {Line} </dd>
                       {/block:Lines}
                     </dialog>
+                  </div>
                 {/block:Chat}
 
                 {block:Audio}
-                  <article class="post audio">
+                  <div class="post audio uk-panel uk-panel-space uk-block-primary">
                     <header>
                       <h2>
                         {block:Artist}
@@ -157,11 +183,12 @@
                         </figcaption>
                       {/block:Caption}
                     </figure>
+                  </div>
                 {/block:Audio}
 
 
                 {block:Video}
-                  <article class="post video">
+                  <div class="post video uk-panel uk-panel-space uk-block-primary">
                     <figure>
                       {Video-500}
                       {block:Caption}
@@ -170,17 +197,19 @@
                         </figcaption>
                       {/block:Caption}
                     </figure>
+                  </div>
                 {/block:Video}
 
 
                 {block:Answer}
-                  <article class="post answer">
+                  <div class="post answer uk-panel uk-panel-space uk-block-primary">
                     <dialog>
                       <dt><img src="{AskerPortraitURL-16}"> {lang:Asker asked 2}: </dt>
                       <dd>{Question}</dd>
 
                       <dd>{Answer}</dd>
                     </dialog>
+                  </div>
                 {/block:Answer}
             {/block:Posts}
 
@@ -189,11 +218,20 @@
                 <p>this is a single page</p>
             {/block:PermalinkPage}  
 
-            </div><!--infinate scroll-->
+			</div>
+	
+			<div class="uk-grid">
+				{block:PreviousPage}<a href="{PreviousPage}" class="uk-width-1-2 uk-button uk-button-large">{lang:Previous page} </a>{/block:PreviousPage}
+				{block:NextPage}<a href="{NextPage}" class="uk-width-1-2 uk-button uk-button-large">  {lang:Next page}</a>{/block:NextPage}
+			</div>
+	
+			<ul class="uk-pagination" data-uk-pagination="{items:100, itemsOnPage:10}" data-uk-grid></ul>
+	
+			</div>
 
-        </div><!--content-->
+        </div>
 
-    </div><!--contain-->
+    </div>
 
     </body>
 </html>
