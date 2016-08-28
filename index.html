@@ -1,7 +1,4 @@
-<html xmlns="http://www.w3.org/1999/xhtml" id="{block:indexpage}ind{/block:indexpage}{block:permalinkpage}per{/block:permalinkpage}"  class="pageenabled{block:posts}{block:date}prevent{/block:date}{/block:posts}">
-<head> 
-
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>{Title}{block:PermalinkPage}{block:PostSummary} — {PostSummary}{/block:PostSummary}{/block:PermalinkPage}</title>
 {block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}    
 {block:PermalinkPage}{block:PostSummary}<meta name="description" content="{PostSummary}" />{/block:PostSummary}{/block:PermalinkPage}
@@ -19,6 +16,7 @@
 <link rel="apple-touch-icon" sizes="144x144" href="{Favicon}">
 <link rel="apple-touch-icon" sizes="152x152" href="{Favicon}">
 <link rel="apple-touch-icon" sizes="180x180" href="{Favicon}">
+<link rel="icon" href="{Favicon}">
 <link rel="icon" type="image/png" href="{Favicon}" sizes="32x32">
 <link rel="icon" type="image/png" href="{Favicon}" sizes="192x192">
 <link rel="icon" type="image/png" href="{Favicon}" sizes="96x96">
@@ -130,35 +128,10 @@ background: -webkit-radial-gradient(center, ellipse cover, #f2f2f2 0%,#dedede 10
 background: radial-gradient(ellipse at center, #f2f2f2 0%,#dedede 100%);
 }
  #infscr-loading {width:100%;}
+{CustomCSS}
 </style>
 	  
-  
-<!--[if IE 7]>
-<style>
-body{
-display:none}
-</style>
-<script>
-var url="http://themecloset.me/support/ie8";$(location).attr('href',url);
-</script>
-<![endif]-->
-    
-<!--[if IE 8]>
-<style>
-body{
-display:none}
-</style>
-<script>
-var url="http://themecloset.me/support/ie8";$(location).attr('href',url);
-</script>
-<![endif]-->
-    
-    
-<!-- HTML5 Shiv -->
-<!--[if lt IE 9]>
-<script src="http://static.tumblr.com/hriofhd/Qj0m8pn7q/html5shiv.js">
-</script>
-<![endif]-->
+ 
          
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.3/css/uikit.min.css" />    
@@ -486,7 +459,6 @@ Contact us
 {block:ifnotusecaption}
    
 <figcaption class="uk-overlay-panel uk-overlay-background uk-flex uk-flex-center uk-flex-middle uk-text-center">
-	{likebutton color="white" size="24"}
 	<a href="{ReblogURL}" title="" target="_blank" class="uk-margin-left"><i class="uk-icon-retweet uk-icon-medium uk-text-contrast"></i></a>
 	<a href="{block:ifUseHighresImages}{PhotoURL-Highres}{/block:ifUseHighresImages}{block:ifnotUseHighresImages}{PhotoURL-500}{/block:ifnotUseHighresImages}" title="{PhotoAlt}" class="uk-margin-left" data-uk-lightbox><i class="uk-icon-arrows-alt uk-icon-medium uk-text-contrast"></i></a>
 	<a href="{Permalink}" title="" class="uk-margin-left"><i class="uk-icon-external-link uk-icon-medium uk-text-contrast"></i></a>			
@@ -519,7 +491,7 @@ Contact us
 <div class="note-count-no-caption-no-like">
 	
 <a href="{permalink}" target="_blank">{block:ifusebiggerposts}{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}{/block:ifusebiggerposts}{block:ifnotusebiggerposts}{notecount} {lang:Notes} {block:ifnotusebiggerposts}</a>
-<div  class="shareit"><span>{likebutton size="14"}</span>
+<div  class="shareit">
 <span>{Reblogbutton size="14"}</span>
         
 </div>
@@ -672,7 +644,7 @@ Contact us
 <div class="uk-thumbnail-caption"><div class="caption_inner">{block:ifnothidecaption}{Caption}{/block:ifnothidecaption}
 {block:ifnothidetags}{block:HasTags}<div class="fix-it-tag"><br>{block:tags}<a href="{TagURL}" class="tags_URL"># <span class="freezing">{tag}</span></a> {/block:tags}</div>{/block:HasTags}{/block:ifnothidetags}
 <div class="note-count-no-caption-no-like"><a href="{permalink}" target="_blank">{block:ifusebiggerposts}{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}{/block:ifusebiggerposts}{block:ifnotusebiggerposts}{notecount} {lang:Notes} {block:ifnotusebiggerposts}</a>
-<div  class="shareit"><span>{likebutton size="14"}</span>
+<div class="shareit">
 <span>{Reblogbutton size="14"}</span>
                                 
     </div>
@@ -686,7 +658,7 @@ Contact us
 <div class="uk-thumbnail-caption"><div class="caption_inner">{block:ifnothidecaption}{Caption}{/block:ifnothidecaption}
 {block:ifnothidetags}{block:HasTags}<div class="fix-it-tag"><br>{block:tags}<a href="{TagURL}" class="tags_URL"># <span class="freezing">{tag}</span></a> {/block:tags}</div>{/block:HasTags}{/block:ifnothidetags}
 <div class="note-count-no-caption-no-like"><a href="{permalink}" target="_blank">{block:ifusebiggerposts}{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}{/block:ifusebiggerposts}{block:ifnotusebiggerposts}{notecount} {lang:Notes} {block:ifnotusebiggerposts}</a>
-<div  class="shareit"><span>{likebutton size="14"}</span>
+<div  class="shareit">
 <span>{Reblogbutton size="14"}</span>
                                 
     </div>
@@ -701,7 +673,7 @@ Contact us
 <div class="uk-thumbnail-caption"><div class="caption_inner">{block:ifnothidecaption}{Caption}{/block:ifnothidecaption}
 {block:ifnothidetags}{block:HasTags}<div class="fix-it-tag"><br>{block:tags}<a href="{TagURL}" class="tags_URL"># <span class="freezing">{tag}</span></a> {/block:tags}</div>{/block:HasTags}{/block:ifnothidetags}                                
 <div class="note-count-no-caption-no-like"><a href="{permalink}" target="_blank">{block:ifusebiggerposts}{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}{/block:ifusebiggerposts}{block:ifnotusebiggerposts}{notecount} {lang:Notes} {block:ifnotusebiggerposts}</a>
-<div  class="shareit"><span>{likebutton size="14"}</span>
+<div  class="shareit">
 <span>{Reblogbutton size="14"}</span>
                                 
     </div>
@@ -716,7 +688,7 @@ Contact us
 <div class="uk-thumbnail-caption"><div class="caption_inner">{Caption}                                
 {block:ifnothidetags}{block:HasTags}<div class="fix-it-tag"><br>{block:tags}<a href="{TagURL}" class="tags_URL"># <span class="freezing">{tag}</span></a> {/block:tags}</div>{/block:HasTags}{/block:ifnothidetags}
 <div class="note-count"><a href="{permalink}"  target="_blank">{block:ifusebiggerposts}{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}{/block:ifusebiggerposts}{block:ifnotusebiggerposts}{notecount} {lang:Notes} {block:ifnotusebiggerposts}</a>
-<div  class="shareit"><span>{likebutton size="14"}</span>
+<div  class="shareit">
 <span>{Reblogbutton size="14"}</span>
                              
     </div>
@@ -744,7 +716,6 @@ Contact us
     <div class="note-count text_based">
         <a href="{permalink}" target="_blank">{block:ifusebiggerposts}{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}{/block:ifusebiggerposts}{block:ifnotusebiggerposts}{notecount} {lang:Notes} {block:ifnotusebiggerposts}</a>
         <div class="shareit">
-            <span>{likebutton size="14"}</span>
 			<span>{Reblogbutton size="14"}</span>
         </div>
     </div>
@@ -764,7 +735,7 @@ Contact us
     {/block:Description}        
      
     <div class="note-count text_based"><a href="{permalink}" target="_blank">{block:ifusebiggerposts}{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}{/block:ifusebiggerposts}{block:ifnotusebiggerposts}{notecount} {lang:Notes} {block:ifnotusebiggerposts}</a>
-        <div class="shareit"><span>{likebutton size="14"}</span>
+        <div class="shareit">
         <span>{Reblogbutton size="14"}</span>
           
         </div>
@@ -791,7 +762,7 @@ Contact us
     </ul>          
     
     <div class="note-count text_based"><a href="{permalink}" target="_blank">{block:ifusebiggerposts}{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}{/block:ifusebiggerposts}{block:ifnotusebiggerposts}{notecount} {lang:Notes} {block:ifnotusebiggerposts}</a>
-        <div class="shareit"><span>{likebutton size="14"}</span>
+        <div class="shareit">
         <span>{Reblogbutton size="14"}</span>
         </div>
     </div>
@@ -819,7 +790,7 @@ Contact us
  {block:ifnothidetags}{block:HasTags}<div class="fix-it-tag"><br>{block:tags}<a href="{TagURL}" class="tags_URL"># <span class="freezing">{tag}</span></a> {/block:tags}</div>{/block:HasTags}{/block:ifnothidetags}
     
 <div class="note-count {block:caption}note-count-no-caption{/block:caption}"><a href="{permalink}" target="_blank">{block:ifusebiggerposts}{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}{/block:ifusebiggerposts}{block:ifnotusebiggerposts}{notecount} {lang:Notes} {block:ifnotusebiggerposts}</a>
-<div  class="shareit"><span>{likebutton size="14"}</span>
+<div  class="shareit">
 <span>{Reblogbutton size="14"}</span>
     
 </div>
@@ -834,7 +805,7 @@ Contact us
  {block:ifnothidetags}{block:HasTags}<div class="fix-it-tag"><br>{block:tags}<a href="{TagURL}" class="tags_URL"># <span class="freezing">{tag}</span></a> {/block:tags}</div>{/block:HasTags}{/block:ifnothidetags}
     
 <div class="note-count {block:caption}note-count-no-caption{/block:caption}"><a href="{permalink}" target="_blank">{block:ifusebiggerposts}{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}{/block:ifusebiggerposts}{block:ifnotusebiggerposts}{notecount} {lang:Notes} {block:ifnotusebiggerposts}</a>
-<div  class="shareit"><span>{likebutton size="14"}</span>
+<div  class="shareit">
 <span>{Reblogbutton size="14"}</span>
     
 </div>
@@ -853,7 +824,6 @@ Contact us
 <div class="note-count-no-caption-no-like">
 <a href="{permalink}" target="_blank">{block:ifusebiggerposts}{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}{/block:ifusebiggerposts}{block:ifnotusebiggerposts}{notecount} {lang:Notes} {block:ifnotusebiggerposts}</a>
 <div  class="shareit">
-<span>{likebutton size="14"}</span>
 <span>{Reblogbutton size="14"}</span>    
 </div>
 </div>
@@ -868,7 +838,7 @@ Contact us
 <div class="caption"><div class="caption_inner">{Caption}
 {block:ifnothidetags}{block:HasTags}<div class="fix-it-tag"><br>{block:tags}<a href="{TagURL}" class="tags_URL"># <span class="freezing">{tag}</span></a> {/block:tags}</div>{/block:HasTags}{/block:ifnothidetags}
 <div class="note-count"><a href="{permalink}"  target="_blank">{block:ifusebiggerposts}{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}{/block:ifusebiggerposts}{block:ifnotusebiggerposts}{notecount} {lang:Notes} {block:ifnotusebiggerposts}</a>
-<div  class="shareit"><span>{likebutton size="14"}</span>
+<div  class="shareit">
 <span>{Reblogbutton size="14"}</span>
 </div>
 
@@ -899,7 +869,7 @@ Contact us
     <div class="caption"><div class="caption_inner">{block:ifnothidecaption}{Caption}{/block:ifnothidecaption}
     {block:ifnothidetags}{block:HasTags}<div class="fix-it-tag"><br>{block:tags}<a href="{TagURL}" class="tags_URL"># <span class="freezing">{tag}</span></a> {/block:tags}</div>{/block:HasTags}{/block:ifnothidetags}
     <div class="note-count {block:caption}note-count-no-caption{/block:caption}"><a href="{permalink}" target="_blank">{block:ifusebiggerposts}{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}{/block:ifusebiggerposts}{block:ifnotusebiggerposts}{notecount} {lang:Notes} {block:ifnotusebiggerposts}</a>
-    <div  class="shareit"><span>{likebutton size="14"}</span>
+    <div  class="shareit">
     <span>{Reblogbutton size="14"}</span>
             
     </div>
@@ -913,7 +883,7 @@ Contact us
     <div class="caption"><div class="caption_inner">{block:ifnothidecaption}{Caption}{/block:ifnothidecaption}
     {block:ifnothidetags}{block:HasTags}<div class="fix-it-tag"><br>{block:tags}<a href="{TagURL}" class="tags_URL"># <span class="freezing">{tag}</span></a> {/block:tags}</div>{/block:HasTags}{/block:ifnothidetags}        
     <div class="note-count {block:caption}note-count-no-caption{/block:caption}"><a href="{permalink}" target="_blank">{block:ifusebiggerposts}{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}{/block:ifusebiggerposts}{block:ifnotusebiggerposts}{notecount} {lang:Notes} {block:ifnotusebiggerposts}</a>
-    <div  class="shareit"><span>{likebutton size="14"}</span>
+    <div  class="shareit">
     <span>{Reblogbutton size="14"}</span>
             
     </div>
@@ -928,7 +898,7 @@ Contact us
     <div class="caption"><div class="caption_inner">{block:ifnothidecaption}{Caption}{/block:ifnothidecaption}
     {block:ifnothidetags}{block:HasTags}<div class="fix-it-tag"><br>{block:tags}<a href="{TagURL}" class="tags_URL"># <span class="freezing">{tag}</span></a> {/block:tags}</div>{/block:HasTags}{/block:ifnothidetags}        
     <div class="note-count-no-caption-no-like"><a href="{permalink}" target="_blank">{block:ifusebiggerposts}{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}{/block:ifusebiggerposts}{block:ifnotusebiggerposts}{notecount} {lang:Notes} {block:ifnotusebiggerposts}</a>
-    <div  class="shareit"><span>{likebutton size="14"}</span>
+    <div  class="shareit">
     <span>{Reblogbutton size="14"}</span>
             
     </div>
@@ -943,7 +913,7 @@ Contact us
     <div class="caption"><div class="caption_inner">{Caption}
     {block:ifnothidetags}{block:HasTags}<div class="fix-it-tag"><br>{block:tags}<a href="{TagURL}" class="tags_URL"># <span class="freezing">{tag}</span></a> {/block:tags}</div>{/block:HasTags}{/block:ifnothidetags}
     <div class="note-count"><a href="{permalink}"  target="_blank">{block:ifusebiggerposts}{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}{/block:ifusebiggerposts}{block:ifnotusebiggerposts}{notecount} {lang:Notes} {block:ifnotusebiggerposts}</a>
-    <div  class="shareit"><span>{likebutton size="14"}</span>
+    <div  class="shareit">
     <span>{Reblogbutton size="14"}</span>
           
     </div>
