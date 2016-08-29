@@ -120,20 +120,8 @@
 <meta name="text:Copyright Part" content="" />
   
     
-<style>
-body {
-background: #f2f2f2;
-background: -moz-radial-gradient(center, ellipse cover, #f2f2f2 0%, #dedede 100%);
-background: -webkit-radial-gradient(center, ellipse cover, #f2f2f2 0%,#dedede 100%);
-background: radial-gradient(ellipse at center, #f2f2f2 0%,#dedede 100%);
-}
- #infscr-loading {width:100%;}
-{CustomCSS}
-</style>
-	  
  
-         
-
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.3/css/uikit.min.css" />    
 <script src="https://static.tumblr.com/cvhjz4y/JWSn5a9bq/jquery.min.js" type="text/javascript"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.3/js/uikit.min.js" type="text/javascript"></script>
@@ -192,7 +180,32 @@ $(document).ready(function() {
 });	
 </script>
 <script src="https://static.tumblr.com/cvhjz4y/Ts5n5rpic/loaded.js" type="text/javascript" async defer></script>
-  
+
+
+<style>
+body {
+background: #f2f2f2;
+background: -moz-radial-gradient(center, ellipse cover, #f2f2f2 0%, #dedede 100%);
+background: -webkit-radial-gradient(center, ellipse cover, #f2f2f2 0%,#dedede 100%);
+background: radial-gradient(ellipse at center, #f2f2f2 0%,#dedede 100%);
+}
+h1,h2,h3,h4,h5,h6, .uk-h1, .uk-h2, .uk-h3, .uk-h4, .uk-h5, .uk-h6 {
+font-family: "Noto Sans", sans-serif;
+letter-spacing: -0.03em;
+font-weight: 700;
+}
+.uk-article-lead, .uk-article-title {
+font-family: "Noto Sans", sans-serif;
+letter-spacing: -0.03em;
+font-weight: 400;
+}
+figure {
+box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+ #infscr-loading {width:100%;}
+{CustomCSS}
+</style>
+
 {block:permalinkpage}
 
 <script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
@@ -276,20 +289,20 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 {/block:ifpersonalsiteurl}
 </div>
 
-<button class="uk-button uk-button-large uk-position-top-right uk-navbar-toggle" data-uk-offcanvas="{target:'#my-id'}"></button>
+<button class="uk-button uk-button-large uk-position-top-right uk-navbar-toggle" data-uk-offcanvas="{target:'#offmenu'}"></button>
 
 </header>
  
  
 <!-- Offcanvas -->
-<div id="my-id" class="uk-offcanvas">
+<div id="offmenu" class="uk-offcanvas">
 <div class="uk-offcanvas-bar">
 <div class="uk-panel uk-text-center">
-<div class="uk-h6 uk-margin-large-top">{Title}</div>
+<div class="uk-article-lead uk-text-primary uk-margin-large-top">{Title}</div>
 <hr class="uk-article-divider" />
 <p>{Description}</p>
-</div>
 <hr class="uk-article-divider" />
+</div>
 
 <ul class="uk-nav uk-nav-offcanvas uk-text-center uk-text-large" data-uk-nav>
 
@@ -453,15 +466,14 @@ Contact us
 <!-- Photo Post -->
 {block:Photo}
 <figure {block:indexpage}class="uk-thumbnail uk-overlay uk-overlay-hover"{/block:indexpage}>
-<img src="{PhotoURL-500}" alt="" title="" class="uk-thumbnail-expand" />
-
+<img src="{PhotoURL-500}" alt="{PhotoAlt}" title="{PhotoAlt}" class="uk-thumbnail-expand" />
 {block:indexpage}
 {block:ifnotusecaption}
    
 <figcaption class="uk-overlay-panel uk-overlay-background uk-flex uk-flex-center uk-flex-middle uk-text-center">
-	<a href="{ReblogURL}" title="" target="_blank" class="uk-margin-left"><i class="uk-icon-retweet uk-icon-medium uk-text-contrast"></i></a>
+	<a href="{ReblogURL}" title="Reblog | {PhotoAlt}" target="_blank" class="uk-margin-left"><i class="uk-icon-retweet uk-icon-medium uk-text-contrast"></i></a>
 	<a href="{block:ifUseHighresImages}{PhotoURL-Highres}{/block:ifUseHighresImages}{block:ifnotUseHighresImages}{PhotoURL-500}{/block:ifnotUseHighresImages}" title="{PhotoAlt}" class="uk-margin-left" data-uk-lightbox><i class="uk-icon-arrows-alt uk-icon-medium uk-text-contrast"></i></a>
-	<a href="{Permalink}" title="" class="uk-margin-left"><i class="uk-icon-external-link uk-icon-medium uk-text-contrast"></i></a>			
+	<a href="{Permalink}" title="Link | {PhotoAlt}" class="uk-margin-left"><i class="uk-icon-external-link uk-icon-medium uk-text-contrast"></i></a>			
 </figcaption>
 
 {/block:ifnotusecaption}
