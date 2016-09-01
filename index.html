@@ -229,7 +229,10 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 <header class="uk-grid uk-block uk-flex-column uk-text-center uk-container-center">
 {block:iflogoimage}<div class="title-part"><a href="/" class="uk-thumbnail uk-border-circle"><img src="{image:logo}" alt="{Title}" style="width:80px;height:80px;" /></a></div>{/block:iflogoimage}
         
-<h1 class="uk-article-title uk-margin">{Title}</h1>
+<h1 class="uk-article-title uk-margin">
+{block:indexpage}{Title}{/block:indexpage}
+{block:PermalinkPage}{block:PostSummary}{PostSummary}{/block:PostSummary}{/block:PermalinkPage}    
+</h1>
 <hr />
 {block:Description}
 <div id="description" class="uk-article-meta uk-margin">{Description}</div>
@@ -537,8 +540,8 @@ Contact us
 
 <div class="caption">
 <div class="uk-panel-box">
-	<div class="uk-text-right uk-article-meta">{DayOfWeek} {DayOfMonth} / {Month} / {Year}</div>
-    <h2 class="uk-text-right uk-article-meta uk-margin-small">{block:PostSummary}{PostSummary}{/block:PostSummary}</h2>
+	<h2 class="uk-text-right uk-article-meta uk-margin-small">{DayOfWeek} {DayOfMonth} / {Month} / {Year}</h2>
+    <h3 class="uk-text-right uk-article-meta uk-margin-small">{block:PostSummary}{PostSummary}{/block:PostSummary}</h3>
 </div>
 	    	    
 <div class="caption_inner uk-panel uk-panel-box uk-panel-box-secondary uk-link-muted">
@@ -566,7 +569,7 @@ Contact us
 
 <hr class="uk-margin-small" />
 
-{block:ifnothidetags}{block:HasTags}<div class="uk-panel uk-text-small uk-margin"><ul class="uk-subnav uk-subnav-pill">{block:tags}<li><a href="{TagURL}" title="{tag}">{tag}</a></li>{/block:tags}</ul></div>{/block:HasTags}{/block:ifnothidetags}     
+{block:ifnothidetags}{block:HasTags}<div class="uk-panel uk-text-small uk-margin"><ul class="uk-subnav uk-subnav-pill">{block:tags}<li><a href="{TagURL}" title="{tag}"><h4 class="uk-text-small uk-margin-small">{tag}</h4></a></li>{/block:tags}</ul></div>{/block:HasTags}{/block:ifnothidetags}     
 
 {block:GroupMembers}
 {GroupMemberPortraitURL-40}
@@ -996,8 +999,12 @@ Contact us
 {/block:ifplacecopyrightnotice}
 
 {block:ifnotplacecopyrightnotice}
-      <div class="copyrightcontainer uk-block uk-text-center uk-clearfix">
-        <div class="copyrightcontent">Ultra by Haeck Design</div>
+    <div class="copyrightcontainer uk-block uk-text-center uk-clearfix">
+        <ul class="uk-flex uk-flex-center uk-width-1-1 uk-subnav uk-subnav-line uk-text-center">
+            <li><a href="https://logodesignclub.tumblr.com/" title="Logo Design Club - Tumblr" target="_blank">Logo Design Club</a></li> 
+            <li><a href="https://graphicdesignclub.tumblr.com/" title="Graphic Design Club - Tumblr" target="_blank">Graphic Design Club</a></li>
+        </ul>
+        <div class="copyrightcontent">Ultra Tumblr by Haeck Design</div>
     </div>
 {/block:ifnotplacecopyrightnotice}
 
