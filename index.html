@@ -407,7 +407,7 @@ Contact us
 
 {block:Posts}
 <div class="post infscr {block:chat}chat-post{/block:chat} {block:quote}quote-post{/block:quote} {block:text}text-post{/block:text} {block:photoset}caption-post{/block:photoset} {block:audio}caption-post{/block:audio}  {block:photo}caption-post{/block:photo} {block:video}caption-post{/block:video} {block:link}link-post{/block:link} {block:Answer}text-post{/block:Answer}    {block:PermalinkPage}uk-width-1-1{/block:PermalinkPage}" id="{postID}">
-<div class="inner_container {block:PermalinkPage}uk-grid uk-grid-width-1-2{/block:PermalinkPage}" {block:ifnotusepostborder} {block:indexpage} {block:ifnotusecaption} style="{block:video}background-color:{BackgroundColor} !important{/block:video} {block:audio}background-color:{BackgroundColor} !important{/block:audio} {block:photo}background-color:{BackgroundColor} !important{/block:photo} {block:photoset}background-color:{BackgroundColor} !important{/block:photoset}"{/block:ifnotusecaption}{/block:indexpage}{/block:ifnotusepostborder}>
+<div class="inner_container {block:PermalinkPage}uk-grid uk-grid-width-1-2 uk-container-center{/block:PermalinkPage}" {block:ifnotusepostborder} {block:indexpage} {block:ifnotusecaption} style="{block:video}background-color:{BackgroundColor} !important{/block:video} {block:audio}background-color:{BackgroundColor} !important{/block:audio} {block:photo}background-color:{BackgroundColor} !important{/block:photo} {block:photoset}background-color:{BackgroundColor} !important{/block:photoset}"{/block:ifnotusecaption}{/block:indexpage}{/block:ifnotusepostborder}>
   
   
 <!-- Text Post -->             
@@ -479,6 +479,7 @@ Contact us
 	<a href="{Permalink}" title="Link | {PhotoAlt}" class="uk-margin-left"><i class="uk-icon-external-link uk-icon-medium uk-text-contrast"></i></a>			
 </figcaption>
 
+<div class="uk-thumbnail-caption uk-text-small uk-text-muted uk-margin-small">{PhotoAlt}</div>
 {/block:ifnotusecaption}
 {/block:indexpage}
 </figure>                        
@@ -740,22 +741,87 @@ Contact us
                 
                 
 {block:Link}
-<div class="link">{block:Thumbnail} 
-<img src="{Thumbnail}" class="linkthumb" class="small">{/block:Thumbnail} 
-<div class="link-name">
-    <a href="{URL}" class="link" {Target}>{Name}</a></div>
 
-    {block:Description}
-        <div class="description">{Description}</div>
-    {/block:Description}        
-     
-    <div class="note-count text_based"><a href="{permalink}" target="_blank">{block:ifusebiggerposts}{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}{/block:ifusebiggerposts}{block:ifnotusebiggerposts}{notecount} {lang:Notes} {block:ifnotusebiggerposts}</a>
-        <div class="shareit">
-        <span>{Reblogbutton size="14"}</span>
-          
-        </div>
-    </div>
+<figure {block:indexpage}class="uk-thumbnail uk-overlay uk-overlay-hover link"{/block:indexpage}{block:permalinkpage}class="uk-padding-remove"{/block:permalinkpage}>
+{block:Thumbnail}<img src="{Thumbnail}" alt="{Name}" title="{Name}" class="uk-thumbnail-expand" />{/block:Thumbnail}
+{block:indexpage}
+{block:ifnotusecaption}
+   
+<figcaption class="uk-overlay-panel uk-overlay-background uk-flex uk-flex-center uk-flex-middle uk-text-center">
+	<a href="{URL}" title="Original Link" class="uk-margin-left"><i class="uk-icon-link uk-icon-medium uk-text-contrast"></i></a>			
+	<a href="{ReblogURL}" title="Reblog | {Name}" target="_blank" class="uk-margin-left"><i class="uk-icon-retweet uk-icon-medium uk-text-contrast"></i></a>
+	<a href="{permalink}" title="Link | {Name}" class="uk-margin-left"><i class="uk-icon-external-link uk-icon-medium uk-text-contrast"></i></a>			
+</figcaption>
+
+<div class="uk-thumbnail-caption uk-text-small uk-text-muted uk-margin-small">{Name}</div>
+{/block:ifnotusecaption}
+{/block:indexpage}
+</figure>                        
+
+
+
+{block:permalinkpage}
+
+<div class="caption">
+<div class="uk-panel-box">
+	<h2 class="uk-text-right uk-article-meta uk-margin-small">{DayOfWeek} {DayOfMonth} / {Month} / {Year}</h2>
+    <h3 class="uk-text-right uk-article-meta uk-margin-small">{block:PostSummary}{PostSummary}{/block:PostSummary}</h3>
 </div>
+	    	    
+<div class="caption_inner uk-panel uk-panel-box uk-panel-box-secondary uk-link-muted">
+<div>{Caption}</div>
+	
+<hr class="uk-margin-small" />
+
+<div class="socials uk-flex uk-container-center uk-grid">
+	<div>
+	<div class="fb-like" data-href="{permalink}" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+	</div> 
+	<div>
+	<a href="//www.pinterest.com/pin/create/button/?url={permalink}&media={photourl-Highres}&description=Found&nbsp;on&nbsp;https://tumblr.com/{name}" data-pin-do="buttonPin" data-pin-config="beside" data-pin-color="white" target="_blank"></a>
+	</div>
+	<div>
+	<a href="https://twitter.com/share" class="twitter-share-button" data-url="{permalink}">Tweet</a>
+	</div>
+    <div>{likebutton size="24"}</div>
+	<div>{Reblogbutton size="24"}</div>
+	<div>
+	{block:ifusebiggerposts}{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}{/block:ifusebiggerposts}
+	{block:ifnotusebiggerposts}{notecount} {lang:Notes} {block:ifnotusebiggerposts}
+	</div>
+</div>
+
+<hr class="uk-margin-small" />
+
+{block:ifnothidetags}{block:HasTags}<div class="uk-panel uk-text-small uk-margin"><ul class="uk-subnav uk-subnav-pill">{block:tags}<li><a href="{TagURL}" title="{tag}"><h4 class="uk-text-small uk-margin-small">{tag}</h4></a></li>{/block:tags}</ul></div>{/block:HasTags}{/block:ifnothidetags}     
+
+{block:GroupMembers}
+{GroupMemberPortraitURL-40}
+{/block:GroupMembers}
+
+
+{block:PostNotes} 
+<div class="uk-display-block uk-scrollable-text uk-margin-top" style="height:120px">
+<div class="inner_container">
+<div class="postnotes">  
+{block:Posts}
+<div class="post-padding">
+<div class="post-padding2">
+	{PostNotes-16}
+</div>
+</div>
+{/block:Posts}
+</div>
+</div>
+</div>        
+{/block:PostNotes}
+     
+</div>
+</div>
+</div>
+
+{/block:permalinkpage}
+
 {/block:Link}
 
                 
