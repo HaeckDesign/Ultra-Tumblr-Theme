@@ -234,68 +234,49 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 {block:PermalinkPage}{block:PostSummary}{PostSummary}{/block:PostSummary}{/block:PermalinkPage}    
 </h1>
 <hr />
+
 {block:Description}
 <div id="description" class="uk-article-meta uk-margin">{Description}</div>
 {/block:Description}
 
 <!-- Menu -->
 <div class="menu-part">
-{block:AskEnabled}<a class='iframe' id="ask_form" href="http://www.tumblr.com/ask_form/{name}.tumblr.com">
-{AskLabel}
-</a>
-</span>
- {/block:AskEnabled}
- {block:ifCustomlink1title}
-<span>
-<a href="{text:Custom link 1 URL}">
-{text:Custom link 1 title}
-</a>
-</span>
-{/block:ifCustomlink1title}{block:ifCustomlink2title}
-<span>
-<a href="{text:Custom link 2 URL}">
-{text:Custom link 2 title}
-</a>
-</span>
-{/block:ifCustomlink2title}{block:ifCustomlink3title}
-<span>
-<a href="{text:Custom link 3 URL}">
-{text:Custom link 3 title}
-</a>
-</span>
-{/block:ifCustomlink3title}{block:ifCustomlink4title}
-<span>
-<a href="{text:Custom link 4 URL}">
-{text:Custom link 4 title}
-</a>
-</span>
-{/block:ifCustomlink4title}
-{block:HasPages}
-{block:Pages}
-<span>
+{block:AskEnabled}
+<a class='iframe' id="ask_form" href="http://www.tumblr.com/ask_form/{name}.tumblr.com">{AskLabel}</a>
+{/block:AskEnabled}
 
+{block:ifCustomlink1title}
+<a href="{text:Custom link 1 URL}">{text:Custom link 1 title}</a>
+{/block:ifCustomlink1title}
+
+{block:ifCustomlink2title}
+<a href="{text:Custom link 2 URL}">{text:Custom link 2 title}</a>
+{/block:ifCustomlink2title}
+
+{block:ifCustomlink3title}
+<a href="{text:Custom link 3 URL}">{text:Custom link 3 title}</a>
+{/block:ifCustomlink3title}
+
+{block:ifCustomlink4title}
+<a href="{text:Custom link 4 URL}">{text:Custom link 4 title}</a>
+{/block:ifCustomlink4title}
+
+{block:HasPages}{block:Pages}
 <a href="{URL}">{Label}</a>
-</span>
-{/block:Pages}
-{/block:HasPages}
+{/block:Pages}{/block:HasPages}
                                        
 {block:SubmissionsEnabled}
-<span>
-    <a href="/submit">{SubmitLabel}</a>
-</span>
+<a href="/submit">{SubmitLabel}</a>
 {/block:SubmissionsEnabled}
                     
 {block:ifpersonalsiteurl}
-<span class="s-icon">
 <a href="{text:personal site url}">Website</a>
-</span>
 {/block:ifpersonalsiteurl}
 </div>
 
 <button class="uk-button uk-button-large uk-position-top-right uk-navbar-toggle" data-uk-offcanvas="{target:'#offmenu'}"></button>
 
 </header>
- 
  
 <!-- Offcanvas -->
 <div id="offmenu" class="uk-offcanvas">
@@ -311,89 +292,47 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 
 <!-- Sidelinks -->
 {block:iffacebookurl}
-<li>
-<a href="{text:Facebook URL}"><i class="uk-icon-facebook uk-margin-small-right"></i>
-Facebook
-</a> 
-</li>
+<li><a href="{text:Facebook URL}"><i class="uk-icon-facebook uk-margin-small-right"></i>Facebook</a></li>
 {/block:iffacebookurl}
 
 {block:iftwitterurl}
-<li>
-<a href="{text:twitter url}"><i class="uk-icon-twitter uk-margin-small-right"></i>
-Twitter
-</a>
-</li>
+<li><a href="{text:twitter url}"><i class="uk-icon-twitter uk-margin-small-right"></i>Twitter</a></li>
 {/block:iftwitterurl}
+
 {block:ifpinteresturl}
-<li>
-<a href="{text:pinterest url}"><i class="uk-icon-pinterest uk-margin-small-right"></i>
-Pinterest
-</a>
-</li>
+<li><a href="{text:pinterest url}"><i class="uk-icon-pinterest uk-margin-small-right"></i>Pinterest</a></li>
 {/block:ifpinteresturl}
+
 {block:ifinstagramUsername}
-<li>
-<a href="http://instagram.com/{text:instagram Username}"><i class="uk-icon-instagram uk-margin-small-right"></i>
-Instagram
-</a>
-</li>
+<li><a href="http://instagram.com/{text:instagram Username}"><i class="uk-icon-instagram uk-margin-small-right"></i>Instagram</a></li>
 {/block:ifinstagramUsername}
 
 {block:ifshopurl}
-<li>
-<a href="{text:shop url}"><i class="uk-icon-shopping-cart uk-margin-small-right"></i>
-Store
-</a>
-</li>
+<li><a href="{text:shop url}"><i class="uk-icon-shopping-cart uk-margin-small-right"></i>Store</a></li>
 {/block:ifshopurl}
 
 {block:ifsoundcloudurl}
-<li>
-<a href="{text:soundcloud url}"><i class="uk-icon-soundcloud uk-margin-small-right"></i>
-SoundCloud
-</a>
-</li>
+<li><a href="{text:soundcloud url}"><i class="uk-icon-soundcloud uk-margin-small-right"></i>SoundCloud</a></li>
 {/block:ifsoundcloudurl}
 
 {block:ifgoogleplusurl}
-<li>
-<a href="{text:google plus url}"><i class="uk-icon-google-plus uk-margin-small-right"></i>
-Google Plus
-</a>
-</li>
+<li><a href="{text:google plus url}"><i class="uk-icon-google-plus uk-margin-small-right"></i>Google Plus</a></li>
 {/block:ifgoogleplusurl}
 
 {block:ifvimeourl}
-<li>
-<a href="{text:vimeo url}"><i class="uk-icon-vimeo uk-margin-small-right"></i>
-Vimeo
-</a>
-</li>
+<li><a href="{text:vimeo url}"><i class="uk-icon-vimeo uk-margin-small-right"></i>Vimeo</a></li>
 {/block:ifvimeourl}
 
 {block:ifyoutubeurl}
-<li>
-<a href="{text:youtube url}"><i class="uk-icon-youtube uk-margin-small-right"></i>
-YouTube
-</a>
-</li>
+<li><a href="{text:youtube url}"><i class="uk-icon-youtube uk-margin-small-right"></i>YouTube</a></li>
 {/block:ifyoutubeurl}
 
 {block:ifYelpurl}
-<li>
-<a href="{text:Yelp url}"><i class="uk-icon-yelp uk-margin-small-right"></i>
-Yelp
-</a>
-</li>
+<li><a href="{text:Yelp url}"><i class="uk-icon-yelp uk-margin-small-right"></i>Yelp</a></li>
 {/block:ifYelpurl}
 
 {block:ifEmailAddress}
-<li>
-<a href="mailto:{text:Email Address}"><i class="uk-icon-envelope uk-margin-small-right"></i>
-Contact us
-</a>
-</li>
+<li><a href="mailto:{text:Email Address}"><i class="uk-icon-envelope uk-margin-small-right"></i>Contact us</a></li>
 {/block:ifEmailAddress}	        
 
 </ul>
@@ -473,13 +412,12 @@ Contact us
 {block:indexpage}
 {block:ifnotusecaption}
    
-<figcaption class="uk-overlay-panel uk-overlay-background uk-flex uk-flex-center uk-flex-middle uk-text-center">
+<figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-fade uk-flex uk-flex-center uk-flex-middle uk-text-center">
 	<a href="{ReblogURL}" title="Reblog | {PhotoAlt}" target="_blank" class="uk-margin-left"><i class="uk-icon-retweet uk-icon-medium uk-text-contrast"></i></a>
 	<a href="{block:ifUseHighresImages}{PhotoURL-Highres}{/block:ifUseHighresImages}{block:ifnotUseHighresImages}{PhotoURL-500}{/block:ifnotUseHighresImages}" title="{PhotoAlt}" class="uk-margin-left" data-uk-lightbox><i class="uk-icon-arrows-alt uk-icon-medium uk-text-contrast"></i></a>
 	<a href="{Permalink}" title="Link | {PhotoAlt}" class="uk-margin-left"><i class="uk-icon-external-link uk-icon-medium uk-text-contrast"></i></a>			
 </figcaption>
 
-<div class="uk-thumbnail-caption uk-text-small uk-text-muted uk-margin-small">{PhotoAlt}</div>
 {/block:ifnotusecaption}
 {/block:indexpage}
 </figure>                        
@@ -741,23 +679,18 @@ Contact us
                 
                 
 {block:Link}
-
 <figure {block:indexpage}class="uk-thumbnail uk-overlay uk-overlay-hover link"{/block:indexpage}{block:permalinkpage}class="uk-padding-remove"{/block:permalinkpage}>
 {block:Thumbnail}<img src="{Thumbnail}" alt="{Name}" title="{Name}" class="uk-thumbnail-expand" />{/block:Thumbnail}
 {block:indexpage}
 {block:ifnotusecaption}
-   
-<figcaption class="uk-overlay-panel uk-overlay-background uk-flex uk-flex-center uk-flex-middle uk-text-center">
-	<a href="{URL}" title="Original Link" class="uk-margin-left"><i class="uk-icon-link uk-icon-medium uk-text-contrast"></i></a>			
+<figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-fade uk-flex uk-flex-center uk-flex-middle uk-text-center">
+	<a href="{URL}" title="Original Link" class="uk-margin-left" {Target}><i class="uk-icon-link uk-icon-medium uk-text-contrast"></i></a>			
 	<a href="{ReblogURL}" title="Reblog | {Name}" target="_blank" class="uk-margin-left"><i class="uk-icon-retweet uk-icon-medium uk-text-contrast"></i></a>
-	<a href="{permalink}" title="Link | {Name}" class="uk-margin-left"><i class="uk-icon-external-link uk-icon-medium uk-text-contrast"></i></a>			
+	<a href="{permalink}" title="Link | {Name}" class="uk-margin-left"><i class="uk-icon-external-link uk-icon-medium uk-text-contrast"></i></a>
 </figcaption>
-
-<div class="uk-thumbnail-caption uk-text-small uk-text-muted uk-margin-small">{Name}</div>
 {/block:ifnotusecaption}
 {/block:indexpage}
 </figure>                        
-
 
 
 {block:permalinkpage}
@@ -769,7 +702,8 @@ Contact us
 </div>
 	    	    
 <div class="caption_inner uk-panel uk-panel-box uk-panel-box-secondary uk-link-muted">
-<div>{Caption}</div>
+{block:Excerpt}<div>{Excerpt}</div>{/block:Excerpt}
+{block:Host}<div class="uk-text-muted uk-text-right">{Host}</div>{/block:Host}
 	
 <hr class="uk-margin-small" />
 
@@ -821,7 +755,6 @@ Contact us
 </div>
 
 {/block:permalinkpage}
-
 {/block:Link}
 
                 
@@ -1066,10 +999,6 @@ Contact us
 
 {block:ifnotplacecopyrightnotice}
     <div class="copyrightcontainer uk-block uk-text-center uk-clearfix">
-        <ul class="uk-flex uk-flex-center uk-width-1-1 uk-subnav uk-subnav-line uk-text-center">
-            <li><a href="https://logodesignclub.tumblr.com/" title="Logo Design Club - Tumblr" target="_blank">Logo Design Club</a></li> 
-            <li><a href="https://graphicdesignclub.tumblr.com/" title="Graphic Design Club - Tumblr" target="_blank">Graphic Design Club</a></li>
-        </ul>
         <div class="copyrightcontent">Ultra Tumblr by Haeck Design</div>
     </div>
 {/block:ifnotplacecopyrightnotice}
