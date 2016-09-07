@@ -1,5 +1,5 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>{Title}{block:PermalinkPage}{block:PostSummary} — {PostSummary}{/block:PostSummary}{/block:PermalinkPage}</title>
+<title>{block:PermalinkPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{/block:PermalinkPage}{Title}</title>
 {block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}    
 {block:PermalinkPage}{block:PostSummary}<meta name="description" content="{PostSummary}" />{/block:PostSummary}{/block:PermalinkPage}
 <meta property="og:title" content="{title}">
@@ -107,6 +107,8 @@
 <meta name="text:Custom link 3 title" content="" />
 <meta name="text:Custom link 4 URL" content="" />
 <meta name="text:Custom link 4 title" content="" />
+<meta name="text:Custom link 5 URL" content="" />
+<meta name="text:Custom link 5 title" content="" />
 <meta name="text:Personal Site URL" content="" />
 <meta name="text:Facebook URL" content="" />
 <meta name="text:Twitter URL" content="" />
@@ -239,34 +241,6 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 <div id="description" class="uk-article-meta uk-margin">{Description}</div>
 {/block:Description}
 
-<!-- Menu -->
-<div class="menu-part">
-
-{block:ifCustomlink1title}
-<a href="{text:Custom link 1 URL}">{text:Custom link 1 title}</a>
-{/block:ifCustomlink1title}
-
-{block:ifCustomlink2title}
-<a href="{text:Custom link 2 URL}">{text:Custom link 2 title}</a>
-{/block:ifCustomlink2title}
-
-{block:ifCustomlink3title}
-<a href="{text:Custom link 3 URL}">{text:Custom link 3 title}</a>
-{/block:ifCustomlink3title}
-
-{block:ifCustomlink4title}
-<a href="{text:Custom link 4 URL}">{text:Custom link 4 title}</a>
-{/block:ifCustomlink4title}
-
-{block:HasPages}{block:Pages}
-<a href="{URL}">{Label}</a>
-{/block:Pages}{/block:HasPages}
-                                                           
-{block:ifpersonalsiteurl}
-<a href="{text:personal site url}">Website</a>
-{/block:ifpersonalsiteurl}
-</div>
-
 <button class="uk-button uk-button-large uk-position-top-right uk-navbar-toggle" data-uk-offcanvas="{target:'#offmenu'}"></button>
 
 </header>
@@ -281,16 +255,30 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 <hr class="uk-article-divider" />
 </div>
 
-<ul class="uk-nav uk-nav-offcanvas uk-text-center uk-text-large" data-uk-nav>
 
+<ul class="uk-nav uk-nav-offcanvas uk-text-center uk-text-large" data-uk-nav>
+<!-- Menu -->
+
+{block:HasPages}{block:Pages}
+<li><a href="{URL}" title="{Label}">{Label}</a></li>
+{/block:Pages}{/block:HasPages}
+                                       
 {block:SubmissionsEnabled}
-<li><a class="iframe" id="submit_form" href="/submit" target="_blank" rel="nofollow"><i class="uk-icon-plus-circle uk-margin-small-right"></i>{SubmitLabel}</a></li>
+<li><a href="/submit" title="{SubmitLabel}">{SubmitLabel}</a></li>
 {/block:SubmissionsEnabled}
 
 {block:AskEnabled}
-<li><a class="iframe" id="ask_form" href="http://www.tumblr.com/ask_form/{name}.tumblr.com" target="_blank" rel="nofollow"><i class="uk-icon-question-circle uk-margin-small-right"></i>{AskLabel}</a></li>
+<li><a class='iframe' id="ask_form" href="http://www.tumblr.com/ask_form/{name}.tumblr.com" title="{AskLabel}">{AskLabel}</a></li>
 {/block:AskEnabled}
 
+{block:ifpersonalsiteurl}
+<li><a href="{text:personal site url}">Website</a></li>
+{/block:ifpersonalsiteurl}
+
+</ul>
+
+
+<ul class="uk-nav uk-nav-offcanvas uk-text-center uk-text-large" data-uk-nav>
 
 <!-- Sidelinks -->
 {block:iffacebookurl}
@@ -409,7 +397,7 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 
 <!-- Photo Post -->
 {block:Photo}
-<figure {block:indexpage}class="uk-thumbnail uk-overlay uk-overlay-hover"{/block:indexpage}>
+<figure {block:indexpage}class="uk-thumbnail uk-overlay uk-overlay-hover"{/block:indexpage} {block:permalinkpage}class="uk-padding-remove"{/block:permalinkpage}>
 <img src="{PhotoURL-500}" alt="{PhotoAlt}" title="{PhotoAlt}" class="uk-thumbnail-expand" />
 {block:indexpage}
 {block:ifnotusecaption}
@@ -1001,10 +989,34 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 
 {block:ifnotplacecopyrightnotice}
     <div class="copyrightcontainer uk-block uk-text-center uk-clearfix">
-        <div class="copyrightcontent">Ultra Tumblr by Haeck Design</div>
+        <ul class="uk-flex uk-flex-center uk-width-1-1 uk-subnav uk-subnav-line uk-text-center uk-contrast uk-margin-large-top">
+        
+{block:ifCustomlink1title}
+<li><a href="{text:Custom link 1 URL}" title="{text:Custom link 1 title}" target="_blank">{text:Custom link 1 title}</a></li>
+{/block:ifCustomlink1title}
+
+{block:ifCustomlink2title}
+<li><a href="{text:Custom link 2 URL}" title="{text:Custom link 2 title}" target="_blank">{text:Custom link 2 title}</a></li>
+{/block:ifCustomlink2title}
+
+{block:ifCustomlink3title}
+<li><a href="{text:Custom link 3 URL}" title="{text:Custom link 3 title}">{text:Custom link 3 title}</a></li>
+{/block:ifCustomlink3title}
+
+{block:ifCustomlink4title}
+<li><a href="{text:Custom link 4 URL}" title="{text:Custom link 4 title}" target="_blank">{text:Custom link 4 title}</a></li>
+{/block:ifCustomlink4title}
+
+{block:ifCustomlink5title}
+<li><a href="{text:Custom link 5 URL}" title="{text:Custom link 5 title}" target="_blank">{text:Custom link 5 title}</a></li>
+{/block:ifCustomlink5title}        
+    
+        </ul>
+        <div class="copyrightcontent uk-text-muted">Ultra Tumblr by <a href="https://haeckdesign.com/" title="Haeck Design" target="_blank" class="uk-text-muted">Haeck Design</a></div>
     </div>
 {/block:ifnotplacecopyrightnotice}
 
+<a id="totop-scroller" class="uk-width-1-1 uk-icon-caret-up uk-text-muted uk-icon-large uk-text-center uk-margin" data-uk-smooth-scroll href="#page"></a>
 </footer>
 
 <!-- Analytics -->         
