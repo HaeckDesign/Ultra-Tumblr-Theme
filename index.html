@@ -34,7 +34,6 @@
 <meta name="if:Use Caption" content="" />
 <meta name="if:Use Bigger Posts" content="" />
 <meta name="if:Use Pagination" content="" />
-<meta name="if:Gallery Mode" content="1" />
 <meta name="if:Hide Tags" content="" />
 <meta name="if:Hide Caption" content="" />
 <meta name="if:Place Copyright Notice" content="" />
@@ -121,15 +120,16 @@
 <meta name="text:Email Address" content="" />
 <meta name="text:Copyright Part" content="" />
   
-    
- 
-<link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.3/css/uikit.min.css" />    
+
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:600" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.3/css/uikit.min.css" rel="stylesheet" />    
 <script src="https://static.tumblr.com/cvhjz4y/JWSn5a9bq/jquery.min.js" type="text/javascript"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.3/js/uikit.min.js" type="text/javascript"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.3/js/components/grid.js" type="text/javascript" async defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.3/js/components/lightbox.js" async defer></script>
 <script src="https://static.tumblr.com/16wo1wg/FG6nqh7ga/jquery.infinitescroll.min.js" type="text/javascript" async defer></script>
+<script src="http://static.tumblr.com/vizevuc/oI1odh03r/lazyloadxt.js" type="text/javascript" async defer></script>
+<script src="https://static.tumblr.com/cvhjz4y/Ts5n5rpic/loaded.js" type="text/javascript" async defer></script>
 
 <script>
 		
@@ -153,7 +153,6 @@ $(window).load(function() {
             return this.id
         }).get();
         n.imagesLoaded(function() {
-            e.masonry("appended", n, false);
             $('.simwha').css({'display':'block'});
             Tumblr.LikeButton.get_status_by_post_ids(r)
         })
@@ -181,7 +180,6 @@ $(document).ready(function() {
 
 });	
 </script>
-<script src="https://static.tumblr.com/cvhjz4y/Ts5n5rpic/loaded.js" type="text/javascript" async defer></script>
 
 
 <style>
@@ -192,19 +190,36 @@ background: -webkit-radial-gradient(center, ellipse cover, #f2f2f2 0%,#dedede 10
 background: radial-gradient(ellipse at center, #f2f2f2 0%,#dedede 100%);
 }
 h1,h2,h3,h4,h5,h6, .uk-h1, .uk-h2, .uk-h3, .uk-h4, .uk-h5, .uk-h6 {
-font-family: "Noto Sans", sans-serif;
+font-family: "Source Sans Pro", sans-serif;
 letter-spacing: -0.03em;
-font-weight: 700;
+font-weight: 600;
 }
 .uk-article-lead, .uk-article-title {
-font-family: "Noto Sans", sans-serif;
+font-family: "Source Sans Pro", sans-serif;
 letter-spacing: -0.03em;
-font-weight: 400;
+font-weight: 600;
 }
 figure {
 box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
- #infscr-loading {width:100%;}
+#infscr-loading {width:100%;}
+.photosets iframe {width: 100%;}
+.videoWrapper {
+	position: relative;
+	padding-bottom: 56.25%;
+	padding-top: 0;
+	height: 0;
+}
+.videoWrapper iframe,
+.videoWrapper object,
+.videoWrapper embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+} 
+ 
 {CustomCSS}
 </style>
 
@@ -397,7 +412,7 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 
 <!-- Photo Post -->
 {block:Photo}
-<figure {block:indexpage}class="uk-thumbnail uk-overlay uk-overlay-hover"{/block:indexpage} {block:permalinkpage}class="uk-padding-remove"{/block:permalinkpage}>
+<figure {block:indexpage}class="uk-thumbnail uk-thumbnail-expand uk-overlay uk-overlay-hover"{/block:indexpage} {block:permalinkpage}class="uk-padding-remove"{/block:permalinkpage}>
 <img src="{PhotoURL-500}" alt="{PhotoAlt}" title="{PhotoAlt}" class="uk-thumbnail-expand" />
 {block:indexpage}
 {block:ifnotusecaption}
@@ -417,36 +432,7 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 {block:ifusecaption}
                         
                                                   
-{block:ifgallerymode}
-<div class="caption">
-<div class="caption_inner">
-    
-{block:ifnothidecaption}{Caption}{/block:ifnothidecaption}
 
-{block:ifnothidetags}
-{block:HasTags}
-     
-<div class="fix-it-tag"><br>{block:tags}<a href="{TagURL}" class="tags_URL"># <span class="freezing">{tag}</span></a> {/block:tags}</div>
-          
-{/block:HasTags}
-{/block:ifnothidetags}
-        
-
-<div class="note-count-no-caption-no-like">
-	
-<a href="{permalink}" target="_blank">{block:ifusebiggerposts}{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}{/block:ifusebiggerposts}{block:ifnotusebiggerposts}{notecount} {lang:Notes} {block:ifnotusebiggerposts}</a>
-<div  class="shareit">
-<span>{Reblogbutton size="14"}</span>
-        
-</div>
-</div> 
-</div>
-</div>
-       
-{/block:ifgallerymode}
-                        
-                        
-{block:ifnotgallerymode}
 <div class="caption"><div class="caption_inner"> {block:ifnothidecaption}{Caption}{/block:ifnothidecaption}
 {block:ifnothidetags}{block:HasTags}<div class="fix-it-tag"><br>{block:tags}<a href="{TagURL}" class="tags_URL"># <span class="freezing">{tag}</span></a> {/block:tags}</div>{/block:HasTags}{/block:ifnothidetags}
 <div class="note-count {block:caption}note-count-no-caption{/block:caption}"><a href="{permalink}" target="_blank">{block:ifusebiggerposts}{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}{/block:ifusebiggerposts}{block:ifnotusebiggerposts}{notecount} {lang:Notes} {block:ifnotusebiggerposts}</a>
@@ -458,7 +444,6 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 </div>
 </div>
 
-{block:ifnotgallerymode}
                             
 
 {/block:ifusecaption}  
@@ -545,9 +530,8 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 <div class="uk-thumbnail uk-overlay uk-overlay-hover">
     <div class="photosets uk-cover">
 
-{block:indexpage}
-{block:ifnotgallerymode}
-    
+
+{block:indexpage}   
 {block:ifusebiggerposts}
 <div class="photoset-photos">
 
@@ -558,46 +542,19 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 </div>
 {/block:ifusebiggerposts}
       
-	{Photoset-700}
-
-{/block:ifnotgallerymode}
-
-{block:ifgallerymode}
-
-{block:ifusebiggerposts}
-	{Photoset-400}
-{/block:ifusebiggerposts}
-
-{block:ifnotusebiggerposts}
-	{Photoset-250}
-{/block:ifnotusebiggerposts}
-
-{/block:ifgallerymode}   
+{Photoset-700}
+ 
 {/block:indexpage}
 
+
 {block:permalinkpage}
-	{Photoset-500}
+{Photoset-500}
 {/block:permalinkpage}
 
-	</div>
+</div>
 
 {block:indexpage}
 {block:ifusecaption}
-{block:ifgallerymode}
-
-<div class="uk-thumbnail-caption"><div class="caption_inner">{block:ifnothidecaption}{Caption}{/block:ifnothidecaption}
-{block:ifnothidetags}{block:HasTags}<div class="fix-it-tag"><br>{block:tags}<a href="{TagURL}" class="tags_URL"># <span class="freezing">{tag}</span></a> {/block:tags}</div>{/block:HasTags}{/block:ifnothidetags}
-<div class="note-count-no-caption-no-like"><a href="{permalink}" target="_blank">{block:ifusebiggerposts}{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}{/block:ifusebiggerposts}{block:ifnotusebiggerposts}{notecount} {lang:Notes} {block:ifnotusebiggerposts}</a>
-<div class="shareit">
-<span>{Reblogbutton size="14"}</span>
-                                
-    </div>
-	</div> 
-    </div>
-    </div>
-                            
-{/block:ifgallerymode}
-{block:ifnotgallerymode}
                             
 <div class="uk-thumbnail-caption"><div class="caption_inner">{block:ifnothidecaption}{Caption}{/block:ifnothidecaption}
 {block:ifnothidetags}{block:HasTags}<div class="fix-it-tag"><br>{block:tags}<a href="{TagURL}" class="tags_URL"># <span class="freezing">{tag}</span></a> {/block:tags}</div>{/block:HasTags}{/block:ifnothidetags}
@@ -610,8 +567,8 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
     </div>
     </div>
                         
-{block:ifnotgallerymode}
 {/block:ifusecaption}
+
 {block:ifnotusecaption}
                             
 <div class="uk-thumbnail-caption"><div class="caption_inner">{block:ifnothidecaption}{Caption}{/block:ifnothidecaption}
@@ -776,70 +733,45 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
                 
 <!-- Video Post -->                
 {block:Video}
-<div class="uk-thumbnail uk-overlay uk-overlay-hover">
-<div class="uk-cover">
+<div class="uk-thumbnail uk-thumbnail-expand uk-overlay uk-overlay-hover">
+<div class="uk-cover videoWrapper">
 {block:indexpage}
-	{block:ifnotgallerymode}{video-700}{/block:ifnotgallerymode}
-	{block:ifgallerymode}{block:ifusebiggerposts}{video-400}{/block:ifusebiggerposts}
-	{block:ifnotusebiggerposts}{video-250}{/block:ifnotusebiggerposts}{/block:ifgallerymode}
+
+{video-700}
+
 {/block:indexpage}
+
 {block:permalinkpage}{Video-500}{/block:permalinkpage}
 </div>
 
 {block:indexpage}
+
+
 {block:ifusecaption}
-{block:ifgallerymode}
-
-<div class="caption"><div class="caption_inner">{block:ifnothidecaption}{Caption}{/block:ifnothidecaption}
- {block:ifnothidetags}{block:HasTags}<div class="fix-it-tag"><br>{block:tags}<a href="{TagURL}" class="tags_URL"># <span class="freezing">{tag}</span></a> {/block:tags}</div>{/block:HasTags}{/block:ifnothidetags}
-    
-<div class="note-count {block:caption}note-count-no-caption{/block:caption}"><a href="{permalink}" target="_blank">{block:ifusebiggerposts}{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}{/block:ifusebiggerposts}{block:ifnotusebiggerposts}{notecount} {lang:Notes} {block:ifnotusebiggerposts}</a>
-<div  class="shareit">
-<span>{Reblogbutton size="14"}</span>
-    
+<div class="uk-thumbnail-caption">
+{Caption}	
+<i class="uk-icon-video-camera uk-icon-mini uk-text-muted uk-margin-small-left uk-margin-small-top uk-float-left"></i>
+<a href="{Permalink}" title="Link | {PhotoAlt}" class="uk-float-right uk-margin-small-left"><i class="uk-icon-external-link uk-icon-small uk-text-muted"></i></a>	
+<a href="{ReblogURL}" title="Reblog | {PhotoAlt}" target="_blank" class="uk-float-right"><i class="uk-icon-retweet uk-icon-small uk-text-muted"></i></a>
 </div>
-</div> 
-</div>
-</div>
-
-{/block:ifgallerymode}
-{block:ifnotgallerymode}
-
-<div class="caption"><div class="caption_inner">{block:ifnothidecaption}{Caption}{/block:ifnothidecaption}
- {block:ifnothidetags}{block:HasTags}<div class="fix-it-tag"><br>{block:tags}<a href="{TagURL}" class="tags_URL"># <span class="freezing">{tag}</span></a> {/block:tags}</div>{/block:HasTags}{/block:ifnothidetags}
-    
-<div class="note-count {block:caption}note-count-no-caption{/block:caption}"><a href="{permalink}" target="_blank">{block:ifusebiggerposts}{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}{/block:ifusebiggerposts}{block:ifnotusebiggerposts}{notecount} {lang:Notes} {block:ifnotusebiggerposts}</a>
-<div  class="shareit">
-<span>{Reblogbutton size="14"}</span>
-    
-</div>
-</div> 
-</div>
-</div>
-
-{block:ifnotgallerymode}
 {/block:ifusecaption}
+
+
 {block:ifnotusecaption}
-
-<div class="caption">
-<div class="caption_inner">
-{block:ifnothidecaption}{Caption}{/block:ifnothidecaption}
-{block:ifnothidetags}{block:HasTags}<div class="fix-it-tag"><br>{block:tags}<a href="{TagURL}" class="tags_URL"># <span class="freezing">{tag}</span></a> {/block:tags}</div>{/block:HasTags}{/block:ifnothidetags}
-<div class="note-count-no-caption-no-like">
-<a href="{permalink}" target="_blank">{block:ifusebiggerposts}{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}{/block:ifusebiggerposts}{block:ifnotusebiggerposts}{notecount} {lang:Notes} {block:ifnotusebiggerposts}</a>
-<div  class="shareit">
-<span>{Reblogbutton size="14"}</span>    
+<div class="uk-thumbnail-caption">
+<i class="uk-icon-video-camera uk-icon-mini uk-text-muted uk-margin-small-left uk-margin-small-top uk-float-left"></i>
+<a href="{Permalink}" title="Link | {PhotoAlt}" class="uk-float-right uk-margin-small-left"><i class="uk-icon-external-link uk-icon-small uk-text-muted"></i></a>
+<a href="{ReblogURL}" title="Reblog | {PhotoAlt}" target="_blank" class="uk-float-right"><i class="uk-icon-retweet uk-icon-small uk-text-muted"></i></a>
 </div>
-</div>
-
-</div>
-</div>
-
 {/block:ifnotusecaption}
-{/block:indexpage}   
+
+{/block:indexpage} 
+  
+  
 {block:permalinkpage}
 
-<div class="caption"><div class="caption_inner">{Caption}
+<div class="uk-thumbnail-caption">
+	{Caption}
 {block:ifnothidetags}{block:HasTags}<div class="fix-it-tag"><br>{block:tags}<a href="{TagURL}" class="tags_URL"># <span class="freezing">{tag}</span></a> {/block:tags}</div>{/block:HasTags}{/block:ifnothidetags}
 <div class="note-count"><a href="{permalink}"  target="_blank">{block:ifusebiggerposts}{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}{/block:ifusebiggerposts}{block:ifnotusebiggerposts}{notecount} {lang:Notes} {block:ifnotusebiggerposts}</a>
 <div  class="shareit">
@@ -847,7 +779,6 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 </div>
 
 </div>         
-</div>
 </div>
 
 {/block:permalinkpage}
@@ -862,27 +793,14 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
     <div class="audio_embed">
     
     {block:indexpage}
-    {block:ifnotgallerymode}{AudioEmbed-700}{/block:ifnotgallerymode}
-	{block:ifgallerymode}{block:ifusebiggerposts}{AudioEmbed-400}{/block:ifusebiggerposts}{block:ifnotusebiggerposts}{AudioEmbed-250}{/block:ifnotusebiggerposts}{/block:ifgallerymode}
+
+{AudioEmbed-700}
+
     {/block:indexpage}
     {block:permalinkpage}{AudioEmbed-500}{/block:permalinkpage}
     </div>
     {block:indexpage}
     {block:ifusecaption}
-    {block:ifgallerymode}
-    <div class="caption"><div class="caption_inner">{block:ifnothidecaption}{Caption}{/block:ifnothidecaption}
-    {block:ifnothidetags}{block:HasTags}<div class="fix-it-tag"><br>{block:tags}<a href="{TagURL}" class="tags_URL"># <span class="freezing">{tag}</span></a> {/block:tags}</div>{/block:HasTags}{/block:ifnothidetags}
-    <div class="note-count {block:caption}note-count-no-caption{/block:caption}"><a href="{permalink}" target="_blank">{block:ifusebiggerposts}{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}{/block:ifusebiggerposts}{block:ifnotusebiggerposts}{notecount} {lang:Notes} {block:ifnotusebiggerposts}</a>
-    <div  class="shareit">
-    <span>{Reblogbutton size="14"}</span>
-            
-    </div>
-    </div> 
-    </div>
-    </div>
-        
-    {/block:ifgallerymode}
-    {block:ifnotgallerymode}
     
     <div class="caption"><div class="caption_inner">{block:ifnothidecaption}{Caption}{/block:ifnothidecaption}
     {block:ifnothidetags}{block:HasTags}<div class="fix-it-tag"><br>{block:tags}<a href="{TagURL}" class="tags_URL"># <span class="freezing">{tag}</span></a> {/block:tags}</div>{/block:HasTags}{/block:ifnothidetags}        
@@ -895,8 +813,8 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
     </div>
     </div>
 
-    {block:ifnotgallerymode}
     {/block:ifusecaption}
+    
     {block:ifnotusecaption}
         
     <div class="caption"><div class="caption_inner">{block:ifnothidecaption}{Caption}{/block:ifnothidecaption}
@@ -964,6 +882,7 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 {block:permalinkpage}     
 {block:PermalinkPagination}{block:IfDisqusShortname}
 <div class="uk-container uk-container-center uk-clearfix">
+
 	<div id="disqus_thread" class="uk-panel uk-panel-box"></div>      
 	<script type="text/javascript">
 	/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
@@ -977,6 +896,7 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 	  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 	})();
 	</script>
+
 </div>     
 {/block:IfDisqusShortname}{/block:PermalinkPagination}
 {/block:permalinkpage}
