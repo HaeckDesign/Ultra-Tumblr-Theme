@@ -128,7 +128,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.3/js/components/grid.js" type="text/javascript" async defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.3/js/components/lightbox.js" async defer></script>
 <script src="https://static.tumblr.com/16wo1wg/FG6nqh7ga/jquery.infinitescroll.min.js" type="text/javascript" async defer></script>
-<script src="http://static.tumblr.com/vizevuc/oI1odh03r/lazyloadxt.js" type="text/javascript" async defer></script>
+<script src="http://static.tumblr.com/vizevuc/oI1odh03r/lazyloadxt.js" type="text/javascript"></script>
 <script src="https://static.tumblr.com/cvhjz4y/Ts5n5rpic/loaded.js" type="text/javascript" async defer></script>
 
 <script>
@@ -244,7 +244,7 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 <body>
 <!-- header -->
 <header class="uk-grid uk-block uk-flex-column uk-text-center uk-container-center">
-{block:iflogoimage}<div class="title-part"><a href="/" class="uk-thumbnail uk-border-circle"><img src="{image:logo}" alt="{Title}" style="width:80px;height:80px;" /></a></div>{/block:iflogoimage}
+{block:iflogoimage}<div class="title-part"><a href="/" class="uk-thumbnail uk-border-circle" title="{Title}"><img src="{image:logo}" alt="{Title} Logo" style="width:80px;height:80px;" /></a></div>{/block:iflogoimage}
         
 <h1 class="uk-article-title uk-margin">
 {block:indexpage}{Title}{/block:indexpage}
@@ -297,47 +297,47 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 
 <!-- Sidelinks -->
 {block:iffacebookurl}
-<li><a href="{text:Facebook URL}"><i class="uk-icon-facebook uk-margin-small-right"></i>Facebook</a></li>
+<li><a href="{text:Facebook URL}" title="Facebook" target="_blank" rel="nofollow"><i class="uk-icon-facebook uk-margin-small-right"></i>Facebook</a></li>
 {/block:iffacebookurl}
 
 {block:iftwitterurl}
-<li><a href="{text:twitter url}"><i class="uk-icon-twitter uk-margin-small-right"></i>Twitter</a></li>
+<li><a href="{text:twitter url}" title="Twitter" target="_blank" rel="nofollow"><i class="uk-icon-twitter uk-margin-small-right"></i>Twitter</a></li>
 {/block:iftwitterurl}
 
 {block:ifpinteresturl}
-<li><a href="{text:pinterest url}"><i class="uk-icon-pinterest uk-margin-small-right"></i>Pinterest</a></li>
+<li><a href="{text:pinterest url}" title="Pinterest" target="_blank" rel="nofollow"><i class="uk-icon-pinterest uk-margin-small-right"></i>Pinterest</a></li>
 {/block:ifpinteresturl}
 
 {block:ifinstagramUsername}
-<li><a href="http://instagram.com/{text:instagram Username}"><i class="uk-icon-instagram uk-margin-small-right"></i>Instagram</a></li>
+<li><a href="http://instagram.com/{text:instagram Username}" title="Instagram" target="_blank" rel="nofollow"><i class="uk-icon-instagram uk-margin-small-right"></i>Instagram</a></li>
 {/block:ifinstagramUsername}
 
 {block:ifshopurl}
-<li><a href="{text:shop url}"><i class="uk-icon-shopping-cart uk-margin-small-right"></i>Store</a></li>
+<li><a href="{text:shop url}" title="Shop" target="_blank" rel="nofollow"><i class="uk-icon-shopping-cart uk-margin-small-right"></i>Store</a></li>
 {/block:ifshopurl}
 
 {block:ifsoundcloudurl}
-<li><a href="{text:soundcloud url}"><i class="uk-icon-soundcloud uk-margin-small-right"></i>SoundCloud</a></li>
+<li><a href="{text:soundcloud url}" title="Soundcloud" target="_blank" rel="nofollow"><i class="uk-icon-soundcloud uk-margin-small-right"></i>SoundCloud</a></li>
 {/block:ifsoundcloudurl}
 
 {block:ifgoogleplusurl}
-<li><a href="{text:google plus url}"><i class="uk-icon-google-plus uk-margin-small-right"></i>Google Plus</a></li>
+<li><a href="{text:google plus url}" title="Google Plus" target="_blank" rel="nofollow"><i class="uk-icon-google-plus uk-margin-small-right"></i>Google Plus</a></li>
 {/block:ifgoogleplusurl}
 
 {block:ifvimeourl}
-<li><a href="{text:vimeo url}"><i class="uk-icon-vimeo uk-margin-small-right"></i>Vimeo</a></li>
+<li><a href="{text:vimeo url}" title="Vimeo" target="_blank" rel="nofollow"><i class="uk-icon-vimeo uk-margin-small-right"></i>Vimeo</a></li>
 {/block:ifvimeourl}
 
 {block:ifyoutubeurl}
-<li><a href="{text:youtube url}"><i class="uk-icon-youtube uk-margin-small-right"></i>YouTube</a></li>
+<li><a href="{text:youtube url}" title="YouTube" target="_blank" rel="nofollow"><i class="uk-icon-youtube uk-margin-small-right"></i>YouTube</a></li>
 {/block:ifyoutubeurl}
 
 {block:ifYelpurl}
-<li><a href="{text:Yelp url}"><i class="uk-icon-yelp uk-margin-small-right"></i>Yelp</a></li>
+<li><a href="{text:Yelp url}" title="Yelp" target="_blank" rel="nofollow"><i class="uk-icon-yelp uk-margin-small-right"></i>Yelp</a></li>
 {/block:ifYelpurl}
 
 {block:ifEmailAddress}
-<li><a href="mailto:{text:Email Address}"><i class="uk-icon-envelope uk-margin-small-right"></i>Contact us</a></li>
+<li><a href="mailto:{text:Email Address}" title="Email" target="_blank" rel="nofollow"><i class="uk-icon-envelope uk-margin-small-right"></i>Contact us</a></li>
 {/block:ifEmailAddress}	        
 
 </ul>
@@ -358,7 +358,7 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 {block:Text}
 <div class="text">
 {block:Title}
-    <h2 class="title"><a href="{Permalink}"  target="_blank">{Title}</a></h2>
+    <h2 class="title"><a href="{Permalink}" target="_blank">{Title}</a></h2>
 {/block:Title}
 <div class="text-body">{Body}</div>
 {block:date}
@@ -399,7 +399,7 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 </div>
 
 {block:date}
-<div class="note-count text_based"><a href="{permalink}"  target="_blank">{block:ifusebiggerposts}{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}{/block:ifusebiggerposts}{block:ifnotusebiggerposts}{notecount} {lang:Notes} {block:ifnotusebiggerposts}</a>
+<div class="note-count text_based"><a href="{permalink}" target="_blank">{block:ifusebiggerposts}{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}{/block:ifusebiggerposts}{block:ifnotusebiggerposts}{notecount} {lang:Notes} {block:ifnotusebiggerposts}</a>
 <div class="shareit"><span>{likebutton size="14"}</span>
 <span>{Reblogbutton size="14"}</span>
 </div>
@@ -468,10 +468,10 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 	<div class="fb-like" data-href="{permalink}" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
 	</div> 
 	<div>
-	<a href="//www.pinterest.com/pin/create/button/?url={permalink}&media={photourl-Highres}&description=Found&nbsp;on&nbsp;https://tumblr.com/{name}" data-pin-do="buttonPin" data-pin-config="beside" data-pin-color="white" target="_blank"></a>
+	<a href="//www.pinterest.com/pin/create/button/?url={permalink}&media={photourl-Highres}&description=Found&nbsp;on&nbsp;https://tumblr.com/{name}" data-pin-do="buttonPin" data-pin-save="true" rel="nofollow" target="_blank"></a>
 	</div>
 	<div>
-	<a href="https://twitter.com/share" class="twitter-share-button" data-url="{permalink}">Tweet</a>
+	<a href="https://twitter.com/share" class="twitter-share-button" data-url="{permalink}" title="Share on Twitter" target="_blank" rel="nofollow">Tweet</a>
 	</div>
     <div>{likebutton size="24"}</div>
 	<div>{Reblogbutton size="24"}</div>
@@ -659,10 +659,10 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 	<div class="fb-like" data-href="{permalink}" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
 	</div> 
 	<div>
-	<a href="//www.pinterest.com/pin/create/button/?url={permalink}&media={photourl-Highres}&description=Found&nbsp;on&nbsp;https://tumblr.com/{name}" data-pin-do="buttonPin" data-pin-config="beside" data-pin-color="white" target="_blank"></a>
+	<a href="//www.pinterest.com/pin/create/button/?url={permalink}&media={photourl-Highres}&description=Found&nbsp;on&nbsp;https://tumblr.com/{name}" data-pin-do="buttonPin" data-pin-save="true" rel="nofollow" target="_blank"></a>
 	</div>
 	<div>
-	<a href="https://twitter.com/share" class="twitter-share-button" data-url="{permalink}">Tweet</a>
+	<a href="https://twitter.com/share" class="twitter-share-button" data-url="{permalink}" title="Share on Twitter" target="_blank" rel="nofollow">Tweet</a>
 	</div>
     <div>{likebutton size="24"}</div>
 	<div>{Reblogbutton size="24"}</div>
@@ -882,22 +882,21 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 {block:permalinkpage}     
 {block:PermalinkPagination}{block:IfDisqusShortname}
 <div class="uk-container uk-container-center uk-clearfix">
+<div data-lazy-widget>
+<!--
+<div id="disqus_thread" class="uk-panel uk-panel-box"></div>      
+<script type="text/javascript">
+var disqus_shortname = '{text:Disqus Shortname}';
 
-	<div id="disqus_thread" class="uk-panel uk-panel-box"></div>      
-	<script type="text/javascript">
-	/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-	var disqus_shortname = '{text:Disqus Shortname}';
-	// Required - Replace <example> with your forum shortname
-	
-	/* * * DON'T EDIT BELOW THIS LINE * * */
-	(function() {
-	  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-	  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-	  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	})();
-	</script>
-
-</div>     
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+-->
+</div>
+</div> 
 {/block:IfDisqusShortname}{/block:PermalinkPagination}
 {/block:permalinkpage}
                   
@@ -912,23 +911,23 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
         <ul class="uk-flex uk-flex-center uk-width-1-1 uk-subnav uk-subnav-line uk-text-center uk-contrast uk-margin-large-top">
         
 {block:ifCustomlink1title}
-<li><a href="{text:Custom link 1 URL}" title="{text:Custom link 1 title}" target="_blank">{text:Custom link 1 title}</a></li>
+<li><a href="{text:Custom link 1 URL}" title="{text:Custom link 1 title}" target="_blank" rel="nofollow">{text:Custom link 1 title}</a></li>
 {/block:ifCustomlink1title}
 
 {block:ifCustomlink2title}
-<li><a href="{text:Custom link 2 URL}" title="{text:Custom link 2 title}" target="_blank">{text:Custom link 2 title}</a></li>
+<li><a href="{text:Custom link 2 URL}" title="{text:Custom link 2 title}" target="_blank" rel="nofollow">{text:Custom link 2 title}</a></li>
 {/block:ifCustomlink2title}
 
 {block:ifCustomlink3title}
-<li><a href="{text:Custom link 3 URL}" title="{text:Custom link 3 title}">{text:Custom link 3 title}</a></li>
+<li><a href="{text:Custom link 3 URL}" title="{text:Custom link 3 title}" target="_blank" rel="nofollow">{text:Custom link 3 title}</a></li>
 {/block:ifCustomlink3title}
 
 {block:ifCustomlink4title}
-<li><a href="{text:Custom link 4 URL}" title="{text:Custom link 4 title}" target="_blank">{text:Custom link 4 title}</a></li>
+<li><a href="{text:Custom link 4 URL}" title="{text:Custom link 4 title}" target="_blank" rel="nofollow">{text:Custom link 4 title}</a></li>
 {/block:ifCustomlink4title}
 
 {block:ifCustomlink5title}
-<li><a href="{text:Custom link 5 URL}" title="{text:Custom link 5 title}" target="_blank">{text:Custom link 5 title}</a></li>
+<li><a href="{text:Custom link 5 URL}" title="{text:Custom link 5 title}" target="_blank" rel="nofollow">{text:Custom link 5 title}</a></li>
 {/block:ifCustomlink5title}        
     
         </ul>
