@@ -1,2 +1,5 @@
 # ultra-tumblr-theme
-The Worlds greatests Tumblr Theme
+The Worlds Greatests Tumblr Theme
+
+Infinite Scrolling
+UIKit Base
