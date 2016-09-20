@@ -124,12 +124,8 @@
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:600" rel="stylesheet" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.3/css/uikit.min.css" rel="stylesheet" />    
 <script src="https://static.tumblr.com/cvhjz4y/JWSn5a9bq/jquery.min.js" type="text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.3/js/uikit.min.js" type="text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.3/js/components/grid.js" type="text/javascript" async defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.3/js/components/lightbox.js" async defer></script>
-<script src="https://static.tumblr.com/16wo1wg/FG6nqh7ga/jquery.infinitescroll.min.js" type="text/javascript" async defer></script>
-<script src="http://static.tumblr.com/vizevuc/oI1odh03r/lazyloadxt.js" type="text/javascript"></script>
-<script src="https://static.tumblr.com/cvhjz4y/Ts5n5rpic/loaded.js" type="text/javascript" async defer></script>
+<script src="http://static.tumblr.com/vizevuc/mT3ods1xd/ultracombo.js" type="text/javascript"></script>
+
 
 <script>
 		
@@ -244,7 +240,7 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 <body>
 <!-- header -->
 <header class="uk-grid uk-block uk-flex-column uk-text-center uk-container-center">
-{block:iflogoimage}<div class="title-part"><a href="/" class="uk-thumbnail uk-border-circle" title="{Title}"><img src="{image:logo}" alt="{Title} Logo" style="width:80px;height:80px;" /></a></div>{/block:iflogoimage}
+{block:iflogoimage}<a href="/" title="{Title}"><img src="{image:logo}" alt="{Title} Logo" title="{Title} Logo" style="width:80px;height:80px;" class="uk-thumbnail uk-border-circle" /></a>{/block:iflogoimage}
         
 <h1 class="uk-article-title uk-margin">
 {block:indexpage}{Title}{/block:indexpage}
@@ -253,8 +249,10 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 <hr />
 
 {block:Description}
-<div id="description" class="uk-article-meta uk-margin">{Description}</div>
-{/block:Description}
+{block:indexpage}<h2 id="description" class="uk-article-meta uk-margin">{Description}</h2>{/block:indexpage}
+{block:PermalinkPage}<div id="description" class="uk-article-meta uk-margin">{Description}</div>{/block:PermalinkPage}
+{/block:Description}    
+
 
 <button class="uk-button uk-button-large uk-position-top-right uk-navbar-toggle" data-uk-offcanvas="{target:'#offmenu'}"></button>
 
@@ -264,7 +262,7 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 <div id="offmenu" class="uk-offcanvas">
 <div class="uk-offcanvas-bar">
 <div class="uk-panel uk-text-center">
-<div class="uk-article-lead uk-text-primary uk-margin-large-top">{Title}</div>
+<div class="uk-article-lead uk-text-primary uk-margin-top">{Title}</div>
 <hr class="uk-article-divider" />
 <p>{Description}</p>
 <hr class="uk-article-divider" />
@@ -293,47 +291,47 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 </ul>
 
 
-<ul class="uk-nav uk-nav-offcanvas uk-text-center uk-text-large" data-uk-nav>
+<ul class="uk-nav uk-nav-offcanvas uk-text-center uk-text-large" itemtype="http://schema.org/Organization" data-uk-nav>
 
 <!-- Sidelinks -->
 {block:iffacebookurl}
-<li><a href="{text:Facebook URL}" title="Facebook" target="_blank" rel="nofollow"><i class="uk-icon-facebook uk-margin-small-right"></i>Facebook</a></li>
+<li><a href="{text:Facebook URL}" title="Facebook" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-facebook uk-margin-small-right"></i>Facebook</a></li>
 {/block:iffacebookurl}
 
 {block:iftwitterurl}
-<li><a href="{text:twitter url}" title="Twitter" target="_blank" rel="nofollow"><i class="uk-icon-twitter uk-margin-small-right"></i>Twitter</a></li>
+<li><a href="{text:twitter url}" title="Twitter" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-twitter uk-margin-small-right"></i>Twitter</a></li>
 {/block:iftwitterurl}
 
 {block:ifpinteresturl}
-<li><a href="{text:pinterest url}" title="Pinterest" target="_blank" rel="nofollow"><i class="uk-icon-pinterest uk-margin-small-right"></i>Pinterest</a></li>
+<li><a href="{text:pinterest url}" title="Pinterest" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-pinterest uk-margin-small-right"></i>Pinterest</a></li>
 {/block:ifpinteresturl}
 
 {block:ifinstagramUsername}
-<li><a href="http://instagram.com/{text:instagram Username}" title="Instagram" target="_blank" rel="nofollow"><i class="uk-icon-instagram uk-margin-small-right"></i>Instagram</a></li>
+<li><a href="http://instagram.com/{text:instagram Username}" title="Instagram" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-instagram uk-margin-small-right"></i>Instagram</a></li>
 {/block:ifinstagramUsername}
 
 {block:ifshopurl}
-<li><a href="{text:shop url}" title="Shop" target="_blank" rel="nofollow"><i class="uk-icon-shopping-cart uk-margin-small-right"></i>Store</a></li>
+<li><a href="{text:shop url}" title="Shop" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-shopping-cart uk-margin-small-right"></i>Store</a></li>
 {/block:ifshopurl}
 
 {block:ifsoundcloudurl}
-<li><a href="{text:soundcloud url}" title="Soundcloud" target="_blank" rel="nofollow"><i class="uk-icon-soundcloud uk-margin-small-right"></i>SoundCloud</a></li>
+<li><a href="{text:soundcloud url}" title="Soundcloud" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-soundcloud uk-margin-small-right"></i>SoundCloud</a></li>
 {/block:ifsoundcloudurl}
 
 {block:ifgoogleplusurl}
-<li><a href="{text:google plus url}" title="Google Plus" target="_blank" rel="nofollow"><i class="uk-icon-google-plus uk-margin-small-right"></i>Google Plus</a></li>
+<li><a href="{text:google plus url}" title="Google Plus" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-google-plus uk-margin-small-right"></i>Google Plus</a></li>
 {/block:ifgoogleplusurl}
 
 {block:ifvimeourl}
-<li><a href="{text:vimeo url}" title="Vimeo" target="_blank" rel="nofollow"><i class="uk-icon-vimeo uk-margin-small-right"></i>Vimeo</a></li>
+<li><a href="{text:vimeo url}" title="Vimeo" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-vimeo uk-margin-small-right"></i>Vimeo</a></li>
 {/block:ifvimeourl}
 
 {block:ifyoutubeurl}
-<li><a href="{text:youtube url}" title="YouTube" target="_blank" rel="nofollow"><i class="uk-icon-youtube uk-margin-small-right"></i>YouTube</a></li>
+<li><a href="{text:youtube url}" title="YouTube" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-youtube uk-margin-small-right"></i>YouTube</a></li>
 {/block:ifyoutubeurl}
 
 {block:ifYelpurl}
-<li><a href="{text:Yelp url}" title="Yelp" target="_blank" rel="nofollow"><i class="uk-icon-yelp uk-margin-small-right"></i>Yelp</a></li>
+<li><a href="{text:Yelp url}" title="Yelp" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-yelp uk-margin-small-right"></i>Yelp</a></li>
 {/block:ifYelpurl}
 
 {block:ifEmailAddress}
@@ -351,7 +349,7 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 
 {block:Posts}
 <div class="post infscr {block:chat}chat-post{/block:chat} {block:quote}quote-post{/block:quote} {block:text}text-post{/block:text} {block:photoset}caption-post{/block:photoset} {block:audio}caption-post{/block:audio}  {block:photo}caption-post{/block:photo} {block:video}caption-post{/block:video} {block:link}link-post{/block:link} {block:Answer}text-post{/block:Answer}    {block:PermalinkPage}uk-width-1-1{/block:PermalinkPage}" id="{postID}">
-<div class="inner_container {block:PermalinkPage}uk-grid uk-grid-width-1-2 uk-container-center{/block:PermalinkPage}" {block:ifnotusepostborder} {block:indexpage} {block:ifnotusecaption} style="{block:video}background-color:{BackgroundColor} !important{/block:video} {block:audio}background-color:{BackgroundColor} !important{/block:audio} {block:photo}background-color:{BackgroundColor} !important{/block:photo} {block:photoset}background-color:{BackgroundColor} !important{/block:photoset}"{/block:ifnotusecaption}{/block:indexpage}{/block:ifnotusepostborder}>
+<div class="inner_container {block:PermalinkPage}uk-grid uk-grid-width-1-2 uk-container-center{/block:PermalinkPage}" {block:ifnotusepostborder} {/block:ifnotusepostborder}>
   
   
 <!-- Text Post -->             
@@ -415,39 +413,15 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 <figure {block:indexpage}class="uk-thumbnail uk-thumbnail-expand uk-overlay uk-overlay-hover"{/block:indexpage} {block:permalinkpage}class="uk-padding-remove"{/block:permalinkpage}>
 <img src="{PhotoURL-500}" alt="{PhotoAlt}" title="{PhotoAlt}" class="uk-thumbnail-expand" />
 {block:indexpage}
-{block:ifnotusecaption}
-   
 <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-fade uk-flex uk-flex-center uk-flex-middle uk-text-center">
 	<a href="{ReblogURL}" title="Reblog | {PhotoAlt}" target="_blank" class="uk-margin-left"><i class="uk-icon-retweet uk-icon-medium uk-text-contrast"></i></a>
 	<a href="{block:ifUseHighresImages}{PhotoURL-Highres}{/block:ifUseHighresImages}{block:ifnotUseHighresImages}{PhotoURL-500}{/block:ifnotUseHighresImages}" title="{PhotoAlt}" class="uk-margin-left" data-uk-lightbox><i class="uk-icon-arrows-alt uk-icon-medium uk-text-contrast"></i></a>
 	<a href="{Permalink}" title="Link | {PhotoAlt}" class="uk-margin-left"><i class="uk-icon-external-link uk-icon-medium uk-text-contrast"></i></a>			
 </figcaption>
-
-{/block:ifnotusecaption}
 {/block:indexpage}
 </figure>                        
             
                 
-{block:indexpage}
-{block:ifusecaption}
-                        
-                                                  
-
-<div class="caption"><div class="caption_inner"> {block:ifnothidecaption}{Caption}{/block:ifnothidecaption}
-{block:ifnothidetags}{block:HasTags}<div class="fix-it-tag"><br>{block:tags}<a href="{TagURL}" class="tags_URL"># <span class="freezing">{tag}</span></a> {/block:tags}</div>{/block:HasTags}{/block:ifnothidetags}
-<div class="note-count {block:caption}note-count-no-caption{/block:caption}"><a href="{permalink}" target="_blank">{block:ifusebiggerposts}{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}{/block:ifusebiggerposts}{block:ifnotusebiggerposts}{notecount} {lang:Notes} {block:ifnotusebiggerposts}</a>
-<div  class="shareit"><span>{likebutton size="14"}</span>
-<span>{Reblogbutton size="14"}</span>
-    
-</div>
-</div> 
-</div>
-</div>
-
-                            
-
-{/block:ifusecaption}  
-{/block:indexpage}   
 
                         
 {block:permalinkpage}
@@ -459,7 +433,7 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 </div>
 	    	    
 <div class="caption_inner uk-panel uk-panel-box uk-panel-box-secondary uk-link-muted">
-<div>{Caption}</div>
+<div class="uk-text-center">{Caption}</div>
 	
 <hr class="uk-margin-small" />
 
@@ -527,7 +501,7 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
                 
 <!-- Photoset -->                
 {block:Photoset}
-<div class="uk-thumbnail uk-overlay uk-overlay-hover">
+<div class="uk-thumbnail uk-thumbnail-expand uk-overlay uk-overlay-hover">
     <div class="photosets uk-cover">
 
 
@@ -553,24 +527,7 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 
 </div>
 
-{block:indexpage}
-{block:ifusecaption}
-                            
-<div class="uk-thumbnail-caption"><div class="caption_inner">{block:ifnothidecaption}{Caption}{/block:ifnothidecaption}
-{block:ifnothidetags}{block:HasTags}<div class="fix-it-tag"><br>{block:tags}<a href="{TagURL}" class="tags_URL"># <span class="freezing">{tag}</span></a> {/block:tags}</div>{/block:HasTags}{/block:ifnothidetags}
-<div class="note-count-no-caption-no-like"><a href="{permalink}" target="_blank">{block:ifusebiggerposts}{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}{/block:ifusebiggerposts}{block:ifnotusebiggerposts}{notecount} {lang:Notes} {block:ifnotusebiggerposts}</a>
-<div  class="shareit">
-<span>{Reblogbutton size="14"}</span>
-                                
-    </div>
-	</div> 
-    </div>
-    </div>
-                        
-{/block:ifusecaption}
-
-{block:ifnotusecaption}
-                            
+{block:indexpage}                            
 <div class="uk-thumbnail-caption"><div class="caption_inner">{block:ifnothidecaption}{Caption}{/block:ifnothidecaption}
 {block:ifnothidetags}{block:HasTags}<div class="fix-it-tag"><br>{block:tags}<a href="{TagURL}" class="tags_URL"># <span class="freezing">{tag}</span></a> {/block:tags}</div>{/block:HasTags}{/block:ifnothidetags}                                
 <div class="note-count-no-caption-no-like"><a href="{permalink}" target="_blank">{block:ifusebiggerposts}{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}{/block:ifusebiggerposts}{block:ifnotusebiggerposts}{notecount} {lang:Notes} {block:ifnotusebiggerposts}</a>
@@ -581,9 +538,9 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 	</div> 
     </div>
     </div>
-                            
-{/block:ifnotusecaption}
 {/block:indexpage}   
+
+
 {block:permalinkpage}
                         
 <div class="uk-thumbnail-caption"><div class="caption_inner">{Caption}                                
@@ -629,13 +586,11 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 <figure {block:indexpage}class="uk-thumbnail uk-overlay uk-overlay-hover link"{/block:indexpage}{block:permalinkpage}class="uk-padding-remove"{/block:permalinkpage}>
 {block:Thumbnail}<img src="{Thumbnail}" alt="{Name}" title="{Name}" class="uk-thumbnail-expand" />{/block:Thumbnail}
 {block:indexpage}
-{block:ifnotusecaption}
 <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-fade uk-flex uk-flex-center uk-flex-middle uk-text-center">
 	<a href="{URL}" title="Original Link" class="uk-margin-left" {Target}><i class="uk-icon-link uk-icon-medium uk-text-contrast"></i></a>			
 	<a href="{ReblogURL}" title="Reblog | {Name}" target="_blank" class="uk-margin-left"><i class="uk-icon-retweet uk-icon-medium uk-text-contrast"></i></a>
 	<a href="{permalink}" title="Link | {Name}" class="uk-margin-left"><i class="uk-icon-external-link uk-icon-medium uk-text-contrast"></i></a>
 </figcaption>
-{/block:ifnotusecaption}
 {/block:indexpage}
 </figure>                        
 
@@ -644,12 +599,12 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 
 <div class="caption">
 <div class="uk-panel-box">
-	<h2 class="uk-text-right uk-article-meta uk-margin-small">{DayOfWeek} {DayOfMonth} / {Month} / {Year}</h2>
+	<h2 class="uk-text-right uk-h5 uk-margin-small">{DayOfWeek} {DayOfMonth} / {Month} / {Year}</h2>
     <h3 class="uk-text-right uk-article-meta uk-margin-small">{block:PostSummary}{PostSummary}{/block:PostSummary}</h3>
 </div>
 	    	    
 <div class="caption_inner uk-panel uk-panel-box uk-panel-box-secondary uk-link-muted">
-{block:Excerpt}<div>{Excerpt}</div>{/block:Excerpt}
+{block:Excerpt}<div class="uk-panel-space">{Excerpt}</div>{/block:Excerpt}
 {block:Host}<div class="uk-text-muted uk-text-right">{Host}</div>{/block:Host}
 	
 <hr class="uk-margin-small" />
@@ -674,7 +629,7 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 
 <hr class="uk-margin-small" />
 
-{block:ifnothidetags}{block:HasTags}<div class="uk-panel uk-text-small uk-margin"><ul class="uk-subnav uk-subnav-pill">{block:tags}<li><a href="{TagURL}" title="{tag}"><h4 class="uk-text-small uk-margin-small">{tag}</h4></a></li>{/block:tags}</ul></div>{/block:HasTags}{/block:ifnothidetags}     
+{block:ifnothidetags}{block:HasTags}<div class="uk-panel uk-text-small uk-margin"><ul class="uk-subnav uk-subnav-pill">{block:tags}<li>><h4 class="uk-text-small uk-margin-small">{tag}</h4></li>{/block:tags}</ul></div>{/block:HasTags}{/block:ifnothidetags}     
 
 {block:GroupMembers}
 {GroupMemberPortraitURL-40}
@@ -735,10 +690,9 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 {block:Video}
 <div class="uk-thumbnail uk-thumbnail-expand uk-overlay uk-overlay-hover">
 <div class="uk-cover videoWrapper">
+	
 {block:indexpage}
-
 {video-700}
-
 {/block:indexpage}
 
 {block:permalinkpage}{Video-500}{/block:permalinkpage}
@@ -746,24 +700,11 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 
 {block:indexpage}
 
-
-{block:ifusecaption}
 <div class="uk-thumbnail-caption">
-{Caption}	
-<i class="uk-icon-video-camera uk-icon-mini uk-text-muted uk-margin-small-left uk-margin-small-top uk-float-left"></i>
-<a href="{Permalink}" title="Link | {PhotoAlt}" class="uk-float-right uk-margin-small-left"><i class="uk-icon-external-link uk-icon-small uk-text-muted"></i></a>	
-<a href="{ReblogURL}" title="Reblog | {PhotoAlt}" target="_blank" class="uk-float-right"><i class="uk-icon-retweet uk-icon-small uk-text-muted"></i></a>
+	<i class="uk-icon-video-camera uk-icon-mini uk-text-muted uk-margin-small-left uk-margin-small-top uk-float-left"></i>
+	<a href="{Permalink}" title="Link | {PhotoAlt}" class="uk-float-right uk-margin-small-left"><i class="uk-icon-external-link uk-icon-small uk-text-muted"></i></a>
+	<a href="{ReblogURL}" title="Reblog | {PhotoAlt}" target="_blank" class="uk-float-right"><i class="uk-icon-retweet uk-icon-small uk-text-muted"></i></a>
 </div>
-{/block:ifusecaption}
-
-
-{block:ifnotusecaption}
-<div class="uk-thumbnail-caption">
-<i class="uk-icon-video-camera uk-icon-mini uk-text-muted uk-margin-small-left uk-margin-small-top uk-float-left"></i>
-<a href="{Permalink}" title="Link | {PhotoAlt}" class="uk-float-right uk-margin-small-left"><i class="uk-icon-external-link uk-icon-small uk-text-muted"></i></a>
-<a href="{ReblogURL}" title="Reblog | {PhotoAlt}" target="_blank" class="uk-float-right"><i class="uk-icon-retweet uk-icon-small uk-text-muted"></i></a>
-</div>
-{/block:ifnotusecaption}
 
 {/block:indexpage} 
   
@@ -800,35 +741,18 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
     {block:permalinkpage}{AudioEmbed-500}{/block:permalinkpage}
     </div>
     {block:indexpage}
-    {block:ifusecaption}
-    
-    <div class="caption"><div class="caption_inner">{block:ifnothidecaption}{Caption}{/block:ifnothidecaption}
-    {block:ifnothidetags}{block:HasTags}<div class="fix-it-tag"><br>{block:tags}<a href="{TagURL}" class="tags_URL"># <span class="freezing">{tag}</span></a> {/block:tags}</div>{/block:HasTags}{/block:ifnothidetags}        
-    <div class="note-count {block:caption}note-count-no-caption{/block:caption}"><a href="{permalink}" target="_blank">{block:ifusebiggerposts}{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}{/block:ifusebiggerposts}{block:ifnotusebiggerposts}{notecount} {lang:Notes} {block:ifnotusebiggerposts}</a>
-    <div  class="shareit">
-    <span>{Reblogbutton size="14"}</span>
-            
-    </div>
-    </div> 
-    </div>
-    </div>
 
-    {/block:ifusecaption}
-    
-    {block:ifnotusecaption}
-        
     <div class="caption"><div class="caption_inner">{block:ifnothidecaption}{Caption}{/block:ifnothidecaption}
     {block:ifnothidetags}{block:HasTags}<div class="fix-it-tag"><br>{block:tags}<a href="{TagURL}" class="tags_URL"># <span class="freezing">{tag}</span></a> {/block:tags}</div>{/block:HasTags}{/block:ifnothidetags}        
     <div class="note-count-no-caption-no-like"><a href="{permalink}" target="_blank">{block:ifusebiggerposts}{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}{/block:ifusebiggerposts}{block:ifnotusebiggerposts}{notecount} {lang:Notes} {block:ifnotusebiggerposts}</a>
     <div  class="shareit">
-    <span>{Reblogbutton size="14"}</span>
-            
+    	<span>{Reblogbutton size="14"}</span>
     </div>
+    
     </div> 
     </div>
     </div>
         
-    {/block:ifnotusecaption}
 	{/block:indexpage}   
     {block:permalinkpage}
     
@@ -884,7 +808,7 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 <div class="uk-container uk-container-center uk-clearfix">
 <div data-lazy-widget>
 <!--
-<div id="disqus_thread" class="uk-panel uk-panel-box"></div>      
+<div id="disqus_thread" class="uk-panel uk-panel-box uk-panel-space"></div>      
 <script type="text/javascript">
 var disqus_shortname = '{text:Disqus Shortname}';
 
