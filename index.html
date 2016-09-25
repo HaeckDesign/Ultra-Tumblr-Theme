@@ -1,6 +1,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>{block:PermalinkPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{/block:PermalinkPage}{Title}</title>
-{block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}    
+{block:indexpage}{block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}{/block:indexpage}
 {block:PermalinkPage}{block:PostSummary}<meta name="description" content="{PostSummary}" />{/block:PostSummary}{/block:PermalinkPage}
 <meta property="og:title" content="{title}">
 <meta name="viewport" id="viewport" content="user-scalable=0;initial-scale=1.0, maximum-scale=1.0">
@@ -349,24 +349,25 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 
 {block:Posts}
 <div class="post infscr {block:chat}chat-post{/block:chat} {block:quote}quote-post{/block:quote} {block:text}text-post{/block:text} {block:photoset}caption-post{/block:photoset} {block:audio}caption-post{/block:audio}  {block:photo}caption-post{/block:photo} {block:video}caption-post{/block:video} {block:link}link-post{/block:link} {block:Answer}text-post{/block:Answer}    {block:PermalinkPage}uk-width-1-1{/block:PermalinkPage}" id="{postID}">
-<div class="inner_container {block:PermalinkPage}uk-grid uk-grid-width-1-2 uk-container-center{/block:PermalinkPage}" {block:ifnotusepostborder} {/block:ifnotusepostborder}>
+<div class="inner_container {block:PermalinkPage}uk-grid uk-grid-width-1-2 uk-container-center{/block:PermalinkPage}">
   
   
 <!-- Text Post -->             
 {block:Text}
-<div class="text">
+<div class="uk-panel uk-panel-box">
 {block:Title}
-    <h2 class="title"><a href="{Permalink}" target="_blank">{Title}</a></h2>
+<div class="uk-panel-lead">{Title}</div>
 {/block:Title}
-<div class="text-body">{Body}</div>
+<div class="uk-panel-body">{Body}</div>
+
 {block:date}
-<div class="note-count text_based">
-	<a href="{permalink}" target="_blank">{block:ifusebiggerposts}{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}{/block:ifusebiggerposts}{block:ifnotusebiggerposts}{notecount} {lang:Notes} {block:ifnotusebiggerposts}</a>
-    <div class="shareit"><span>{likebutton size="14"}</span>
-    <span>{Reblogbutton size="14"}</span>
-</div>
+<div class="uk-flex">
+	<span>{notecount}</span>        
+    <a href="{ReblogURL}" title="Reblog | {PhotoAlt}" target="_blank" class="uk-margin-left"><i class="uk-icon-retweet"></i></a>
+    <a href="{Permalink}" title="{Title}" class="uk-margin-left"><i class="uk-icon-external-link"></i></a>
 </div>
 {/block:date}
+
 </div>
 {/block:Text}
                 
@@ -437,7 +438,7 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 	
 <hr class="uk-margin-small" />
 
-<div class="socials uk-flex uk-container-center uk-grid">
+<div class="socials uk-flex uk-flex-space-around uk-flex-middle uk-flex-center">
 	<div>
 	<div class="fb-like" data-href="{permalink}" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
 	</div> 
@@ -806,9 +807,11 @@ $(document).ready(function(){$(".iframe").colorbox({iframe:true,width:"500px",he
 {block:permalinkpage}     
 {block:PermalinkPagination}{block:IfDisqusShortname}
 <div class="uk-container uk-container-center uk-clearfix">
+<i class="uk-icon-comment uk-align-right"></i>	
+<div class="uk-article-lead">Comments</div>
 <div data-lazy-widget>
 <!--
-<div id="disqus_thread" class="uk-panel uk-panel-box uk-panel-space"></div>      
+<div id="disqus_thread" class="uk-panel uk-panel-box uk-margin uk-panel-space"></div>      
 <script type="text/javascript">
 var disqus_shortname = '{text:Disqus Shortname}';
 
