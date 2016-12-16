@@ -129,7 +129,6 @@
 <script src="https://static.tumblr.com/cvhjz4y/JWSn5a9bq/jquery.min.js" type="text/javascript"></script>
 <script src="http://static.tumblr.com/vizevuc/5jxoi44ae/ultracombo.js" type="text/javascript"></script>
 
-
 <script>
 $(window).load(function() {
     var e = $("#content");
@@ -178,7 +177,6 @@ $(document).ready(function() {
 
 });	
 </script>
-
 
 <style>
 html {
@@ -253,32 +251,17 @@ color: {color:Button Text};
 <div id="offmenu" class="uk-offcanvas">
 <div class="uk-offcanvas-bar">
 <div class="uk-panel uk-text-center">
-<div class="uk-article-lead uk-text-primary uk-margin-top">{Title}</div>
-<hr class="uk-article-divider" />
-<p class="uk-article-meta">{Description} If you're looking for an awesome graphic designer, be sure to stop by and check out the <a href="https://haeckdesign.com/services/graphic-design" title="Haeck Design - Graphic Design Services" target="_blank" class="uk-text-muted">graphic design services</a> and the <a href="https://haeckdesign.com/portfolio/graphic-design" title="Haeck Design Graphic Design Portfolio" target="_blank" class="uk-text-muted">graphic design portfolio</a> from our design team at Haeck Design.</p>
-<hr class="uk-article-divider" />
-</div>
-
+	<div class="uk-article-lead uk-text-primary uk-margin-top">{Title}</div>
+		<hr class="uk-article-divider" />
+		<p class="uk-article-meta">{Description}</p>
+		<hr class="uk-article-divider" />
+	</div>
 
 <ul class="uk-nav uk-nav-offcanvas uk-text-center uk-text-large" data-uk-nav>
-<!-- Menu -->
-
-{block:HasPages}{block:Pages}
-<li><a href="{URL}" title="{Label}">{Label}</a></li>
-{/block:Pages}{/block:HasPages}
-                                       
-{block:SubmissionsEnabled}
-<li><a href="/submit" title="{SubmitLabel}">{SubmitLabel}</a></li>
-{/block:SubmissionsEnabled}
-
-{block:AskEnabled}
-<li><a class='iframe' id="ask_form" href="http://www.tumblr.com/ask_form/{name}.tumblr.com" title="{AskLabel}">{AskLabel}</a></li>
-{/block:AskEnabled}
-
-{block:ifpersonalsiteurl}
-<li><a href="{text:personal site url}">Website</a></li>
-{/block:ifpersonalsiteurl}
-
+	{block:HasPages}{block:Pages}<li><a href="{URL}" title="{Label}">{Label}</a></li>{/block:Pages}{/block:HasPages}                                       
+	{block:SubmissionsEnabled}<li><a href="/submit" title="{SubmitLabel}">{SubmitLabel}</a></li>{/block:SubmissionsEnabled}
+	{block:AskEnabled}<li><a class='iframe' id="ask_form" href="http://www.tumblr.com/ask_form/{name}.tumblr.com" title="{AskLabel}">{AskLabel}</a></li>{/block:AskEnabled}
+	{block:ifpersonalsiteurl}<li><a href="{text:personal site url}">Website</a></li>{/block:ifpersonalsiteurl}
 </ul>
 
 
@@ -342,7 +325,6 @@ color: {color:Button Text};
 <div class="post infscr {block:chat}chat-post{/block:chat} {block:quote}quote-post{/block:quote} {block:text}text-post{/block:text} {block:photoset}caption-post{/block:photoset} {block:audio}caption-post{/block:audio}  {block:photo}caption-post{/block:photo} {block:video}caption-post{/block:video} {block:link}link-post{/block:link} {block:Answer}text-post{/block:Answer}    {block:PermalinkPage}uk-width-1-1{/block:PermalinkPage}" id="{postID}">
 <div class="inner_container {block:PermalinkPage}uk-grid uk-grid-width-1-2 uk-container-center{/block:PermalinkPage}">
   
-  
 <!-- Text Post -->             
 {block:Text}
 <div class="uk-panel uk-panel-box">
@@ -352,11 +334,11 @@ color: {color:Button Text};
 <div class="uk-panel-body">{Body}</div>
 
 {block:date}
-<div class="uk-flex">
-	<span>{notecount}</span>        
-    <a href="{ReblogURL}" title="Reblog | {PhotoAlt}" target="_blank" class="uk-margin-left"><i class="uk-icon-retweet"></i></a>
-    <a href="{Permalink}" title="{Title}" class="uk-margin-left"><i class="uk-icon-external-link"></i></a>
-</div>
+	<div class="uk-flex">
+		<span>{notecount}</span>        
+	    <a href="{ReblogURL}" title="Reblog | {PhotoAlt}" target="_blank" class="uk-margin-left"><i class="uk-icon-retweet"></i></a>
+	    <a href="{Permalink}" title="{Title}" class="uk-margin-left"><i class="uk-icon-external-link"></i></a>
+	</div>
 {/block:date}
 
 </div>
