@@ -40,13 +40,18 @@
 <meta name="if:Hide Caption" content="" />
 <meta name="if:Place Copyright Notice" content="" />
 
-
 <meta name="color:Primary Color" content="#dedede" /> 
 <meta name="color:Secondary Color" content="#9c9c9c" />
 <meta name="color:Background Color" content="#f2f2f2" /> 
-<meta name="color:Background Gradient Color" content="#dedede" /> 
-<meta name="color:Post Background Color" content="#ffffff" /> 
-<meta name="color:Post Content Color" content="#cccccc" />  
+<meta name="color:Background Gradient Color" content="#dedede" />
+<meta name="color:Button Text" content="#9c9c9c" />
+<meta name="color:Button Background" content="#dedede" /> 
+<meta name="color:Social Button Text" content="#9c9c9c" />
+<meta name="color:Social Button Background" content="#dedede" /> 
+<meta name="color:Post Header Text" content="#9c9c9c" /> 
+<meta name="color:Post Header Background" content="#dedede" /> 
+<meta name="color:Post Text" content="#727272" />  
+<meta name="color:Post Background" content="#e2e2e2" />  
 <meta name="color:Ask Post Content Color" content="#626262" />
 <meta name="color:Description Color" content="#aeaeae" />
 <meta name="font:Title" content="Avalon" />
@@ -54,11 +59,13 @@
 <meta name="select:Max Grid Columns" content="uk-grid-width-large-1-3" title="3">
 <meta name="select:Max Grid Columns" content="uk-grid-width-medium-1-3 uk-grid-width-large-1-4" title="4">
 <meta name="select:Max Grid Columns" content="uk-grid-width-medium-1-3 uk-grid-width-large-1-4 uk-grid-width-xlarge-1-5" title="5">
-<meta name="select:Title Size" content="2em" title="2em">
-<meta name="select:Title Size" content="2.4em" title="2.4em">
-<meta name="select:Title Size" content="2.8em" title="2.8em">
+<meta name="select:Title Size" content="1.2em" title="1.2em">
+<meta name="select:Title Size" content="1.4em" title="1.4em">
+<meta name="select:Title Size" content="1.6em" title="1.6em">
+<meta name="select:Title Size" content="1.8em" title="1.8em">
+<meta name="select:Title Size" content="2.2em" title="2.2em">
+<meta name="select:Title Size" content="2.6em" title="2.6em">
 <meta name="select:Title Size" content="3.2em" title="3.2em">
-<meta name="select:Title Size" content="3.6em" title="3.6em">
 
 <meta name="text:Custom link 1 URL" content="" />
 <meta name="text:Custom link 1 title" content="" />
@@ -153,7 +160,20 @@ $(window).load(function() {
 </script>
 
 <style>
-html { font-family: {font:Body}; background: {color:Background Color}; background: -moz-radial-gradient(center, ellipse cover, {color:Background Gradient Color} 0%, {color:Background Color} 100%); background: -webkit-radial-gradient(center, ellipse cover, {color:Background Gradient Color} 0%,{color:Background Color} 100%); background: radial-gradient(ellipse at center, {color:Background Gradient Color} 0%,{color:Background Color} 100%); } a.uk-button-default { background: {color:Button Color}; color: {color:Button Text}; }
+html { font-family: {font:Body}; background: {color:Background Color}; background: -moz-radial-gradient(center, ellipse cover, {color:Background Gradient Color} 0%, {color:Background Color} 100%); background: -webkit-radial-gradient(center, ellipse cover, {color:Background Gradient Color} 0%,{color:Background Color} 100%); background: radial-gradient(ellipse at center, {color:Background Gradient Color} 0%,{color:Background Color} 100%); } 
+h1,h2,h3,h4,h5,h6, .uk-h1, .uk-h2, .uk-h3, .uk-h4, .uk-h5, .uk-h6, .uk-article-lead, .uk-article-title { font-family: {font:Title} !important; letter-spacing: -0.01em; color: {color:Primary Color} !important;}
+h1.uk-article-title { font-size: {select:Title Size} !important; }
+.prev, .next, a.uk-button, .caption_header { background: {color:Button Background} !important; color: {color:Button Text} !important;}
+.caption > .caption_header > .uk-article-meta { color: {color:Post Header Text} !important;}
+.caption > .caption_header { background: {color:Post Header Background} !important;}
+header > .uk-article-meta, header > description, .uk-subnav-pill h4, footer .uk-icon-comment, footer #totop-scroller { color: {color:Secondary Color} !important;}
+a.uk-button-primary { color: {color:Social Button Text} !important;}
+a.uk-button-primary { background: {color:Social Button Background} !important;}
+#offmenu .uk-nav-offcanvas li a { color: {color:Social Button Background} !important;}
+#offmenu .uk-nav-offcanvas li a i { color: {color:Social Button Text} !important;}
+.caption .caption_inner p, .caption .caption_inner p a { color: {color:Post Text} !important;}
+.caption .caption_inner { background: {color:Post Background} !important;}
+h1.uk-article-title {line-height: 1.25em;}
 {CustomCSS}
 </style>
 <meta name="google-site-verification" content="{text:Google Site Verification}" />
@@ -181,7 +201,7 @@ html { font-family: {font:Body}; background: {color:Background Color}; backgroun
 <div class="uk-panel uk-text-center">
 	<div class="uk-article-lead uk-text-primary uk-margin-top">{Title}</div>
 		<hr class="uk-article-divider" />
-		<p class="uk-article-meta">{Description} {text:Description Extension}</p>
+		<p class="uk-article-meta">{Description} {block:indexpage}{text:Description Extension}{/block:indexpage}</p>
 		<hr class="uk-article-divider" />
 	</div>
 	<ul class="uk-nav uk-nav-offcanvas uk-text-center uk-text-large" data-uk-nav>
@@ -189,13 +209,13 @@ html { font-family: {font:Body}; background: {color:Background Color}; backgroun
 		{block:SubmissionsEnabled}<li><a href="/submit" title="{SubmitLabel}">{SubmitLabel}</a></li>{/block:SubmissionsEnabled}
 		{block:AskEnabled}<li><a class='iframe' id="ask_form" href="http://www.tumblr.com/ask_form/{name}.tumblr.com" title="{AskLabel}">{AskLabel}</a></li>{/block:AskEnabled}
 	{block:ifwebsiteurl}
-		<li><a href="{text:websiteurl url}" title="Website" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-globe uk-margin-small-right"></i>Website</a></li>
+		<li><a href="{text:websiteurl url}" title="Website" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-globe uk-margin-right"></i>Website</a></li>
 	{/block:ifwebsiteurl}			
 	{block:ifshopurl}
-		<li><a href="{text:shop url}" title="Shop" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-shopping-cart uk-margin-small-right"></i>Shop</a></li>
+		<li><a href="{text:shop url}" title="Shop" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-shopping-cart uk-margin-right"></i>Shop</a></li>
 	{/block:ifshopurl}
 	{block:ifemail}
-		<li><a href="mailto:{text:email url}" title="Email" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-envelope uk-margin-small-right"></i>Email</a></li>
+		<li><a href="mailto:{text:email url}" title="Email" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-envelope uk-margin-right"></i>Email</a></li>
 	{/block:ifemail}
 	</ul>
 
@@ -203,67 +223,67 @@ html { font-family: {font:Body}; background: {color:Background Color}; backgroun
 <div itemscope itemtype="https://schema.org/Organization">
 <ul class="uk-nav uk-nav-offcanvas uk-text-center uk-text-large" data-uk-nav>	
 	{block:iffacebookurl}
-		<li><a href="{text:facebook url}" title="Facebook" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-facebook uk-margin-small-right"></i>Facebook</a></li>
+		<li><a href="{text:facebook url}" title="Facebook" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-facebook uk-margin-right"></i>Facebook</a></li>
 	{/block:iffacebookurl}
 	{block:iftwitterusername}
-		<li><a href="https://twitter.com/{text:twitter username}" title="Twitter" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-twitter uk-margin-small-right"></i>Twitter</a></li>
+		<li><a href="https://twitter.com/{text:twitter username}" title="Twitter" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-twitter uk-margin-right"></i>Twitter</a></li>
 	{/block:iftwitterusername}
 	{block:ifpinteresturl}
-		<li><a href="https://pinterest.com/{text:pinterest username}" title="Pinterest" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-pinterest uk-margin-small-right"></i>Pinterest</a></li>
+		<li><a href="https://pinterest.com/{text:pinterest username}" title="Pinterest" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-pinterest uk-margin-right"></i>Pinterest</a></li>
 	{/block:ifpinteresturl}
 	{block:ifgoogleplusurl}
-		<li><a href="https://pinterest.com/{text:googleplus url}" title="Google Plus" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-google-plus uk-margin-small-right"></i>Google Plus</a></li>
+		<li><a href="https://pinterest.com/{text:googleplus url}" title="Google Plus" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-google-plus uk-margin-right"></i>Google Plus</a></li>
 	{/block:ifgoogleplusurl}	
 	{block:ifinstagramusername}
-		<li><a href="http://instagram.com/{text:instagram username}" title="Instagram" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-instagram uk-margin-small-right"></i>Instagram</a></li>
+		<li><a href="http://instagram.com/{text:instagram username}" title="Instagram" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-instagram uk-margin-right"></i>Instagram</a></li>
 	{/block:ifinstagramusername}
 	{block:ifspanchatusername}
-		<li><a href="https://snapchat.com/{text:snapchat username}" title="Snapchat" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-snapchat uk-margin-small-right"></i>Snapchat</a></li>
+		<li><a href="https://snapchat.com/{text:snapchat username}" title="Snapchat" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-snapchat uk-margin-right"></i>Snapchat</a></li>
 	{/block:ifspanchatusername}		
 	{block:ifstumbleuponurl}
-		<li><a href="{text:stumbleupon username}" title="StumbleUpon" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-stumbleupon uk-margin-small-right"></i>StumbleUpon</a></li>
+		<li><a href="{text:stumbleupon username}" title="StumbleUpon" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-stumbleupon uk-margin-right"></i>StumbleUpon</a></li>
 	{/block:ifstumbleuponurl}	
 	{block:ifdelicioususername}
-		<li><a href="{text:delicious username}" title="Delicious" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-delicious uk-margin-small-right"></i>Delicious</a></li>
+		<li><a href="{text:delicious username}" title="Delicious" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-delicious uk-margin-right"></i>Delicious</a></li>
 	{/block:ifdelicioususername}
 	{block:ifredditusername}
-		<li><a href="https://reddit.com/~{text:reddit username}" title="Reddit" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-reddit uk-margin-small-right"></i>Reddit</a></li>
+		<li><a href="https://reddit.com/~{text:reddit username}" title="Reddit" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-reddit uk-margin-right"></i>Reddit</a></li>
 	{/block:ifredditusername}		
 	{block:ifmediumurl}
-		<li><a href="{text:medium url}" title="Medium" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-medium uk-margin-small-right"></i>Medium</a></li>
+		<li><a href="{text:medium url}" title="Medium" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-medium uk-margin-right"></i>Medium</a></li>
 	{/block:ifmediumurl}
 	{block:ifvkurl}
-		<li><a href="{text:vk url}" title="VK" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-vk uk-margin-small-right"></i>VK</a></li>
+		<li><a href="{text:vk url}" title="VK" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-vk uk-margin-right"></i>VK</a></li>
 	{/block:ifvkurl}
 	{block:ifbehanceurl}
-		<li><a href="{text:behance url}" title="Behance" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-behance uk-margin-small-right"></i>Behance</a></li>
+		<li><a href="{text:behance url}" title="Behance" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-behance uk-margin-right"></i>Behance</a></li>
 	{/block:ifbehanceurl}
 	{block:ifdribbbleurl}
-		<li><a href="{text:dribbble url}" title="Dribbble" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-dribbble uk-margin-small-right"></i>Dribbble</a></li>
+		<li><a href="{text:dribbble url}" title="Dribbble" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-dribbble uk-margin-right"></i>Dribbble</a></li>
 	{/block:ifdribbbleurl}
 	{block:ifflickrurl}
-		<li><a href="{text:flickr url}" title="Flickr" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-flickr uk-margin-small-right"></i>Flickr</a></li>
+		<li><a href="{text:flickr url}" title="Flickr" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-flickr uk-margin-right"></i>Flickr</a></li>
 	{/block:ifflickrurl}			
 	{block:ifstackexchangeurl}
-		<li><a href="{text:stackexchange url}" title="StackExchange" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-stack-exchange uk-margin-small-right"></i>StackExchange</a></li>
+		<li><a href="{text:stackexchange url}" title="StackExchange" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-stack-exchange uk-margin-right"></i>StackExchange</a></li>
 	{/block:ifstackexchangeurl}
 	{block:iflastfmurl}
-		<li><a href="{text:lastfm url}" title="LastFm" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-lastfm uk-margin-small-right"></i>LastFm</a></li>
+		<li><a href="{text:lastfm url}" title="LastFm" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-lastfm uk-margin-right"></i>LastFm</a></li>
 	{/block:iflastfmurl}
 	{block:ifsoundcloudurl}
-		<li><a href="{text:soundcloud url}" title="SoundCloud" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-soundcloud uk-margin-small-right"></i>SoundCloud</a></li>
+		<li><a href="{text:soundcloud url}" title="SoundCloud" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-soundcloud uk-margin-right"></i>SoundCloud</a></li>
 	{/block:ifsoundcloudurl}
 	{block:ifspotifyurl}
-		<li><a href="{text:spotify url}" title="Spotify" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-spotify uk-margin-small-right"></i>Spotify</a></li>
+		<li><a href="{text:spotify url}" title="Spotify" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-spotify uk-margin-right"></i>Spotify</a></li>
 	{/block:ifspotifyurl}			
 	{block:ifvimeourl}
-		<li><a href="{text:vimeo url}" title="Vimeo" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-vimeo uk-margin-small-right"></i>Vimeo</a></li>
+		<li><a href="{text:vimeo url}" title="Vimeo" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-vimeo uk-margin-right"></i>Vimeo</a></li>
 	{/block:ifvimeourl}
 	{block:ifyoutubeurl}
-		<li><a href="{text:youtube url}" title="YouTube" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-youtube-play uk-margin-small-right"></i>YouTube</a></li>
+		<li><a href="{text:youtube url}" title="YouTube" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-youtube-play uk-margin-right"></i>YouTube</a></li>
 	{/block:ifyoutubeurl}
 	{block:iftwitchurl}
-		<li><a href="{text:twitch url}" title="Twitch" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-twitch uk-margin-small-right"></i>Twitch</a></li>
+		<li><a href="{text:twitch url}" title="Twitch" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-twitch uk-margin-right"></i>Twitch</a></li>
 	{/block:iftwitchurl}			
 	</ul>
 </div>
@@ -367,7 +387,7 @@ uk-width-1-1{/block:PermalinkPage}" id="{postID}">
 </div>
 	    	    
 <div class="caption_inner uk-panel uk-panel-box uk-panel-box-secondary uk-link-muted">
-<div class="uk-text-center">{Caption}</div>
+<div class="uk-text-center uk-panel-space">{Caption}</div>
 	
 <hr class="uk-margin-small" />
 
@@ -397,46 +417,50 @@ uk-width-1-1{/block:PermalinkPage}" id="{postID}">
 {GroupMemberPortraitURL-40}
 {/block:GroupMembers}
 
-
 {block:PostNotes} 
 <div class="uk-display-block uk-scrollable-text uk-margin-top">
-<div class="inner_container">
-<div class="postnotes uk-panel-box">  
-{block:Posts}
-<div class="post-padding">
-<div class="post-padding2">
-	{PostNotes-16}
-</div>
-</div>
-{/block:Posts}
-</div>
-</div>
+	<div class="inner_container">
+		<div class="postnotes uk-panel-box">  
+			{block:Posts}
+				<div class="post-padding">
+					<div class="post-padding2">
+						{PostNotes-16}
+					</div>
+				</div>
+			{/block:Posts}
+		</div>
+	</div>
 </div>        
 {/block:PostNotes}
 
 <div class="uk-container-center uk-width-1-1 uk-margin-top">
-	<ul class="uk-grid uk-grid-small uk-grid-width-1-2" data-uk-margin>
-	{block:iftwitterurl}
-	<li><a href="{text:twitter url}" class="uk-button uk-button-primary uk-button-large uk-width-1-1" title="Twitter" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-twitter uk-margin-right"></i>Follow</a></li>
-	{/block:iftwitterurl}
+	<ul class="uk-grid uk-grid-small uk-grid-width-1-2" data-uk-margin>			
+	{block:iftwitterusername}
+	<li><a href="https://twitter.com/{text:twitter username}" class="uk-button uk-button-primary uk-button-large uk-width-1-1" title="Twitter" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-twitter uk-margin-right"></i>Follow</a></li>
+	{/block:iftwitterusername}
 
 	{block:iffacebookurl}
 	<li><a href="{text:Facebook URL}" class="uk-button uk-button-primary uk-button-large uk-width-1-1" title="Facebook" target="_blank" rel="nofollow" itemprop="sameAs">Like<i class="uk-icon-facebook uk-margin-left"></i></a></li>
 	{/block:iffacebookurl}
-			
-	{block:PermalinkPagination}
-	    {block:PreviousPost}
-	    <li><a href="{PreviousPost}" class="uk-button uk-button-large uk-width-1-1" title="Previous Post"><i class="uk-icon-chevron-left uk-margin-right"></i>Previous Post</a></li>
-	    {/block:PreviousPost}
-	     
-	    {block:NextPost}
-	     <li><a href="{NextPost}" class="uk-button uk-button-large uk-width-1-1" title="Next Post">Next Post<i class="uk-icon-chevron-right uk-margin-left"></i></a></li>
-	    {/block:NextPost}
-	{/block:PermalinkPagination}
 	</ul>
 </div>
      
 </div>
+
+<div class="uk-container-center uk-width-1-1">
+	<ul class="uk-grid uk-grid-collapse uk-grid-width-1-2" data-uk-margin>			
+	{block:PermalinkPagination}
+	    {block:PreviousPost}
+	    <li><a href="{PreviousPost}" class="uk-button uk-button-large uk-width-1-1 prev" title="Previous Post"><i class="uk-icon-chevron-left uk-margin-right"></i>Previous Post</a></li>
+	    {/block:PreviousPost}
+	     
+	    {block:NextPost}
+	     <li><a href="{NextPost}" class="uk-button uk-button-large uk-width-1-1 next" title="Next Post">Next Post<i class="uk-icon-chevron-right uk-margin-left"></i></a></li>
+	    {/block:NextPost}
+	{/block:PermalinkPagination}
+	</ul>
+</div>
+
 </div>
 </div>
 
@@ -679,9 +703,6 @@ uk-width-1-1{/block:PermalinkPage}" id="{postID}">
 	{/block:ifCustomlink5title}
 </ul>
 {/block:ifCustomlink1title}
-
-
-
 
 
 {block:ifplacecopyrightnotice}
