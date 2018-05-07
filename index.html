@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>{block:PermalinkPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{/block:PermalinkPage}{Title}</title>
 {block:indexpage}{block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}{/block:indexpage}
 {block:PermalinkPage}{block:PostSummary}<meta name="description" content="{PostSummary}" />{/block:PostSummary}{/block:PermalinkPage}
-<meta name="viewport" id="viewport" content="user-scalable=0;initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" href="{Favicon}" />
 <link rel="alternate" type="application/rss+xml" href="{RSS}">
 <link rel="apple-touch-icon" sizes="57x57" href="{Favicon}">
@@ -26,7 +23,6 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="alternate" type="application/rss+xml" href="{RSS}">
 
-
 <meta name="msapplication-TileColor" content="#ffc40d">
 <meta name="msapplication-TileImage" content="{Favicon}">
 <meta name="theme-color" content="#ffffff">
@@ -40,18 +36,18 @@
 <meta name="if:Hide Caption" content="" />
 <meta name="if:Place Copyright Notice" content="" />
 
-<meta name="color:Primary Color" content="#dedede" /> 
+<meta name="color:Primary Color" content="#dedede" />
 <meta name="color:Secondary Color" content="#9c9c9c" />
-<meta name="color:Background Color" content="#f2f2f2" /> 
+<meta name="color:Background Color" content="#f2f2f2" />
 <meta name="color:Background Gradient Color" content="#dedede" />
 <meta name="color:Button Text" content="#9c9c9c" />
-<meta name="color:Button Background" content="#dedede" /> 
+<meta name="color:Button Background" content="#dedede" />
 <meta name="color:Social Button Text" content="#9c9c9c" />
-<meta name="color:Social Button Background" content="#dedede" /> 
-<meta name="color:Post Header Text" content="#9c9c9c" /> 
-<meta name="color:Post Header Background" content="#dedede" /> 
-<meta name="color:Post Text" content="#727272" />  
-<meta name="color:Post Background" content="#e2e2e2" />  
+<meta name="color:Social Button Background" content="#dedede" />
+<meta name="color:Post Header Text" content="#9c9c9c" />
+<meta name="color:Post Header Background" content="#dedede" />
+<meta name="color:Post Text" content="#727272" />
+<meta name="color:Post Background" content="#e2e2e2" />
 <meta name="color:Ask Post Content Color" content="#626262" />
 <meta name="color:Description Color" content="#aeaeae" />
 <meta name="font:Title" content="Avalon" />
@@ -109,7 +105,8 @@
 <meta name="text:Facebook App ID" content="">
 <meta name="text:Google Analytics Web Property ID" content="">
 <meta name="text:Google Site Verification" content="" />
-  
+<meta name="text:Bing Site Verification" content="" />
+
 <meta property="og:locale" content="en_US" />
 <meta property="og:title" content="{Title}" />
 <meta property="og:site_name" content="{Title}" />
@@ -125,37 +122,37 @@
 <meta property="twitter:title" content="{Title}" />
 <meta property="twitter:description" content="{Description}" />
 <meta property="og:image" content="{Favicon}" />
-<meta name="twitter:image" content="{Favicon}" />  
-  
-<link href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.3/css/uikit.min.css" rel="stylesheet" />    
-<script src="https://static.tumblr.com/cvhjz4y/JWSn5a9bq/jquery.min.js" type="text/javascript"></script>
-<script src="http://static.tumblr.com/vizevuc/o3Roienxi/ultracombo.js" type="text/javascript"></script>
+<meta name="twitter:image" content="{Favicon}" />
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.3/css/uikit.min.css" rel="stylesheet" />
+<script src="https://static.tumblr.com/cvhjz4y/JWSn5a9bq/jquery.min.js"></script>
+<script src="https://static.tumblr.com/vizevuc/UgLp1ri0n/newultracombo.js"></script>
 
 <script>
 $(window).load(function() {
-    var e = $("#content");
- setTimeout(function() { 
-    e.animate({
-        'opacity': '1'
-    },1000);
-    },1000);
-    e.infinitescroll({
-        navSelector: "#pagination",
-        nextSelector: "#pagination li a.next",
-        itemSelector: ".post",
-        isFitWidth: true
-    }, function(t) {
-        var n = $(t).css({
-            opacity: 0
-        });
-        var r = n.map(function() {
-            return this.id
-        }).get();
-        n.imagesLoaded(function() {
-            $('.simwha').css({'display':'block'});
-            Tumblr.LikeButton.get_status_by_post_ids(r)
-        })
-    })
+	var e = $("#content");
+	setTimeout(function() {
+	e.animate({
+	'opacity': '1'
+	},1000);
+	},1000);
+	e.infinitescroll({
+		navSelector: "#pagination",
+		nextSelector: "#pagination li a.next",
+		itemSelector: ".post",
+		isFitWidth: true
+	}, function(t) {
+		var n = $(t).css({
+		opacity: 0
+	});
+		var r = n.map(function() {
+		return this.id
+	}).get();
+		n.imagesLoaded(function() {
+		$('.simwha').css({'display':'block'});
+		Tumblr.LikeButton.get_status_by_post_ids(r)
+	})
+	})
 });
 </script>
 
@@ -176,11 +173,12 @@ a.uk-button-primary { background: {color:Social Button Background} !important;}
 h1.uk-article-title {line-height: 1.25em;}
 {CustomCSS}
 </style>
+<meta name="google-site-verification" content="xI3ajqLRPgWHTE2f5UoFjHOiGMCurGcckIkVM5vie6Q" />
 <meta name="google-site-verification" content="{text:Google Site Verification}" />
+<meta name="msvalidate.01" content="{text:Bing Site Verification}" />
 </head>
-    
+
 <body>
-<!-- Header TODO -->
 <header class="uk-block uk-flex-column uk-text-center uk-container-center">
 <nav data-uk-sticky>
 	<button class="uk-button uk-button-large uk-navbar-toggle uk-position-top-right" data-uk-offcanvas="{target:'#offmenu'}"></button>
@@ -188,14 +186,14 @@ h1.uk-article-title {line-height: 1.25em;}
 
 {block:iflogoimage}<a href="{BlogURL}" title="{Title}"><img src="{image:logo}" alt="{Title} Logo" title="{Title} Logo" style="width:80px;height:80px;" class="uk-thumbnail uk-border-circle" /></a>{/block:iflogoimage}
 {block:indexpage}<h1 class="uk-article-title uk-container uk-container-center uk-margin">{Title}</h1><hr />{/block:indexpage}
-{block:PermalinkPage}{block:PostSummary}<h1 class="uk-article-title uk-container uk-container-center uk-margin">{PostSummary}</h1><hr />{/block:PostSummary}{/block:PermalinkPage}    
+{block:PermalinkPage}{block:PostSummary}<h1 class="uk-article-title uk-container uk-container-center uk-margin">{PostSummary}</h1><hr />{/block:PostSummary}{/block:PermalinkPage}
 {block:Description}
 {block:indexpage}<h2 id="description" class="uk-article-meta uk-margin">{Description}</h2>{/block:indexpage}
 {block:PermalinkPage}<div id="description" class="uk-article-meta uk-margin">{Description}</div>{/block:PermalinkPage}
-{/block:Description}    
+{/block:Description}
 </header>
- 
-<!-- Offcanvas -->
+
+
 <div id="offmenu" class="uk-offcanvas">
 <div class="uk-offcanvas-bar">
 <div class="uk-panel uk-text-center">
@@ -210,7 +208,7 @@ h1.uk-article-title {line-height: 1.25em;}
 		{block:AskEnabled}<li><a class='iframe' id="ask_form" href="http://www.tumblr.com/ask_form/{name}.tumblr.com" title="{AskLabel}">{AskLabel}</a></li>{/block:AskEnabled}
 	{block:ifwebsiteurl}
 		<li><a href="{text:websiteurl url}" title="Website" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-globe uk-margin-right"></i>Website</a></li>
-	{/block:ifwebsiteurl}			
+	{/block:ifwebsiteurl}
 	{block:ifshopurl}
 		<li><a href="{text:shop url}" title="Shop" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-shopping-cart uk-margin-right"></i>Shop</a></li>
 	{/block:ifshopurl}
@@ -219,7 +217,7 @@ h1.uk-article-title {line-height: 1.25em;}
 	{/block:ifemail}
 	</ul>
 
-<!-- Sidelinks -->
+
 <div itemscope itemtype="https://schema.org/Organization">
 <ul class="uk-nav uk-nav-offcanvas uk-text-center uk-text-large" data-uk-nav>	
 	{block:iffacebookurl}
@@ -232,7 +230,7 @@ h1.uk-article-title {line-height: 1.25em;}
 		<li><a href="https://pinterest.com/{text:pinterest username}" title="Pinterest" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-pinterest uk-margin-right"></i>Pinterest</a></li>
 	{/block:ifpinteresturl}
 	{block:ifgoogleplusurl}
-		<li><a href="https://pinterest.com/{text:googleplus url}" title="Google Plus" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-google-plus uk-margin-right"></i>Google Plus</a></li>
+		<li><a href="{text:googleplus url}" title="Google Plus" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-google-plus uk-margin-right"></i>Google Plus</a></li>
 	{/block:ifgoogleplusurl}	
 	{block:ifinstagramusername}
 		<li><a href="http://instagram.com/{text:instagram username}" title="Instagram" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-instagram uk-margin-right"></i>Instagram</a></li>
@@ -263,7 +261,7 @@ h1.uk-article-title {line-height: 1.25em;}
 	{/block:ifdribbbleurl}
 	{block:ifflickrurl}
 		<li><a href="{text:flickr url}" title="Flickr" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-flickr uk-margin-right"></i>Flickr</a></li>
-	{/block:ifflickrurl}			
+	{/block:ifflickrurl}
 	{block:ifstackexchangeurl}
 		<li><a href="{text:stackexchange url}" title="StackExchange" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-stack-exchange uk-margin-right"></i>StackExchange</a></li>
 	{/block:ifstackexchangeurl}
@@ -275,7 +273,7 @@ h1.uk-article-title {line-height: 1.25em;}
 	{/block:ifsoundcloudurl}
 	{block:ifspotifyurl}
 		<li><a href="{text:spotify url}" title="Spotify" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-spotify uk-margin-right"></i>Spotify</a></li>
-	{/block:ifspotifyurl}			
+	{/block:ifspotifyurl}
 	{block:ifvimeourl}
 		<li><a href="{text:vimeo url}" title="Vimeo" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-vimeo uk-margin-right"></i>Vimeo</a></li>
 	{/block:ifvimeourl}
@@ -284,108 +282,40 @@ h1.uk-article-title {line-height: 1.25em;}
 	{/block:ifyoutubeurl}
 	{block:iftwitchurl}
 		<li><a href="{text:twitch url}" title="Twitch" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-twitch uk-margin-right"></i>Twitch</a></li>
-	{/block:iftwitchurl}			
+	{/block:iftwitchurl}
 	</ul>
 </div>
 </div>
 </div>
-  
-<div id="container" class="{block:ifnotusebiggerposts}not-bigger{block:ifnotusebiggerposts} uk-container uk-container-center uk-clearfix">	
-<div id="content" {block:IndexPage}class="uk-grid uk-grid-width-1-1 uk-grid-width-medium-1-2 {select:Max Grid Columns}" data-uk-grid="{gutter:20}"{/block:IndexPage}>
+
+<div id="container" class="{block:ifnotusebiggerposts}not-bigger{block:ifnotusebiggerposts} uk-container uk-container-center uk-clearfix">
+<div id="content" {block:IndexPage}class="uk-grid uk-grid-small uk-grid-width-1-1 uk-grid-width-medium-1-2 {select:Max Grid Columns}" data-uk-grid="{gutter:20}"{/block:IndexPage}>
 
 {block:Posts}
-<div class="post infscr 
-	
-{block:chat}chat-post{/block:chat} 	
-{block:quote}quote-post{/block:quote}	
-{block:text}caption-post{/block:text} 
-			
-{block:photoset}caption-post{/block:photoset} {block:audio}caption-post{/block:audio}  {block:photo}caption-post{/block:photo} {block:video}caption-post{/block:video} {block:link}link-post{/block:link} {block:Answer}text-post{/block:Answer}    
-	
-{block:PermalinkPage}
-uk-width-1-1{/block:PermalinkPage}" id="{postID}">
-<div class="uk-grid uk-grid-width-medium-1-2 uk-container-center 
-{/block:PermalinkPage}">
-  
-  
-  
-<!-- Text Post -->             
-{block:Text}
-<div class="uk-panel uk-panel-space uk-panel-box uk-width-1-1 uk-overlay uk-overlay-hover uk-animation-hover">
-{block:Title}
-<div class="uk-panel-lead">{Title}</div>
-{/block:Title}
-<div class="uk-panel-body">{Body}</div>
-	{block:indexpage}
-	<div class="uk-overlay-panel uk-overlay-background uk-overlay-fade uk-flex uk-flex-center uk-flex-middle uk-text-center">
-		<a href="{ReblogURL}" title="{ReblogURL}" target="_blank"><i class="uk-icon-retweet uk-icon-medium uk-text-contrast uk-animation-fade"></i></a>
-		<div class="uk-margin-left uk-icon-medium uk-text-contrast like-wrap uk-animation-fade">{LikeButton color="white" size="28"}</div>
-		<a href="{Permalink}" title="{Title}" class="uk-margin-left"><i class="uk-icon-external-link uk-icon-medium uk-text-contrast uk-animation-fade"></i></a>			
-	</div>
-	{/block:indexpage}
-</div>
-{/block:Text}
-                
-                
-<!-- Answer Post TODO -->
-{block:Answer}
-<div class="Answer">
-<div class="question"><div style="width:30px;height:30px;position:realtive;" class="questions"><div class="hide-it-end">
-<div class="aks_container" style="background-image:url('{AskerPortraitURL-24}');"></div>
-<div class="askker">{Asker}
-<div class="rotat"></div>
-</div>
-</div>
-</div> 
-
-<div class="real-question">
-	{question}
-<div class="radius">
-
-</div>
-</div>
-</div>
-
-<div class="answer"><img src="{favicon}" class="answers"><div class="real-answer">{Answer}
-<div class="radius2"></div>
-</div>
-</div>
-
-{block:date}
-<div class="note-count text_based"><a href="{permalink}" target="_blank">{block:ifusebiggerposts}{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}{/block:ifusebiggerposts}{block:ifnotusebiggerposts}{notecount} {lang:Notes} {block:ifnotusebiggerposts}</a>
-<div class="shareit"><span>{likebutton size="14"}</span>
-<span>{Reblogbutton size="14"}</span>
-</div>
-</div>
-{/block:date}
-
-</div>
-{/block:Answer}
+<div class="post infscr {block:chat}chat-post{/block:chat} {block:quote}quote-post{/block:quote} {block:text}caption-post{/block:text} {block:photoset}caption-post{/block:photoset} {block:audio}caption-post{/block:audio} {block:photo}caption-post{/block:photo} {block:video}caption-post{/block:video} {block:link}link-post{/block:link} {block:Answer}text-post{/block:Answer} {block:PermalinkPage} uk-width-1-1{/block:PermalinkPage}" id="{postID}">
+<div class="uk-grid uk-grid-width-medium-1-2 uk-container-center">
 
 
-<!-- Photo Post  TODO -->
+
 {block:Photo}
 <figure {block:indexpage}class="uk-thumbnail uk-thumbnail-expand uk-overlay uk-overlay-hover uk-animation-hover"{/block:indexpage} {block:permalinkpage}class="uk-padding-remove"{/block:permalinkpage}>
-<img src="{PhotoURL-500}" alt="{PhotoAlt}" title="{PhotoAlt}" class="uk-thumbnail-expand" />
+<img src="{block:indexpage}{PhotoURL-400}{/block:indexpage}{block:permalinkpage}{PhotoURL-HighRes}{/block:permalinkpage}" alt="{PhotoAlt}" title="{PhotoAlt}" class="uk-thumbnail-expand" />
 {block:indexpage}
 <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-fade uk-flex uk-flex-center uk-flex-middle uk-text-center">
-	<a href="{ReblogURL}" title="Reblog | {PhotoAlt}" target="_blank"><i class="uk-icon-retweet uk-icon-medium uk-text-contrast uk-animation-fade"></i></a>
-	<a href="{PhotoURL-700}" title="{PhotoAlt}" class="uk-margin-left" data-uk-lightbox="{group:'page'}"><i class="uk-icon-arrows-alt uk-icon-medium uk-text-contrast uk-animation-fade"></i></a>
-	<div class="uk-margin-left uk-icon-medium uk-text-contrast like-wrap uk-animation-fade">{LikeButton color="white" size="28"}</div>
-	<a href="{Permalink}" title="Link | {PhotoAlt}" class="uk-margin-left"><i class="uk-icon-external-link uk-icon-medium uk-text-contrast uk-animation-fade"></i></a>			
+	<a href="{ReblogURL}" title="Reblog | {PhotoAlt}" target="_blank"><i class="uk-icon-refresh uk-icon-large uk-text-contrast uk-animation-fade"></i></a>
+	<a href="{Permalink}" title="Link | {PhotoAlt}" class="uk-margin-left"><i class="uk-icon-plus-circle uk-icon-large uk-text-contrast uk-animation-fade"></i></a>
 </figcaption>
 {/block:indexpage}
-</figure>                        
+</figure>
 
-                        
 {block:permalinkpage}
 
-<div class="caption uk-padding-remove">
+<div class="caption uk-padding-remove" data-uk-sticky="{boundary: true}">
 <div class="caption_header uk-panel-box">
 	<h2 class="uk-text-right uk-article-meta uk-margin-small">{DayOfWeek} {DayOfMonth} / {Month} / {Year}</h2>
     <h3 class="uk-text-right uk-article-meta uk-margin-small">{block:PostSummary}{PostSummary}{/block:PostSummary}</h3>
 </div>
-	    	    
+
 <div class="caption_inner uk-panel uk-panel-box uk-panel-box-secondary uk-link-muted">
 <div class="uk-text-center uk-panel-space">{Caption}</div>
 	
@@ -411,7 +341,7 @@ uk-width-1-1{/block:PermalinkPage}" id="{postID}">
 
 <hr class="uk-margin-small" />
 
-{block:ifnothidetags}{block:HasTags}<div class="uk-panel uk-text-small uk-margin"><ul class="uk-subnav uk-subnav-pill uk-flex uk-flex-center">{block:tags}<li><h4 class="uk-text-small uk-margin-small">{tag}</h4></li>{/block:tags}</ul></div>{/block:HasTags}{/block:ifnothidetags}     
+{block:ifnothidetags}{block:HasTags}<div class="uk-panel uk-text-small uk-margin"><ul class="uk-subnav uk-subnav-pill uk-flex uk-flex-center">{block:tags}<li><h4 class="uk-text-small uk-margin-small">{tag}</h4></li>{/block:tags}</ul></div>{/block:HasTags}{/block:ifnothidetags}
 
 {block:GroupMembers}
 {GroupMemberPortraitURL-40}
@@ -420,7 +350,7 @@ uk-width-1-1{/block:PermalinkPage}" id="{postID}">
 {block:PostNotes} 
 <div class="uk-display-block uk-scrollable-text uk-margin-top">
 	<div class="inner_container">
-		<div class="postnotes uk-panel-box">  
+		<div class="postnotes uk-panel-box">
 			{block:Posts}
 				<div class="post-padding">
 					<div class="post-padding2">
@@ -430,76 +360,56 @@ uk-width-1-1{/block:PermalinkPage}" id="{postID}">
 			{/block:Posts}
 		</div>
 	</div>
-</div>        
+</div>
 {/block:PostNotes}
 
 <div class="uk-container-center uk-width-1-1 uk-margin-top">
-	<ul class="uk-grid uk-grid-small uk-grid-width-1-2" data-uk-margin>			
+	<ul class="uk-grid uk-grid-small uk-grid-width-1-2" data-uk-margin>
 	{block:iftwitterusername}
 	<li><a href="https://twitter.com/{text:twitter username}" class="uk-button uk-button-primary uk-button-large uk-width-1-1" title="Twitter" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-twitter uk-margin-right"></i>Follow</a></li>
 	{/block:iftwitterusername}
-
 	{block:iffacebookurl}
 	<li><a href="{text:Facebook URL}" class="uk-button uk-button-primary uk-button-large uk-width-1-1" title="Facebook" target="_blank" rel="nofollow" itemprop="sameAs">Like<i class="uk-icon-facebook uk-margin-left"></i></a></li>
 	{/block:iffacebookurl}
 	</ul>
 </div>
-     
 </div>
 
 <div class="uk-container-center uk-width-1-1">
-	<ul class="uk-grid uk-grid-collapse uk-grid-width-1-2" data-uk-margin>			
+	<ul class="uk-grid uk-grid-collapse uk-grid-width-1-2" data-uk-margin>
 	{block:PermalinkPagination}
-	    {block:PreviousPost}
-	    <li><a href="{PreviousPost}" class="uk-button uk-button-large uk-width-1-1 prev" title="Previous Post"><i class="uk-icon-chevron-left uk-margin-right"></i>Previous Post</a></li>
-	    {/block:PreviousPost}
-	     
-	    {block:NextPost}
-	     <li><a href="{NextPost}" class="uk-button uk-button-large uk-width-1-1 next" title="Next Post">Next Post<i class="uk-icon-chevron-right uk-margin-left"></i></a></li>
-	    {/block:NextPost}
+		{block:PreviousPost}
+		<li><a href="{PreviousPost}" class="uk-button uk-button-large uk-width-1-1 prev" title="Previous Post"><i class="uk-icon-chevron-left uk-margin-right"></i>Previous Post</a></li>
+		{/block:PreviousPost}
+
+		{block:NextPost}
+		<li><a href="{NextPost}" class="uk-button uk-button-large uk-width-1-1 next" title="Next Post">Next Post<i class="uk-icon-chevron-right uk-margin-left"></i></a></li>
+		{/block:NextPost}
 	{/block:PermalinkPagination}
 	</ul>
 </div>
-
 </div>
 </div>
 
 {/block:permalinkpage}
 {/block:Photo}
-                
-                
-<!-- Panorama TODO -->
-{block:Panorama}
-<div>
-{LinkOpenTag}
-<img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
-{LinkCloseTag}
-<div class="caption"><div class="caption_inner">{block:ifnothidecaption}{block:ifnothidecaption}{Caption}{/block:ifnothidecaption}{/block:ifnothidecaption}</div></div>
-</div>               
-{/block:Panorama}
 
-                
-<!-- Photoset TODO -->                
+
+
 {block:Photoset}
 <div class="uk-thumbnail uk-thumbnail-expand uk-overlay uk-overlay-hover">
-    <div class="photosets uk-cover">
-
+<div class="photosets uk-cover">
 
 {block:indexpage}   
 {block:ifusebiggerposts}
 <div class="photoset-photos">
-
 {block:Photos}
 <img src="{PhotoURL-500}" class="uk-thumbnail-expand" />
 {/block:Photos}
-    
 </div>
 {/block:ifusebiggerposts}
-      
 {Photoset-700}
- 
 {/block:indexpage}
-
 
 {block:permalinkpage}
 {Photoset-500}
@@ -507,22 +417,21 @@ uk-width-1-1{/block:PermalinkPage}" id="{postID}">
 
 </div>
 
-{block:indexpage}                            
+{block:indexpage}
 <div class="uk-thumbnail-caption"><div class="caption_inner">{block:ifnothidecaption}{Caption}{/block:ifnothidecaption}
 {block:ifnothidetags}{block:HasTags}<div class="fix-it-tag"><br>{block:tags}<a href="{TagURL}" class="tags_URL"># <span class="freezing">{tag}</span></a> {/block:tags}</div>{/block:HasTags}{/block:ifnothidetags}                                
 <div class="note-count-no-caption-no-like"><a href="{permalink}" target="_blank">{block:ifusebiggerposts}{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}{/block:ifusebiggerposts}{block:ifnotusebiggerposts}{notecount} {lang:Notes} {block:ifnotusebiggerposts}</a>
 <div  class="shareit">
 <span>{Reblogbutton size="14"}</span>
-                                
-    </div>
-	</div> 
-    </div>
-    </div>
-{/block:indexpage}   
 
+</div>
+</div> 
+</div>
+</div>
+{/block:indexpage}
 
 {block:permalinkpage}
-                        
+
 <div class="uk-thumbnail-caption"><div class="caption_inner">{Caption}                                
 {block:ifnothidetags}{block:HasTags}<div class="fix-it-tag"><br>{block:tags}<a href="{TagURL}" class="tags_URL"># <span class="freezing">{tag}</span></a> {/block:tags}</div>{/block:HasTags}{/block:ifnothidetags}
 <div class="note-count"><a href="{permalink}" target="_blank">{block:ifusebiggerposts}{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}{/block:ifusebiggerposts}{block:ifnotusebiggerposts}{notecount} {lang:Notes} {block:ifnotusebiggerposts}</a>
@@ -530,160 +439,166 @@ uk-width-1-1{/block:PermalinkPage}" id="{postID}">
 <span>{Reblogbutton size="14"}</span>
 </div>
 	
-	</div> 
-    </div>
-    </div>
-                        
-{/block:permalinkpage}
-                        
+</div> 
+</div>
 </div>
 
+{/block:permalinkpage}
+</div>
 {/block:Photoset}
-                
 
 
-                
-<!-- Quote Post -->              
-{block:Quote}
-<div class="uk-panel uk-panel-space uk-panel-box uk-width-1-1 uk-overlay uk-overlay-hover uk-animation-hover">
-    <blockquote>
-    <p>"{Quote}"</p>    
-    {block:Source}<small>{Source}</small>{/block:Source}
-	{block:indexpage}
-	<div class="uk-overlay-panel uk-overlay-background uk-overlay-fade uk-flex uk-flex-center uk-flex-middle uk-text-center">
-		<a href="{ReblogURL}" title="{ReblogURL}" target="_blank"><i class="uk-icon-retweet uk-icon-medium uk-text-contrast uk-animation-fade"></i></a>
-		<div class="uk-margin-left uk-icon-medium uk-text-contrast like-wrap uk-animation-fade">{LikeButton color="white" size="28"}</div>
-		<a href="{Permalink}" title="{Title}" class="uk-margin-left"><i class="uk-icon-external-link uk-icon-medium uk-text-contrast uk-animation-fade"></i></a>			
-	</div>
-	{/block:indexpage}
-</div> 
-{/block:Quote}
-               
-                
-<!-- Link Post -->
+
+
 {block:Link}
-<div class="uk-panel uk-panel-space uk-panel-box uk-width-1-1 uk-overlay uk-overlay-hover uk-animation-hover">
-	{block:Thumbnail}<img src="{Thumbnail}" alt="{Name}" title="{Name}" class="uk-thumbnail-expand uk-panel-teaser" />{/block:Thumbnail}
-	{block:indexpage}
-	<div class="uk-overlay-panel uk-overlay-background uk-overlay-fade uk-flex uk-flex-center uk-flex-middle uk-text-center">
-		<a href="{ReblogURL}" title="{ReblogURL}" target="_blank"><i class="uk-icon-retweet uk-icon-medium uk-text-contrast uk-animation-fade"></i></a>
-		<div class="uk-margin-left uk-icon-medium uk-text-contrast like-wrap uk-animation-fade">{LikeButton color="white" size="28"}</div>
-		<a href="{Permalink}" title="{Title}" class="uk-margin-left"><i class="uk-icon-external-link uk-icon-medium uk-text-contrast uk-animation-fade"></i></a>			
-	</div>
-	{/block:indexpage}
-</div>                        
+<div class="uk-panel uk-panel-box uk-width-1-1 uk-overlay uk-overlay-hover uk-animation-hover uk-width-1-1">	
+{block:Thumbnail}<img src="{Thumbnail}" alt="{Name}" title="{Name}" class="uk-width-1-1 uk-margin-bottom" />{/block:Thumbnail}
+{block:indexpage}
+<span class="uk-panel">
+<i class="uk-icon-link uk-align-right uk-float-right"></i>
+{Name}
+</span>
+<div class="uk-overlay-panel uk-overlay-background uk-overlay-fade uk-flex uk-flex-center uk-flex-middle uk-text-center">
+	<a href="{ReblogURL}" title="Reblog" target="_blank"><i class="uk-icon-refresh uk-icon-large uk-text-contrast uk-animation-fade"></i></a>
+	<a href="{Permalink}" title="Link" class="uk-margin-left"><i class="uk-icon-plus-circle uk-icon-large uk-text-contrast uk-animation-fade"></i></a>
+</div>
+{/block:indexpage}
+{block:permalinkpage}
+{Name}: {Description}
+<a href="{URL}" target="_blank" rel="nofollow" class="uk-button">Link</a>
+{/block:permalinkpage}
+</div>
 {/block:Link}
 
-                
-<!-- Chat Post --> 
+
+{block:Text}
+<div class="uk-panel uk-panel-space uk-panel-box uk-width-1-1 uk-overlay uk-overlay-hover uk-animation-hover">
+{block:Title}
+<div class="uk-panel-lead">{Title}</div>
+{/block:Title}
+<div class="uk-panel-body">{Body}</div>
+{block:indexpage}
+<div class="uk-overlay-panel uk-overlay-background uk-overlay-fade uk-flex uk-flex-center uk-flex-middle uk-text-center">
+	<a href="{ReblogURL}" title="Reblog" target="_blank"><i class="uk-icon-refresh uk-icon-large uk-text-contrast uk-animation-fade"></i></a>
+	<a href="{Permalink}" title="Link" class="uk-margin-left"><i class="uk-icon-plus-circle uk-icon-large uk-text-contrast uk-animation-fade"></i></a>
+</div>
+{/block:indexpage}
+</div>
+{/block:Text}
+
+
+{block:Quote}
+<div class="uk-panel uk-panel-space uk-panel-box uk-width-1-1 uk-overlay uk-overlay-hover uk-animation-hover">
+<blockquote>
+<p>"{Quote}"</p>    
+{block:Source}<small>{Source}</small>{/block:Source}
+</blockquote>
+{block:indexpage}
+<div class="uk-overlay-panel uk-overlay-background uk-overlay-fade uk-flex uk-flex-center uk-flex-middle uk-text-center">
+	<a href="{ReblogURL}" title="Reblog" target="_blank"><i class="uk-icon-refresh uk-icon-large uk-text-contrast uk-animation-fade"></i></a>
+	<a href="{Permalink}" title="Link" class="uk-margin-left"><i class="uk-icon-plus-circle uk-icon-large uk-text-contrast uk-animation-fade"></i></a>
+</div>
+{/block:indexpage}
+</div> 
+{/block:Quote}
+
+
 {block:Chat}
 <div class="uk-panel uk-panel-space uk-panel-box uk-width-1-1 uk-overlay uk-overlay-hover uk-animation-hover">
-    {block:Title}
-    <div class="uk-panel-lead">{Title}</div>
-    {/block:Title}
-    <ul class="uk-list uk-list-line">
-    	{block:Lines}<li class="{Alt} user_{UserNumber}">{block:Label}{Label}{/block:Label}{Line}</li>{/block:Lines}
-    </ul>          
-	{block:indexpage}
-	<div class="uk-overlay-panel uk-overlay-background uk-overlay-fade uk-flex uk-flex-center uk-flex-middle uk-text-center">
-		<a href="{ReblogURL}" title="{ReblogURL}" target="_blank"><i class="uk-icon-retweet uk-icon-medium uk-text-contrast uk-animation-fade"></i></a>
-		<div class="uk-margin-left uk-icon-medium uk-text-contrast like-wrap uk-animation-fade">{LikeButton color="white" size="28"}</div>
-		<a href="{Permalink}" title="{Title}" class="uk-margin-left"><i class="uk-icon-external-link uk-icon-medium uk-text-contrast uk-animation-fade"></i></a>			
-	</div>
-	{/block:indexpage}
+{block:Title}
+<div class="uk-panel-lead">{Title}</div>
+{/block:Title}
+<ul class="uk-list uk-list-line">
+{block:Lines}<li class="{Alt} user_{UserNumber}">{block:Label}{Label}{/block:Label}{Line}</li>{/block:Lines}
+</ul>
+{block:indexpage}
+<div class="uk-overlay-panel uk-overlay-background uk-overlay-fade uk-flex uk-flex-center uk-flex-middle uk-text-center">
+	<a href="{ReblogURL}" title="Reblog" target="_blank"><i class="uk-icon-refresh uk-icon-large uk-text-contrast uk-animation-fade"></i></a>
+	<a href="{Permalink}" title="Link" class="uk-margin-left"><i class="uk-icon-plus-circle uk-icon-large uk-text-contrast uk-animation-fade"></i></a>
+</div>
+{/block:indexpage}
 </div>
 {/block:Chat}
-                
-         
-         
-                
-<!-- Video Post  TODO -->                
+
+
 {block:Video}
-<div class="uk-thumbnail uk-thumbnail-expand uk-overlay uk-overlay-hover">
-<div class="uk-cover videoWrapper">
-{block:indexpage}{video-500}{/block:indexpage}
-{block:permalinkpage}{Video-700}{/block:permalinkpage}
-</div>
-	{block:indexpage}
-	<div class="uk-thumbnail-caption">
-		<a href="{ReblogURL}" title="{ReblogURL}" target="_blank"><i class="uk-icon-retweet uk-icon-small"></i></a>
-		<div class="uk-margin-left uk-icon-small">{LikeButton color="gray" size="28"}</div>
-		<a href="{Permalink}" title="{Title}" class="uk-margin-left"><i class="uk-icon-external-link uk-icon-small"></i></a>			
-	</div>
-	{/block:indexpage} 
-</div>
+<figure class="{block:indexpage}uk-panel uk-panel-box uk-width-1-1 uk-overlay uk-overlay-hover uk-animation-hover{/block:indexpage} {block:permalinkpage}uk-padding-remove uk-width-1-1 uk-text-center{/block:permalinkpage}">	
+{block:indexpage}
+{block:VideoThumbnail}<img src="{VideoThumbnailURL}" alt="{VideoThumbnailURL}" title="{VideoThumbnailURL}" class="uk-width-1-1 uk-margin-bottom" />{/block:VideoThumbnail}
+<span class="uk-panel">
+<i class="uk-icon-video-camera uk-align-right uk-float-right"></i>
+{Caption}
+</span>
+{/block:indexpage}
+{block:permalinkpage}<div class="uk-flex uk-flex-wrap uk-flex-center uk-flex-wrap-around uk-margin-bottom">{Video-700}</div>{Caption}{/block:permalinkpage}
+{block:indexpage}
+<figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-fade uk-flex uk-flex-center uk-flex-middle">
+	<a href="{ReblogURL}" title="Reblog" target="_blank"><i class="uk-icon-refresh uk-icon-large uk-text-contrast uk-animation-fade"></i></a>
+	<a href="{Permalink}" title="Link" class="uk-margin-left"><i class="uk-icon-plus-circle uk-icon-large uk-text-contrast uk-animation-fade"></i></a>
+</figcaption>
+{/block:indexpage} 
+</figure>
 {/block:Video}
-                
 
-<!-- Audio Post  TODO -->                                
 {block:Audio}
-<div class="audio">
-    <div class="audio_embed">
-    {block:indexpage}{AudioEmbed-500}{/block:indexpage}
-    {block:permalinkpage}{AudioEmbed-700}{/block:permalinkpage}
-    </div>
-	{block:indexpage}
-	<div class="uk-thumbnail-caption">
-		<a href="{ReblogURL}" title="{ReblogURL}" target="_blank"><i class="uk-icon-retweet uk-icon-small"></i></a>
-		<div class="uk-margin-left uk-icon-small">{LikeButton color="gray" size="28"}</div>
-		<a href="{Permalink}" title="{Title}" class="uk-margin-left"><i class="uk-icon-external-link uk-icon-small"></i></a>			
-	</div>
-	{/block:indexpage}  
-</div>
+<figure class="{block:indexpage}uk-panel uk-panel-box uk-width-1-1 uk-overlay uk-overlay-hover uk-animation-hover{/block:indexpage} {block:permalinkpage}uk-padding-remove uk-width-1-1 uk-text-center{/block:permalinkpage}">	
+{block:indexpage}
+<i class="uk-icon-headphones uk-align-right uk-float-right"></i>
+{Caption}
+<figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-fade uk-flex uk-flex-center uk-flex-middle">
+	<a href="{ReblogURL}" title="Reblog" target="_blank"><i class="uk-icon-refresh uk-icon-large uk-text-contrast uk-animation-fade"></i></a>
+	<a href="{Permalink}" title="Link" class="uk-margin-left"><i class="uk-icon-plus-circle uk-icon-large uk-text-contrast uk-animation-fade"></i></a>
+</figcaption>
+{/block:indexpage}
+{block:permalinkpage}
+{block:AudioEmbed}<div class="uk-flex uk-flex-wrap uk-flex-center uk-flex-wrap-around uk-text-center uk-margin-bottom">{AudioEmbed}</div>{Caption}{/block:AudioEmbed}
+{/block:permalinkpage}
+</figure>
 {/block:Audio}
-
-
 
 </div>
 </div>
 
 {/block:Posts}
-               
+
 </div>
 </div>
 
-
-<!-- Pagination TODO -->
 <div class="uk-width-1-1 uk-hidden">
 	<ul id="pagination" class="pagination uk-clearfix">
 	{block:Pagination}{block:PreviousPage}
-	    <li><a href="{PreviousPage}" class="prev">Previous</a></li>
+		<li><a href="{PreviousPage}" class="prev">Previous</a></li>
 	{/block:PreviousPage}{block:NextPage}
-	    <li><a href="{NextPage}" class="next">Next</a></li>
+		<li><a href="{NextPage}" class="next">Next</a></li>
 	{/block:NextPage}{/block:Pagination}
 	</ul>
 </div>
 
-
 <footer class="uk-block uk-block-secondary uk-margin-large-top">
 <div class="uk-container uk-container-center uk-clearfix">
-
-<!-- Disqus -->
-{block:permalinkpage}     
+{block:permalinkpage}
 	{block:PermalinkPagination}
 		{block:IfDisqusShortname}
-		<i class="uk-icon-comment uk-align-right"></i>	
+		<i class="uk-icon-comment uk-align-right"></i>
 		<div class="uk-article-lead">Comments</div>
-		<div data-lazy-widget>
-		<!--
-		<div id="disqus_thread" class="uk-panel uk-panel-box uk-margin uk-panel-space"></div>      
-		<script type="text/javascript">
+		<div class="lazy uk-margin">
+
+		<div id="disqus_thread" class="uk-panel uk-panel-box uk-panel-space"></div>
+		<script>
 		var disqus_shortname = '{text:Disqus Shortname}';
-		
+
 		(function() {
 		  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 		  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
 		  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 		})();
 		</script>
-		-->
+
 		</div>
 		{/block:IfDisqusShortname}
 	{/block:PermalinkPagination}
 {/block:permalinkpage}
-            
 </div> 
-
 
 <div class="copyrightcontainer uk-block uk-text-center uk-clearfix">
 {block:ifCustomlink1title}
@@ -704,22 +619,20 @@ uk-width-1-1{/block:PermalinkPage}" id="{postID}">
 </ul>
 {/block:ifCustomlink1title}
 
-
 {block:ifplacecopyrightnotice}
 	<div class="copyrightcontent">{block:ifCopyrightPart}{text:Copyright Part}{/block:ifCopyrightPart}{block:ifnotCopyrightPart}Copyright © {CopyrightYears} {title}{/block:ifnotCopyrightPart}Ultra by Haeck Design</div>
 {/block:ifplacecopyrightnotice}
 
 {block:ifnotplacecopyrightnotice}
-    <div class="copyrightcontent uk-text-muted">Ultra Tumblr by <a href="https://haeckdesign.com/" title="Haeck Design" target="_blank" class="uk-text-muted">Haeck Design</a></div>
+	<div class="copyrightcontent uk-text-muted">Ultra Tumblr by <a href="https://haeckdesign.com/" title="Haeck Design" target="_blank" class="uk-text-muted">Haeck Design</a></div>
 {/block:ifnotplacecopyrightnotice}
 
 </div>
-
-	<a id="totop-scroller" class="uk-width-1-1 uk-icon-caret-up uk-text-muted uk-icon-large uk-text-center uk-margin" data-uk-smooth-scroll href="#page"></a>
+<a id="totop-scroller" class="uk-width-1-1 uk-icon-caret-up uk-text-muted uk-icon-large uk-text-center uk-margin" data-uk-smooth-scroll href="#page"></a>
 </footer>
 
 {block:permalinkpage}
-<script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
+<script async src="//assets.pinterest.com/js/pinit.js"></script>
 <script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/us_US/all.js#xfbml=1";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script>
 {/block:permalinkpage}
 
