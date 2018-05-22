@@ -124,44 +124,11 @@
 <meta property="og:image" content="{Favicon}" />
 <meta name="twitter:image" content="{Favicon}" />
 
-<link href="https://static.tumblr.com/vizevuc/pQPp8qkf0/uikit.ultra.min.css" rel="stylesheet" />
-<script src="https://static.tumblr.com/vizevuc/vKdp8qkbv/uikit.min.js"></script>
-<script src="https://static.tumblr.com/vizevuc/hihp8qkc1/uikit-icons.min.js"></script>
-<script src="https://static.tumblr.com/vizevuc/e33p8qke6/lazy.js"></script>
-
-<!--
-<link href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.3/css/uikit.min.css" rel="stylesheet" />
-<script src="https://static.tumblr.com/cvhjz4y/JWSn5a9bq/jquery.min.js"></script>
-<script src="https://static.tumblr.com/vizevuc/UgLp1ri0n/newultracombo.js"></script>
--->
-
-<script>
-$(window).load(function() {
-	var e = $("#content");
-	setTimeout(function() {
-	e.animate({
-	'opacity': '1'
-	},1000);
-	},1000);
-	e.infinitescroll({
-		navSelector: "#pagination",
-		nextSelector: "#pagination li a.next",
-		itemSelector: ".post",
-		isFitWidth: true
-	}, function(t) {
-		var n = $(t).css({
-		opacity: 0
-	});
-		var r = n.map(function() {
-		return this.id
-	}).get();
-		n.imagesLoaded(function() {
-		$('.simwha').css({'display':'block'});
-		Tumblr.LikeButton.get_status_by_post_ids(r)
-	})
-	})
-});
-</script>
+<link href="https://static.tumblr.com/vizevuc/AhLp93vwk/uikit.ultra.min.css" rel="stylesheet" />
+<script src="https://static.tumblr.com/vizevuc/xJVp8r8xn/uikit.min.js"></script>
+<script src="https://static.tumblr.com/vizevuc/GzFp8r8y1/uikit-icons.min.js" defer></script>
+<script src="https://static.tumblr.com/vizevuc/e33p8qke6/lazy.js" defer></script>
+<script src="https://unpkg.com/infinite-scroll@3/dist/infinite-scroll.pkgd.min.js"></script>
 
 <style>
 html { font-family: {font:Body}; background: {color:Background Color}; background: -moz-radial-gradient(center, ellipse cover, {color:Background Gradient Color} 0%, {color:Background Color} 100%); background: -webkit-radial-gradient(center, ellipse cover, {color:Background Gradient Color} 0%,{color:Background Color} 100%); background: radial-gradient(ellipse at center, {color:Background Gradient Color} 0%,{color:Background Color} 100%); } 
@@ -185,136 +152,39 @@ h1.uk-article-title {line-height: 1.25em;}
 </head>
 
 <body>
-<header class="uk-block uk-flex-column uk-text-center uk-container-center">
-<nav data-uk-sticky>
-	<button class="uk-button uk-button-large uk-navbar-toggle uk-position-top-right" data-uk-offcanvas="{target:'#offmenu'}"></button>
-</nav>
+<div class="uk-offcanvas-content">
 
-{block:iflogoimage}<a href="{BlogURL}" title="{Title}"><img src="{image:logo}" alt="{Title} Logo" title="{Title} Logo" style="width:80px;height:80px;" class="uk-thumbnail uk-border-circle" /></a>{/block:iflogoimage}
-{block:indexpage}<h1 class="uk-article-title uk-container uk-container-center uk-margin">{Title}</h1><hr />{/block:indexpage}
-{block:PermalinkPage}{block:PostSummary}<h1 class="uk-article-title uk-container uk-container-center uk-margin">{PostSummary}</h1><hr />{/block:PostSummary}{/block:PermalinkPage}
+<header class="uk-section uk-section-small uk-text-center">
+{block:iflogoimage}<a href="{BlogURL}" title="{Title}"><img src="{image:logo}" alt="{Title} Logo" title="{Title} Logo" class="uk-thumbnail uk-border-circle toplogo" /></a>{/block:iflogoimage}
+{block:indexpage}<h1 class="uk-text-lead uk-heading-divider">{Title}</h1>{/block:indexpage}
+{block:PermalinkPage}{block:PostSummary}<h1 class="uk-text-lead uk-heading-divider">{PostSummary}</h1>{/block:PostSummary}{/block:PermalinkPage}
 {block:Description}
-{block:indexpage}<h2 id="description" class="uk-article-meta uk-margin">{Description}</h2>{/block:indexpage}
-{block:PermalinkPage}<div id="description" class="uk-article-meta uk-margin">{Description}</div>{/block:PermalinkPage}
+{block:indexpage}<h2 id="description" class="uk-text-meta uk-margin">{Description}</h2>{/block:indexpage}
+{block:PermalinkPage}<div id="description" class="uk-text-meta uk-margin">{Description}</div>{/block:PermalinkPage}
 {/block:Description}
 </header>
 
 
-<div id="offmenu" class="uk-offcanvas">
-<div class="uk-offcanvas-bar">
-<div class="uk-panel uk-text-center">
-	<div class="uk-article-lead uk-text-primary uk-margin-top">{Title}</div>
-		<hr class="uk-article-divider" />
-		<p class="uk-article-meta">{Description} {block:indexpage}{text:Description Extension}{/block:indexpage}</p>
-		<hr class="uk-article-divider" />
-	</div>
-	<ul class="uk-nav uk-nav-offcanvas uk-text-center uk-text-large" data-uk-nav>
-		{block:HasPages}{block:Pages}<li><a href="{URL}" title="{Label}">{Label}</a></li>{/block:Pages}{/block:HasPages}                                       
-		{block:SubmissionsEnabled}<li><a href="/submit" title="{SubmitLabel}">{SubmitLabel}</a></li>{/block:SubmissionsEnabled}
-		{block:AskEnabled}<li><a class='iframe' id="ask_form" href="http://www.tumblr.com/ask_form/{name}.tumblr.com" title="{AskLabel}">{AskLabel}</a></li>{/block:AskEnabled}
-	{block:ifwebsiteurl}
-		<li><a href="{text:websiteurl url}" title="Website" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-globe uk-margin-right"></i>Website</a></li>
-	{/block:ifwebsiteurl}
-	{block:ifshopurl}
-		<li><a href="{text:shop url}" title="Shop" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-shopping-cart uk-margin-right"></i>Shop</a></li>
-	{/block:ifshopurl}
-	{block:ifemail}
-		<li><a href="mailto:{text:email url}" title="Email" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-envelope uk-margin-right"></i>Email</a></li>
-	{/block:ifemail}
-	</ul>
-
-
-<div itemscope itemtype="https://schema.org/Organization">
-<ul class="uk-nav uk-nav-offcanvas uk-text-center uk-text-large" data-uk-nav>	
-	{block:iffacebookurl}
-		<li><a href="{text:facebook url}" title="Facebook" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-facebook uk-margin-right"></i>Facebook</a></li>
-	{/block:iffacebookurl}
-	{block:iftwitterusername}
-		<li><a href="https://twitter.com/{text:twitter username}" title="Twitter" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-twitter uk-margin-right"></i>Twitter</a></li>
-	{/block:iftwitterusername}
-	{block:ifpinteresturl}
-		<li><a href="https://pinterest.com/{text:pinterest username}" title="Pinterest" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-pinterest uk-margin-right"></i>Pinterest</a></li>
-	{/block:ifpinteresturl}
-	{block:ifgoogleplusurl}
-		<li><a href="{text:googleplus url}" title="Google Plus" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-google-plus uk-margin-right"></i>Google Plus</a></li>
-	{/block:ifgoogleplusurl}	
-	{block:ifinstagramusername}
-		<li><a href="http://instagram.com/{text:instagram username}" title="Instagram" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-instagram uk-margin-right"></i>Instagram</a></li>
-	{/block:ifinstagramusername}
-	{block:ifspanchatusername}
-		<li><a href="https://snapchat.com/{text:snapchat username}" title="Snapchat" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-snapchat uk-margin-right"></i>Snapchat</a></li>
-	{/block:ifspanchatusername}		
-	{block:ifstumbleuponurl}
-		<li><a href="{text:stumbleupon username}" title="StumbleUpon" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-stumbleupon uk-margin-right"></i>StumbleUpon</a></li>
-	{/block:ifstumbleuponurl}	
-	{block:ifdelicioususername}
-		<li><a href="{text:delicious username}" title="Delicious" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-delicious uk-margin-right"></i>Delicious</a></li>
-	{/block:ifdelicioususername}
-	{block:ifredditusername}
-		<li><a href="https://reddit.com/~{text:reddit username}" title="Reddit" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-reddit uk-margin-right"></i>Reddit</a></li>
-	{/block:ifredditusername}		
-	{block:ifmediumurl}
-		<li><a href="{text:medium url}" title="Medium" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-medium uk-margin-right"></i>Medium</a></li>
-	{/block:ifmediumurl}
-	{block:ifvkurl}
-		<li><a href="{text:vk url}" title="VK" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-vk uk-margin-right"></i>VK</a></li>
-	{/block:ifvkurl}
-	{block:ifbehanceurl}
-		<li><a href="{text:behance url}" title="Behance" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-behance uk-margin-right"></i>Behance</a></li>
-	{/block:ifbehanceurl}
-	{block:ifdribbbleurl}
-		<li><a href="{text:dribbble url}" title="Dribbble" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-dribbble uk-margin-right"></i>Dribbble</a></li>
-	{/block:ifdribbbleurl}
-	{block:ifflickrurl}
-		<li><a href="{text:flickr url}" title="Flickr" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-flickr uk-margin-right"></i>Flickr</a></li>
-	{/block:ifflickrurl}
-	{block:ifstackexchangeurl}
-		<li><a href="{text:stackexchange url}" title="StackExchange" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-stack-exchange uk-margin-right"></i>StackExchange</a></li>
-	{/block:ifstackexchangeurl}
-	{block:iflastfmurl}
-		<li><a href="{text:lastfm url}" title="LastFm" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-lastfm uk-margin-right"></i>LastFm</a></li>
-	{/block:iflastfmurl}
-	{block:ifsoundcloudurl}
-		<li><a href="{text:soundcloud url}" title="SoundCloud" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-soundcloud uk-margin-right"></i>SoundCloud</a></li>
-	{/block:ifsoundcloudurl}
-	{block:ifspotifyurl}
-		<li><a href="{text:spotify url}" title="Spotify" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-spotify uk-margin-right"></i>Spotify</a></li>
-	{/block:ifspotifyurl}
-	{block:ifvimeourl}
-		<li><a href="{text:vimeo url}" title="Vimeo" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-vimeo uk-margin-right"></i>Vimeo</a></li>
-	{/block:ifvimeourl}
-	{block:ifyoutubeurl}
-		<li><a href="{text:youtube url}" title="YouTube" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-youtube-play uk-margin-right"></i>YouTube</a></li>
-	{/block:ifyoutubeurl}
-	{block:iftwitchurl}
-		<li><a href="{text:twitch url}" title="Twitch" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-twitch uk-margin-right"></i>Twitch</a></li>
-	{/block:iftwitchurl}
-	</ul>
-</div>
-</div>
-</div>
-
-<div id="container" class="{block:ifnotusebiggerposts}not-bigger{block:ifnotusebiggerposts} uk-container uk-container-center uk-clearfix">
-<div id="content" {block:IndexPage}class="uk-grid uk-grid-small uk-child-width-1-1 uk-child-width-1-2@m {select:Max Grid Columns}" data-uk-grid="{gutter:20}"{/block:IndexPage}>
+<section id="container" class="uk-container uk-container-center uk-width-5-6@m uk-clearfix">
+<div id="content" {block:IndexPage}class="container uk-grid uk-grid-medium uk-child-width-1-2@s {select:Max Grid Columns}" data-uk-grid="masonry: true;" {/block:IndexPage} {block:permalinkpage}class="uk-grid uk-grid-small uk-child-width-1-2@m" data-uk-grid{/block:permalinkpage}>
 
 {block:Posts}
-<div class="post infscr {block:chat}chat-post{/block:chat} {block:quote}quote-post{/block:quote} {block:text}caption-post{/block:text} {block:photoset}caption-post{/block:photoset} {block:audio}caption-post{/block:audio} {block:photo}caption-post{/block:photo} {block:video}caption-post{/block:video} {block:link}link-post{/block:link} {block:Answer}text-post{/block:Answer} {block:PermalinkPage} uk-width-1-1{/block:PermalinkPage}" id="{postID}">
-<div class="uk-grid uk-grid-width-medium-1-2 uk-container-center">
+<div class="post infscr {block:chat}chat-post{/block:chat} {block:quote}quote-post{/block:quote} {block:text}caption-post{/block:text} {block:photoset}caption-post{/block:photoset} {block:audio}caption-post{/block:audio} {block:photo}caption-post{/block:photo} {block:video}caption-post{/block:video} {block:link}link-post{/block:link} {block:Answer}text-post{/block:Answer}" id="{postID}">
 
 
 
 {block:Photo}
 
 {block:indexpage}
-<figure {block:indexpage}class="uk-overlay uk-overlay-hover uk-animation-hover uk-width-1-1"{/block:indexpage}>
-<div class="uk-inline uk-background-primary uk-transition-toggle uk-width-1-1">
+<div class="uk-overlay uk-overlay-hover uk-animation-hover uk-width-1-1 uk-padding-remove">
+<figure class="uk-inline uk-transition-toggle uk-width-1-1 uk-box-shadow-medium">
 {/block:indexpage}
 
 {block:permalinkpage}
-<figure class="uk-padding-remove">
+<div class="uk-padding-remove uk-box-shadow-medium">
 {/block:permalinkpage}
 
-<img src="{block:indexpage}{PhotoURL-400}{/block:indexpage}{block:permalinkpage}{PhotoURL-HighRes}{/block:permalinkpage}" alt="{PhotoAlt}" title="{PhotoAlt}" class="uk-width-1-1" />
+<img src="{block:indexpage}{PhotoURL-500}{/block:indexpage}{block:permalinkpage}{PhotoURL-HighRes}{/block:permalinkpage}" alt="{PhotoAlt}" title="{PhotoAlt}" class="uk-width-1-1" />
 {block:indexpage}
 <div class="uk-overlay-default uk-position-cover uk-transition-fade"></div>
 <figcaption class="uk-position-cover uk-transition-fade">
@@ -323,196 +193,40 @@ h1.uk-article-title {line-height: 1.25em;}
 	<a href="{Permalink}" title="Link | {PhotoAlt}" class="uk-animation-fade" data-uk-icon="icon:plus-circle;ratio:2.4;"></a>
 </span>
 </figcaption>
-</div>
-{/block:indexpage}
 </figure>
-
-{block:permalinkpage}
-
-<div class="caption uk-padding-remove" data-uk-sticky="{boundary: true}">
-<div class="caption_header uk-panel-box">
-	<h2 class="uk-text-right uk-article-meta uk-margin-small">{DayOfWeek} {DayOfMonth} / {Month} / {Year}</h2>
-    <h3 class="uk-text-right uk-article-meta uk-margin-small">{block:PostSummary}{PostSummary}{/block:PostSummary}</h3>
+{/block:indexpage}
 </div>
 
-<div class="caption_inner uk-panel uk-panel-box uk-panel-box-secondary uk-link-muted">
-<div class="uk-text-center uk-panel-space">{Caption}</div>
-	
-<hr class="uk-margin-small" />
-
-<div class="socials uk-flex uk-flex-space-around uk-flex-middle uk-flex-center">
-	<div>
-	<div class="fb-like" data-href="{permalink}" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
-	</div> 
-	<div>
-	<a href="//www.pinterest.com/pin/create/button/?url={permalink}&media={photourl}&description=Found&nbsp;on&nbsp;https://tumblr.com/{name}" data-pin-do="buttonPin" data-pin-save="true" rel="nofollow" target="_blank"></a>
-	</div>
-	<div>
-	<a href="https://twitter.com/share" class="twitter-share-button" data-url="{permalink}" title="Share on Twitter" target="_blank" rel="nofollow">Tweet</a>
-	</div>
-    <div>{likebutton size="24"}</div>
-	<div>{Reblogbutton size="24"}</div>
-	<div>
-	{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}
-	</div>
-</div>
-
-<hr class="uk-margin-small" />
-
-{block:ifnothidetags}{block:HasTags}<div class="uk-panel uk-text-small uk-margin"><ul class="uk-subnav uk-subnav-pill uk-flex uk-flex-center">{block:tags}<li><h4 class="uk-text-small uk-margin-small">{tag}</h4></li>{/block:tags}</ul></div>{/block:HasTags}{/block:ifnothidetags}
-
-{block:GroupMembers}
-{GroupMemberPortraitURL-40}
-{/block:GroupMembers}
-
-{block:PostNotes} 
-<div class="uk-display-block uk-scrollable-text uk-margin-top">
-	<div class="inner_container">
-		<div class="postnotes uk-panel-box">
-			{block:Posts}
-				<div class="post-padding">
-					<div class="post-padding2">
-						{PostNotes-16}
-					</div>
-				</div>
-			{/block:Posts}
-		</div>
-	</div>
-</div>
-{/block:PostNotes}
-
-<div class="uk-container-center uk-width-1-1 uk-margin-top">
-	<ul class="uk-grid uk-grid-small uk-grid-width-1-2" data-uk-margin>
-	{block:iftwitterusername}
-	<li><a href="https://twitter.com/{text:twitter username}" class="uk-button uk-button-primary uk-button-large uk-width-1-1" title="Twitter" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-twitter uk-margin-right"></i>Follow</a></li>
-	{/block:iftwitterusername}
-	{block:iffacebookurl}
-	<li><a href="{text:Facebook URL}" class="uk-button uk-button-primary uk-button-large uk-width-1-1" title="Facebook" target="_blank" rel="nofollow" itemprop="sameAs">Like<i class="uk-icon-facebook uk-margin-left"></i></a></li>
-	{/block:iffacebookurl}
-	</ul>
-</div>
-</div>
-
-<div class="uk-container-center uk-width-1-1">
-	<ul class="uk-grid uk-grid-collapse uk-grid-width-1-2" data-uk-margin>
-	{block:PermalinkPagination}
-		{block:PreviousPost}
-		<li><a href="{PreviousPost}" class="uk-button uk-button-large uk-width-1-1 prev" title="Previous Post"><i class="uk-icon-chevron-left uk-margin-right"></i>Previous Post</a></li>
-		{/block:PreviousPost}
-
-		{block:NextPost}
-		<li><a href="{NextPost}" class="uk-button uk-button-large uk-width-1-1 next" title="Next Post">Next Post<i class="uk-icon-chevron-right uk-margin-left"></i></a></li>
-		{/block:NextPost}
-	{/block:PermalinkPagination}
-	</ul>
-</div>
-</div>
-</div>
-
-{/block:permalinkpage}
 {/block:Photo}
 
 
 
 {block:Photoset}
-<figure {block:indexpage}class="uk-thumbnail uk-width-1-1 uk-overlay uk-overlay-hover uk-animation-hover"{/block:indexpage} {block:permalinkpage}class="uk-padding-remove"{/block:permalinkpage}>
+
+{block:indexpage}
+<div class="uk-overlay uk-overlay-hover uk-animation-hover uk-width-1-1 uk-padding-remove">
+<figure class="uk-inline uk-transition-toggle uk-width-1-1 uk-box-shadow-medium">
+{/block:indexpage}
+
+{block:permalinkpage}
+<div class="uk-padding-remove uk-box-shadow-medium">
+{/block:permalinkpage}
 
 {block:Photos}
-<img src="{PhotoURL-500}" class="uk-width-1-1" />
+<img src="{PhotoURL-500}" alt="{PhotoAlt}" title="{PhotoAlt}" class="uk-width-1-1" />
 {/block:Photos}
 
 {block:indexpage}
-<figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-fade uk-flex uk-flex-center uk-flex-middle uk-text-center">
-	<a href="{ReblogURL}" title="Reblog | {PhotoAlt}" target="_blank"><i class="uk-icon-refresh uk-icon-large uk-text-contrast uk-animation-fade"></i></a>
-	<a href="{Permalink}" title="Link | {PhotoAlt}" class="uk-margin-left"><i class="uk-icon-plus-circle uk-icon-large uk-text-contrast uk-animation-fade"></i></a>
+<div class="uk-overlay-default uk-position-cover uk-transition-fade"></div>
+<figcaption class="uk-position-cover uk-transition-fade">
+<span class="uk-position-center uk-flex uk-flex-around">
+	<a href="{ReblogURL}" title="Reblog | {PhotoAlt}" target="_blank" data-uk-icon="icon:refresh;ratio:2.4;"></a>
+	<a href="{Permalink}" title="Link | {PhotoAlt}" data-uk-icon="icon:plus-circle;ratio:2.4;"></a>
+</span>
 </figcaption>
-{/block:indexpage}
 </figure>
-
-
-{block:permalinkpage}
-
-<div class="caption uk-padding-remove" data-uk-sticky="{boundary: true}">
-<div class="caption_header uk-panel-box">
-	<h2 class="uk-text-right uk-article-meta uk-margin-small">{DayOfWeek} {DayOfMonth} / {Month} / {Year}</h2>
-    <h3 class="uk-text-right uk-article-meta uk-margin-small">{block:PostSummary}{PostSummary}{/block:PostSummary}</h3>
+{/block:indexpage}
 </div>
-
-<div class="caption_inner uk-panel uk-panel-box uk-panel-box-secondary uk-link-muted">
-<div class="uk-text-center uk-panel-space">{Caption}</div>
-	
-<hr class="uk-margin-small" />
-
-<div class="socials uk-flex uk-flex-space-around uk-flex-middle uk-flex-center">
-	<div>
-	<div class="fb-like" data-href="{permalink}" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
-	</div> 
-	<div>
-	<a href="//www.pinterest.com/pin/create/button/?url={permalink}&media={photourl}&description=Found&nbsp;on&nbsp;https://tumblr.com/{name}" data-pin-do="buttonPin" data-pin-save="true" rel="nofollow" target="_blank"></a>
-	</div>
-	<div>
-	<a href="https://twitter.com/share" class="twitter-share-button" data-url="{permalink}" title="Share on Twitter" target="_blank" rel="nofollow">Tweet</a>
-	</div>
-    <div>{likebutton size="24"}</div>
-	<div>{Reblogbutton size="24"}</div>
-	<div>
-	{Month} {DayOfMonth}{block:NoteCount} – {notecount} {lang:Notes} {/block:NoteCount}
-	</div>
-</div>
-
-<hr class="uk-margin-small" />
-
-{block:ifnothidetags}{block:HasTags}<div class="uk-panel uk-text-small uk-margin"><ul class="uk-subnav uk-subnav-pill uk-flex uk-flex-center">{block:tags}<li><h4 class="uk-text-small uk-margin-small">{tag}</h4></li>{/block:tags}</ul></div>{/block:HasTags}{/block:ifnothidetags}
-
-{block:GroupMembers}
-{GroupMemberPortraitURL-40}
-{/block:GroupMembers}
-
-{block:PostNotes} 
-<div class="uk-display-block uk-scrollable-text uk-margin-top">
-	<div class="inner_container">
-		<div class="postnotes uk-panel-box">
-			{block:Posts}
-				<div class="post-padding">
-					<div class="post-padding2">
-						{PostNotes-16}
-					</div>
-				</div>
-			{/block:Posts}
-		</div>
-	</div>
-</div>
-{/block:PostNotes}
-
-<div class="uk-container-center uk-width-1-1 uk-margin-top">
-	<ul class="uk-grid uk-grid-small uk-grid-width-1-2" data-uk-margin>
-	{block:iftwitterusername}
-	<li><a href="https://twitter.com/{text:twitter username}" class="uk-button uk-button-primary uk-button-large uk-width-1-1" title="Twitter" target="_blank" rel="nofollow" itemprop="sameAs"><i class="uk-icon-twitter uk-margin-right"></i>Follow</a></li>
-	{/block:iftwitterusername}
-	{block:iffacebookurl}
-	<li><a href="{text:Facebook URL}" class="uk-button uk-button-primary uk-button-large uk-width-1-1" title="Facebook" target="_blank" rel="nofollow" itemprop="sameAs">Like<i class="uk-icon-facebook uk-margin-left"></i></a></li>
-	{/block:iffacebookurl}
-	</ul>
-</div>
-</div>
-
-<div class="uk-container-center uk-width-1-1">
-	<ul class="uk-grid uk-grid-collapse uk-grid-width-1-2" data-uk-margin>
-	{block:PermalinkPagination}
-		{block:PreviousPost}
-		<li><a href="{PreviousPost}" class="uk-button uk-button-large uk-width-1-1 prev" title="Previous Post"><i class="uk-icon-chevron-left uk-margin-right"></i>Previous Post</a></li>
-		{/block:PreviousPost}
-
-		{block:NextPost}
-		<li><a href="{NextPost}" class="uk-button uk-button-large uk-width-1-1 next" title="Next Post">Next Post<i class="uk-icon-chevron-right uk-margin-left"></i></a></li>
-		{/block:NextPost}
-	{/block:PermalinkPagination}
-	</ul>
-</div>
-</div>
-</div>
-
-{/block:permalinkpage}
 
 {/block:Photoset}
 
@@ -528,8 +242,8 @@ h1.uk-article-title {line-height: 1.25em;}
 {Name}
 </span>
 <div class="uk-overlay-panel uk-overlay-background uk-overlay-fade uk-flex uk-flex-center uk-flex-middle uk-text-center">
-	<a href="{ReblogURL}" title="Reblog" target="_blank"><i class="uk-icon-refresh uk-icon-large uk-text-contrast uk-animation-fade"></i></a>
-	<a href="{Permalink}" title="Link" class="uk-margin-left"><i class="uk-icon-plus-circle uk-icon-large uk-text-contrast uk-animation-fade"></i></a>
+	<a href="{ReblogURL}" title="Reblog" target="_blank" data-uk-icon="icon:refresh;ratio:2.4;"></a>
+	<a href="{Permalink}" title="Link" data-uk-icon="icon:plus-circle;ratio:2.4;"></a>
 </div>
 {/block:indexpage}
 {block:permalinkpage}
@@ -548,8 +262,8 @@ h1.uk-article-title {line-height: 1.25em;}
 <div class="uk-panel-body">{Body}</div>
 {block:indexpage}
 <div class="uk-overlay-panel uk-overlay-background uk-overlay-fade uk-flex uk-flex-center uk-flex-middle uk-text-center">
-	<a href="{ReblogURL}" title="Reblog" target="_blank"><i class="uk-icon-refresh uk-icon-large uk-text-contrast uk-animation-fade"></i></a>
-	<a href="{Permalink}" title="Link" class="uk-margin-left"><i class="uk-icon-plus-circle uk-icon-large uk-text-contrast uk-animation-fade"></i></a>
+	<a href="{ReblogURL}" title="Reblog" target="_blank" data-uk-icon="icon:refresh;ratio:2.4;"></a>
+	<a href="{Permalink}" title="Link" data-uk-icon="icon:plus-circle;ratio:2.4;"></a>
 </div>
 {/block:indexpage}
 </div>
@@ -564,8 +278,8 @@ h1.uk-article-title {line-height: 1.25em;}
 </blockquote>
 {block:indexpage}
 <div class="uk-overlay-panel uk-overlay-background uk-overlay-fade uk-flex uk-flex-center uk-flex-middle uk-text-center">
-	<a href="{ReblogURL}" title="Reblog" target="_blank"><i class="uk-icon-refresh uk-icon-large uk-text-contrast uk-animation-fade"></i></a>
-	<a href="{Permalink}" title="Link" class="uk-margin-left"><i class="uk-icon-plus-circle uk-icon-large uk-text-contrast uk-animation-fade"></i></a>
+	<a href="{ReblogURL}" title="Reblog" target="_blank" data-uk-icon="icon:refresh;ratio:2.4;"></a>
+	<a href="{Permalink}" title="Link" data-uk-icon="icon:plus-circle;ratio:2.4;"></a>
 </div>
 {/block:indexpage}
 </div> 
@@ -582,8 +296,8 @@ h1.uk-article-title {line-height: 1.25em;}
 </ul>
 {block:indexpage}
 <div class="uk-overlay-panel uk-overlay-background uk-overlay-fade uk-flex uk-flex-center uk-flex-middle uk-text-center">
-	<a href="{ReblogURL}" title="Reblog" target="_blank"><i class="uk-icon-refresh uk-icon-large uk-text-contrast uk-animation-fade"></i></a>
-	<a href="{Permalink}" title="Link" class="uk-margin-left"><i class="uk-icon-plus-circle uk-icon-large uk-text-contrast uk-animation-fade"></i></a>
+	<a href="{ReblogURL}" title="Reblog" target="_blank" data-uk-icon="icon:refresh;ratio:2.4;"></a>
+	<a href="{Permalink}" title="Link" data-uk-icon="icon:plus-circle;ratio:2.4;"></a>
 </div>
 {/block:indexpage}
 </div>
@@ -602,8 +316,8 @@ h1.uk-article-title {line-height: 1.25em;}
 {block:permalinkpage}<div class="uk-flex uk-flex-wrap uk-flex-center uk-flex-wrap-around uk-margin-bottom">{Video-700}</div>{Caption}{/block:permalinkpage}
 {block:indexpage}
 <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-fade uk-flex uk-flex-center uk-flex-middle">
-	<a href="{ReblogURL}" title="Reblog" target="_blank"><i class="uk-icon-refresh uk-icon-large uk-text-contrast uk-animation-fade"></i></a>
-	<a href="{Permalink}" title="Link" class="uk-margin-left"><i class="uk-icon-plus-circle uk-icon-large uk-text-contrast uk-animation-fade"></i></a>
+	<a href="{ReblogURL}" title="Reblog" target="_blank" data-uk-icon="icon:refresh;ratio:2.4;"></a>
+	<a href="{Permalink}" title="Link" data-uk-icon="icon:plus-circle;ratio:2.4;"></a>
 </figcaption>
 {/block:indexpage} 
 </figure>
@@ -615,8 +329,8 @@ h1.uk-article-title {line-height: 1.25em;}
 <i class="uk-icon-headphones uk-align-right uk-float-right"></i>
 {Caption}
 <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-fade uk-flex uk-flex-center uk-flex-middle">
-	<a href="{ReblogURL}" title="Reblog" target="_blank"><i class="uk-icon-refresh uk-icon-large uk-text-contrast uk-animation-fade"></i></a>
-	<a href="{Permalink}" title="Link" class="uk-margin-left"><i class="uk-icon-plus-circle uk-icon-large uk-text-contrast uk-animation-fade"></i></a>
+	<a href="{ReblogURL}" title="Reblog" target="_blank" data-uk-icon="icon:refresh;ratio:2.4;"></a>
+	<a href="{Permalink}" title="Link" data-uk-icon="icon:plus-circle;ratio:2.4;"></a>
 </figcaption>
 {/block:indexpage}
 {block:permalinkpage}
@@ -626,30 +340,103 @@ h1.uk-article-title {line-height: 1.25em;}
 {/block:Audio}
 
 </div>
+
+
+{block:permalinkpage}
+<div>
+
+<div class="uk-card uk-card-default" data-uk-sticky="bottom: true">
+<div class="uk-card-header">
+	<h2 class="uk-text-right uk-h5 uk-margin-small">{DayOfWeek} {DayOfMonth} / {Month} / {Year}</h2>
+    <h3 class="uk-text-right uk-article-meta uk-margin-remove">{block:PostSummary}{PostSummary}{/block:PostSummary}</h3>
 </div>
 
+<div class="uk-card-body uk-text-center uk-link-muted">
+{Caption}
+<small class="uk-text-muted">Originally Posted: {Month} {DayOfMonth} {Year}</small>
+<hr class="uk-margin-small" />
+<div class="uk-flex uk-flex-between uk-flex-middle">
+	<div>
+	<div class="fb-like" data-href="{permalink}" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+	</div> 
+	<div>
+	<a href="//www.pinterest.com/pin/create/button/?url={permalink}&media={photourl}&description=Found&nbsp;on&nbsp;https://tumblr.com/{name}" data-pin-do="buttonPin" data-pin-save="true" rel="nofollow" target="_blank"></a>
+	</div>
+	<div>
+	<a href="https://twitter.com/share" class="twitter-share-button" data-url="{permalink}" title="Share on Twitter" target="_blank" rel="nofollow">Tweet</a>
+	</div>
+	<div>{likebutton size="24"}</div>
+	<div>{Reblogbutton size="24"}</div>
+	<div>
+	{block:NoteCount} {notecount} {lang:Notes} {/block:NoteCount}
+	</div>
+</div>
+
+<hr class="uk-margin-small" />
+
+{block:ifnothidetags}{block:HasTags}
+<ul id="tagging" class="uk-subnav uk-subnav-pill uk-flex uk-flex-center uk-text-small uk-margin-top">
+	{block:tags}<li><h4 class="uk-text-small uk-margin-small">{tag}</h4></li>{/block:tags}
+</ul>
+{/block:HasTags}{/block:ifnothidetags}
+
+{block:GroupMembers}
+{GroupMemberPortraitURL-40}
+{/block:GroupMembers}
+
+{block:PostNotes} 
+<div class="uk-panel uk-panel-scrollable uk-background-muted uk-margin-top">
+{block:Posts}
+	<div class="post-padding">
+		<div class="post-padding2">
+			{PostNotes-16}
+		</div>
+	</div>
+{/block:Posts}
+</div>
+{/block:PostNotes}
+
+<ul class="uk-grid uk-grid-collapse uk-child-width-1-2@s uk-margin-top" data-uk-margin>
+{block:PermalinkPagination}
+	{block:PreviousPost}
+	<li><a href="{PreviousPost}" class="uk-button uk-button-default uk-width-1-1 prev" title="Previous Post"><span data-uk-icon="icon:chevron-left;"></span> Previous</a></li>
+	{/block:PreviousPost}
+	{block:NextPost}
+	<li><a href="{NextPost}" class="uk-button uk-button-default uk-width-1-1 next" title="Next Post">Next <span data-uk-icon="icon:chevron-right;"></span></a></li>
+	{/block:NextPost}
+{/block:PermalinkPagination}
+</ul>
+
+</div>
+</div>
+</div>
+
+{/block:permalinkpage}
 {/block:Posts}
 
 </div>
-</div>
 
-<div class="uk-width-1-1 uk-hidden">
-	<ul id="pagination" class="pagination uk-clearfix">
-	{block:Pagination}{block:PreviousPage}
-		<li><a href="{PreviousPage}" class="prev">Previous</a></li>
-	{/block:PreviousPage}{block:NextPage}
-		<li><a href="{NextPage}" class="next">Next</a></li>
-	{/block:NextPage}{/block:Pagination}
+{block:IndexPage}
+
+<div id="loading" class="uk-width-1-1 uk-text-center uk-text-muted uk-margin" data-uk-spinner="ratio: 2;"></div>
+<nav id="pagination" class="uk-hidden">
+	<ul>
+		<li id="next-page"><a href="/page/2" class="pagination_next">Next	</a></li>
 	</ul>
-</div>
+</nav>
 
-<footer class="uk-block uk-block-secondary uk-margin-large-top">
-<div class="uk-container uk-container-center uk-clearfix">
+{/block:IndexPage}
+
+
+</section>
+
+<footer class="uk-section uk-background-secondary uk-margin-large-top">
+<div class="uk-container uk-container-center uk-width-3-4@m">
 {block:permalinkpage}
 	{block:PermalinkPagination}
 		{block:IfDisqusShortname}
-		<i class="uk-icon-comment uk-align-right"></i>
-		<div class="uk-article-lead">Comments</div>
+		<span class="uk-text-warning uk-align-right" data-uk-icon="icon:comment"></span>
+		<div class="uk-text-lead uk-light">Comments</div>
 		<div class="lazy uk-margin">
 
 		<div id="disqus_thread" class="uk-panel uk-panel-box uk-panel-space"></div>
@@ -671,7 +458,7 @@ h1.uk-article-title {line-height: 1.25em;}
 
 <div class="copyrightcontainer uk-block uk-text-center uk-clearfix">
 {block:ifCustomlink1title}
-<ul class="uk-flex uk-flex-center uk-width-1-1 uk-subnav uk-subnav-line uk-text-center uk-contrast uk-margin-large-top">
+<ul class="uk-flex uk-flex-center uk-width-1-1 uk-subnav uk-subnav-line uk-text-center uk-contrast uk-margin-large-top uk-light">
 	<li><a href="{text:Custom link 1 URL}" title="{text:Custom link 1 title}" target="_blank" rel="nofollow">{text:Custom link 1 title}</a></li>
 	{block:ifCustomlink2title}
 	<li><a href="{text:Custom link 2 URL}" title="{text:Custom link 2 title}" target="_blank" rel="nofollow">{text:Custom link 2 title}</a></li>
@@ -700,6 +487,106 @@ h1.uk-article-title {line-height: 1.25em;}
 <a id="totop-scroller" class="uk-width-1-1 uk-icon-caret-up uk-text-muted uk-icon-large uk-text-center uk-margin" data-uk-smooth-scroll href="#page"></a>
 </footer>
 
+
+
+
+<a data-uk-toggle="target: #offmenu" class="uk-position-top-left uk-position-small uk-position-fixed uk-position-z-index" data-uk-icon="icon: menu;ratio:1.8"></a>
+
+<div id="offmenu" class="uk-offcanvas" data-uk-offcanvas="mode:push;">
+<div class="uk-offcanvas-bar">
+<div class="uk-text-center">
+	<div class="uk-text-lead uk-margin-top">{Title}</div>
+		<hr class="uk-article-divider" />
+		<p class="uk-article-meta">{Description} {block:indexpage}{text:Description Extension}{/block:indexpage}</p>
+		<hr class="uk-article-divider uk-margin-bottom" />
+	</div>
+<ul class="uk-nav uk-nav-default uk-text-center" data-uk-nav>
+{block:HasPages}
+	{block:Pages}
+	<li><a href="{URL}" title="{Label}">{Label}</a></li>
+	{/block:Pages}
+{/block:HasPages}                                       
+{block:SubmissionsEnabled}
+	<li><a href="/submit" title="{SubmitLabel}" data-uk-icon="icon:cloud-upload;">{SubmitLabel} </a></li>
+{/block:SubmissionsEnabled}
+{block:AskEnabled}
+	<li><a class="iframe" id="ask_form" href="http://www.tumblr.com/ask_form/{name}.tumblr.com" title="{AskLabel}" data-uk-icon="icon:question;">{AskLabel} </a></li>
+{/block:AskEnabled}
+{block:ifwebsiteurl}
+	<li><a href="{text:websiteurl url}" title="Website" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: globe;">Website </a></li>
+{/block:ifwebsiteurl}
+{block:ifshopurl}
+	<li><a href="{text:shop url}" title="Shop" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: cart;">Shop </a></li>
+{/block:ifshopurl}
+{block:ifemail}
+	<li><a href="mailto:{text:email url}" title="Email" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: mail;">Email </a></li>
+{/block:ifemail}
+</ul>
+
+<div itemscope itemtype="https://schema.org/Organization">
+<ul class="uk-nav uk-nav-default uk-text-center uk-text-center" data-uk-nav>
+	<li class="uk-nav-header">Social Media</li>	
+{block:iffacebookurl}
+	<li><a href="{text:facebook url}" title="Facebook" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: facebook;">Facebook </a></li>
+{/block:iffacebookurl}
+{block:iftwitterusername}
+	<li><a href="https://twitter.com/{text:twitter username}" title="Twitter" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: twitter;">Twitter </a></li>
+{/block:iftwitterusername}
+{block:ifpinteresturl}
+	<li><a href="https://pinterest.com/{text:pinterest username}" title="Pinterest" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: pinterest;">Pinterest </a></li>
+{/block:ifpinteresturl}
+{block:ifgoogleplusurl}
+	<li><a href="{text:googleplus url}" title="Google Plus" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: google-plus;">Google Plus </a></li>
+{/block:ifgoogleplusurl}	
+{block:ifinstagramusername}
+	<li><a href="http://instagram.com/{text:instagram username}" title="Instagram" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: instagram;">Instagram </a></li>
+{/block:ifinstagramusername}
+{block:ifspanchatusername}
+	<li><a href="https://snapchat.com/{text:snapchat username}" title="Snapchat" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: snapchat;">Snapchat </a></li>
+{/block:ifspanchatusername}		
+{block:ifstumbleuponurl}
+	<li><a href="{text:stumbleupon username}" title="StumbleUpon" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: stumbleupon;">StumbleUpon </a></li>
+{/block:ifstumbleuponurl}	
+{block:ifredditusername}
+	<li><a href="https://reddit.com/~{text:reddit username}" title="Reddit" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: reddit;">Reddit </a></li>
+{/block:ifredditusername}		
+{block:ifmediumurl}
+	<li><a href="{text:medium url}" title="Medium" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: medium;">Medium </a></li>
+{/block:ifmediumurl}
+{block:ifvkurl}
+	<li><a href="{text:vk url}" title="VK" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: vk;">VK </a></li>
+{/block:ifvkurl}
+{block:ifbehanceurl}
+	<li><a href="{text:behance url}" title="Behance" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: behance;">Behance </a></li>
+{/block:ifbehanceurl}
+{block:ifdribbbleurl}
+	<li><a href="{text:dribbble url}" title="Dribbble" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: dribbble;">Dribbble </a></li>
+{/block:ifdribbbleurl}
+{block:ifflickrurl}
+	<li><a href="{text:flickr url}" title="Flickr" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: flickr;">Flickr </a></li>
+{/block:ifflickrurl}
+{block:ifsoundcloudurl}
+	<li><a href="{text:soundcloud url}" title="SoundCloud" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: soundcloud;">SoundCloud </a></li>
+{/block:ifsoundcloudurl}
+{block:ifspotifyurl}
+	<li><a href="{text:spotify url}" title="Spotify" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: spotify;">Spotify </a></li>
+{/block:ifspotifyurl}
+{block:ifvimeourl}
+	<li><a href="{text:vimeo url}" title="Vimeo" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: vimeo;">Vimeo </a></li>
+{/block:ifvimeourl}
+{block:ifyoutubeurl}
+	<li><a href="{text:youtube url}" title="YouTube" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: youtube;">YouTube </a></li>
+{/block:ifyoutubeurl}
+{block:iftwitchurl}
+	<li><a href="{text:twitch url}" title="Twitch" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: twitch;">Twitch </a></li>
+{/block:iftwitchurl}
+</ul>
+</div>
+</div>
+</div>
+
+</div>
+
 {block:permalinkpage}
 <script async src="//assets.pinterest.com/js/pinit.js"></script>
 <script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/us_US/all.js#xfbml=1";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script>
@@ -708,4 +595,16 @@ h1.uk-article-title {line-height: 1.25em;}
 {block:IfGoogleAnalyticsWebPropertyID}
 <script> (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','https://www.google-analytics.com/analytics.js','ga'); ga('create', '{text:Google Analytics Web Property ID}', 'auto'); ga('send', 'pageview');</script>
 {/block:IfGoogleAnalyticsWebPropertyID}
+
+<script>
+var elem = document.querySelector('.container');
+var infScroll = new InfiniteScroll( elem, {
+  path: '.pagination_next',
+  append: '.post',
+  history: false,
+});
+var infScroll = new InfiniteScroll( '.container', {
+});	
+</script>
+
 </body>

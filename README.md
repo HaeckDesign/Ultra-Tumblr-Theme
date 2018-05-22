@@ -20,6 +20,7 @@ The Worlds Most Ultra Greatest Tumblr Theme.  ...ever in history.
 
 **Third Party Resources**
 
+* Infinite Scroll: https://infinite-scroll.com/
 * Google Fonts: https://www.google.com/fonts
 * Google Analytics: http://www.google.com/analytics/
 * Disqus: http://www.disqus.com/
