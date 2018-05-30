@@ -6,7 +6,7 @@ The worlds greatest Tumblr Theme. We use the Ultra Tumblr Theme as a framework f
 ![Thumbnail](http://haeck.s3.amazonaws.com/ultra/ultra-tumblr-theme-haeck-design.png)
 
 
-## Built with: ##
+## Built with ##
 
 **CSS**
 
@@ -28,4 +28,20 @@ The worlds greatest Tumblr Theme. We use the Ultra Tumblr Theme as a framework f
 * Disqus: http://www.disqus.com/
 
 
+### Single Page Layout ###
+
 ![Thumbnail](http://haeck.s3.amazonaws.com/ultra/ultra-tumblr-theme-haeck-design-post.png)
+
+
+#### Changelog ####
+
+**Version 1.2:** UIKit v3, Added Infinite Scroll  
+**Version 1.1:** UIKit v2, Added LazySizes
+
+---
+
+##### License #####
+
+<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/StillImage" property="dct:title" rel="dct:type">Ultra Tumblr Theme</span> by [Matthew Haeck](https://haeckdesign.com/freebies) is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](https://creativecommons.org/licenses/by-sa/3.0/deed.en_US)
+
+![Ultra Tumblr Theme](https://licensebuttons.net/l/by-sa/3.0/80x15.png)
