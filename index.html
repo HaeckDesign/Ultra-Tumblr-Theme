@@ -128,7 +128,6 @@
 <script src="https://static.tumblr.com/vizevuc/xJVp8r8xn/uikit.min.js"></script>
 <script src="https://static.tumblr.com/vizevuc/GzFp8r8y1/uikit-icons.min.js" defer></script>
 <script src="https://static.tumblr.com/vizevuc/e33p8qke6/lazy.js" async></script>
-<script src="https://unpkg.com/infinite-scroll@3/dist/infinite-scroll.pkgd.min.js"></script>
 
 <style>
 html { font-family: {font:Body}; background: {color:Background Color}; background: -moz-radial-gradient(center, ellipse cover, {color:Background Gradient Color} 0%, {color:Background Color} 100%); background: -webkit-radial-gradient(center, ellipse cover, {color:Background Gradient Color} 0%,{color:Background Color} 100%); background: radial-gradient(ellipse at center, {color:Background Gradient Color} 0%,{color:Background Color} 100%); } 
@@ -153,7 +152,6 @@ h1.uk-article-title {line-height: 1.25em;}
 
 <body>
 <div class="uk-offcanvas-content">
-
 <header class="uk-section uk-section-small uk-text-center">
 {block:iflogoimage}<a href="{BlogURL}" title="{Title}"><img src="{image:logo}" alt="{Title} Logo" title="{Title} Logo" class="uk-thumbnail uk-border-circle toplogo" /></a>{/block:iflogoimage}
 {block:indexpage}<h1 class="uk-text-lead uk-heading-divider">{Title}</h1>{/block:indexpage}
@@ -164,14 +162,11 @@ h1.uk-article-title {line-height: 1.25em;}
 {/block:Description}
 </header>
 
-
-<section id="container" class="uk-container uk-container-center uk-width-5-6@m uk-clearfix">
+<div id="container" class="uk-container uk-container-center uk-width-5-6@m uk-clearfix">
 <div id="content" {block:IndexPage}class="container uk-grid uk-grid-medium uk-child-width-1-2@s {select:Max Grid Columns}" data-uk-grid="masonry: true;" {/block:IndexPage} {block:permalinkpage}class="uk-grid uk-grid-small uk-child-width-1-2@m" data-uk-grid{/block:permalinkpage}>
 
 {block:Posts}
 <div class="post infscr {block:chat}chat-post{/block:chat} {block:quote}quote-post{/block:quote} {block:text}caption-post{/block:text} {block:photoset}caption-post{/block:photoset} {block:audio}caption-post{/block:audio} {block:photo}caption-post{/block:photo} {block:video}caption-post{/block:video} {block:link}link-post{/block:link} {block:Answer}text-post{/block:Answer}" id="{postID}">
-
-
 
 {block:Photo}
 
@@ -184,12 +179,12 @@ h1.uk-article-title {line-height: 1.25em;}
 <div class="uk-padding-remove uk-box-shadow-medium">
 {/block:permalinkpage}
 
-<img src="{block:indexpage}{PhotoURL-500}{/block:indexpage}{block:permalinkpage}{PhotoURL-HighRes}{/block:permalinkpage}" alt="{PhotoAlt}" title="{PhotoAlt}" class="uk-width-1-1" />
+<img data-original="{block:indexpage}{PhotoURL-500}{/block:indexpage}{block:permalinkpage}{PhotoURL-HighRes}{/block:permalinkpage}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{PhotoAlt}" title="{PhotoAlt}" class="uk-width-1-1 lazy" />
 {block:indexpage}
 <div class="uk-overlay-default uk-position-cover uk-transition-fade"></div>
 <figcaption class="uk-position-cover uk-transition-fade">
 <span class="uk-position-center uk-flex uk-flex-around">
-	<a href="{ReblogURL}" title="Reblog | {PhotoAlt}" class="uk-animation-fade" target="_blank" data-uk-icon="icon:refresh;ratio:2.4;"></a>
+	<a href="{ReblogURL}" title="Reblog | {PhotoAlt}" class="uk-animation-fade" target="_blank" data-uk-icon="icon:refresh;ratio:2.4;"></a>&nbsp;
 	<a href="{Permalink}" title="Link | {PhotoAlt}" class="uk-animation-fade" data-uk-icon="icon:plus-circle;ratio:2.4;"></a>
 </span>
 </figcaption>
@@ -198,8 +193,6 @@ h1.uk-article-title {line-height: 1.25em;}
 </div>
 
 {/block:Photo}
-
-
 
 {block:Photoset}
 
@@ -220,7 +213,7 @@ h1.uk-article-title {line-height: 1.25em;}
 <div class="uk-overlay-default uk-position-cover uk-transition-fade"></div>
 <figcaption class="uk-position-cover uk-transition-fade">
 <span class="uk-position-center uk-flex uk-flex-around">
-	<a href="{ReblogURL}" title="Reblog | {PhotoAlt}" target="_blank" data-uk-icon="icon:refresh;ratio:2.4;"></a>
+	<a href="{ReblogURL}" title="Reblog | {PhotoAlt}" target="_blank" data-uk-icon="icon:refresh;ratio:2.4;"></a>&nbsp;
 	<a href="{Permalink}" title="Link | {PhotoAlt}" data-uk-icon="icon:plus-circle;ratio:2.4;"></a>
 </span>
 </figcaption>
@@ -229,8 +222,6 @@ h1.uk-article-title {line-height: 1.25em;}
 </div>
 
 {/block:Photoset}
-
-
 
 
 {block:Link}
@@ -242,8 +233,8 @@ h1.uk-article-title {line-height: 1.25em;}
 {Name}
 </span>
 <div class="uk-overlay-panel uk-overlay-background uk-overlay-fade uk-flex uk-flex-center uk-flex-middle uk-text-center">
-	<a href="{ReblogURL}" title="Reblog" target="_blank" data-uk-icon="icon:refresh;ratio:2.4;"></a>
-	<a href="{Permalink}" title="Link" data-uk-icon="icon:plus-circle;ratio:2.4;"></a>
+	<a href="{ReblogURL}" title="Reblog | {Name}" target="_blank" data-uk-icon="icon:refresh;ratio:2.4;"></a>&nbsp;
+	<a href="{Permalink}" title="Link | {Name}" data-uk-icon="icon:plus-circle;ratio:2.4;"></a>
 </div>
 {/block:indexpage}
 {block:permalinkpage}
@@ -262,8 +253,8 @@ h1.uk-article-title {line-height: 1.25em;}
 <div class="uk-panel-body">{Body}</div>
 {block:indexpage}
 <div class="uk-overlay-panel uk-overlay-background uk-overlay-fade uk-flex uk-flex-center uk-flex-middle uk-text-center">
-	<a href="{ReblogURL}" title="Reblog" target="_blank" data-uk-icon="icon:refresh;ratio:2.4;"></a>
-	<a href="{Permalink}" title="Link" data-uk-icon="icon:plus-circle;ratio:2.4;"></a>
+	<a href="{ReblogURL}" title="Reblog | {Title}" target="_blank" data-uk-icon="icon:refresh;ratio:2.4;"></a>&nbsp;
+	<a href="{Permalink}" title="Link | {Title}" data-uk-icon="icon:plus-circle;ratio:2.4;"></a>
 </div>
 {/block:indexpage}
 </div>
@@ -278,8 +269,8 @@ h1.uk-article-title {line-height: 1.25em;}
 </blockquote>
 {block:indexpage}
 <div class="uk-overlay-panel uk-overlay-background uk-overlay-fade uk-flex uk-flex-center uk-flex-middle uk-text-center">
-	<a href="{ReblogURL}" title="Reblog" target="_blank" data-uk-icon="icon:refresh;ratio:2.4;"></a>
-	<a href="{Permalink}" title="Link" data-uk-icon="icon:plus-circle;ratio:2.4;"></a>
+	<a href="{ReblogURL}" title="Reblog | {Quote}" target="_blank" data-uk-icon="icon:refresh;ratio:2.4;"></a>&nbsp;
+	<a href="{Permalink}" title="Link | {Quote}" data-uk-icon="icon:plus-circle;ratio:2.4;"></a>
 </div>
 {/block:indexpage}
 </div> 
@@ -296,8 +287,8 @@ h1.uk-article-title {line-height: 1.25em;}
 </ul>
 {block:indexpage}
 <div class="uk-overlay-panel uk-overlay-background uk-overlay-fade uk-flex uk-flex-center uk-flex-middle uk-text-center">
-	<a href="{ReblogURL}" title="Reblog" target="_blank" data-uk-icon="icon:refresh;ratio:2.4;"></a>
-	<a href="{Permalink}" title="Link" data-uk-icon="icon:plus-circle;ratio:2.4;"></a>
+	<a href="{ReblogURL}" title="Reblog | {Title}" target="_blank" data-uk-icon="icon:refresh;ratio:2.4;"></a>&nbsp;
+	<a href="{Permalink}" title="Link | {Title}" data-uk-icon="icon:plus-circle;ratio:2.4;"></a>
 </div>
 {/block:indexpage}
 </div>
@@ -316,8 +307,8 @@ h1.uk-article-title {line-height: 1.25em;}
 {block:permalinkpage}<div class="uk-flex uk-flex-wrap uk-flex-center uk-flex-wrap-around uk-margin-bottom">{Video-700}</div>{Caption}{/block:permalinkpage}
 {block:indexpage}
 <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-fade uk-flex uk-flex-center uk-flex-middle">
-	<a href="{ReblogURL}" title="Reblog" target="_blank" data-uk-icon="icon:refresh;ratio:2.4;"></a>
-	<a href="{Permalink}" title="Link" data-uk-icon="icon:plus-circle;ratio:2.4;"></a>
+	<a href="{ReblogURL}" title="Reblog | {Title}" target="_blank" data-uk-icon="icon:refresh;ratio:2.4;"></a>&nbsp;
+	<a href="{Permalink}" title="Link | {Title}" data-uk-icon="icon:plus-circle;ratio:2.4;"></a>
 </figcaption>
 {/block:indexpage} 
 </figure>
@@ -329,8 +320,8 @@ h1.uk-article-title {line-height: 1.25em;}
 <i class="uk-icon-headphones uk-align-right uk-float-right"></i>
 {Caption}
 <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-fade uk-flex uk-flex-center uk-flex-middle">
-	<a href="{ReblogURL}" title="Reblog" target="_blank" data-uk-icon="icon:refresh;ratio:2.4;"></a>
-	<a href="{Permalink}" title="Link" data-uk-icon="icon:plus-circle;ratio:2.4;"></a>
+	<a href="{ReblogURL}" title="Reblog | {Title}" target="_blank" data-uk-icon="icon:refresh;ratio:2.4;"></a>&nbsp;
+	<a href="{Permalink}" title="Link | {Title}" data-uk-icon="icon:plus-circle;ratio:2.4;"></a>
 </figcaption>
 {/block:indexpage}
 {block:permalinkpage}
@@ -427,32 +418,28 @@ h1.uk-article-title {line-height: 1.25em;}
 
 {/block:IndexPage}
 
-</section>
+</div>
 
+{block:permalinkpage}
 <footer class="uk-section uk-background-secondary uk-margin-large-top uk-position-bottom uk-position-relative">
 <div class="uk-container uk-container-center uk-width-3-4@m">
-{block:permalinkpage}
 	{block:PermalinkPagination}
 		{block:IfDisqusShortname}
 		<span class="uk-text-warning uk-align-right" data-uk-icon="icon:comment"></span>
 		<div class="uk-text-lead uk-light">Comments</div>
 		<div class="lazy uk-margin">
-
 		<div id="disqus_thread" class="uk-card uk-card-default uk-card-body"></div>
 		<script>
 		var disqus_shortname = '{text:Disqus Shortname}';
-
 		(function() {
 		  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 		  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
 		  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 		})();
 		</script>
-
 		</div>
 		{/block:IfDisqusShortname}
 	{/block:PermalinkPagination}
-{/block:permalinkpage}
 </div> 
 
 <div class="copyrightcontainer uk-block uk-text-center uk-clearfix">
@@ -486,9 +473,9 @@ h1.uk-article-title {line-height: 1.25em;}
 <a id="totop-scroller" class="uk-width-1-1 uk-text-muted uk-text-center uk-margin-medium-top" data-uk-scroll data-uk-icon="icon:triangle-up;ratio:1.8;" href="#page"></a>
 </footer>
 
+{/block:permalinkpage}
 
 <a data-uk-toggle="target: #offmenu" class="uk-position-top-left uk-position-small uk-position-fixed uk-position-z-index" data-uk-icon="icon: menu;ratio:1.8"></a>
-
 <div id="offmenu" class="uk-offcanvas" data-uk-offcanvas="mode:push;">
 <div class="uk-offcanvas-bar">
 <div class="uk-text-center">
@@ -580,27 +567,17 @@ h1.uk-article-title {line-height: 1.25em;}
 </div>
 </div>
 </div>
-
 </div>
 
+{block:indexpage}
+<script src="https://unpkg.com/infinite-scroll@3.0.4/dist/infinite-scroll.pkgd.min.js"></script>
+<script> var elem = document.querySelector('.container'); var infScroll = new InfiniteScroll( elem, { path: '.pagination_next', append: '.post', history: false, }); var infScroll = new InfiniteScroll( '.container', { }); </script>
+{/block:indexpage}
 {block:permalinkpage}
-<script async src="//assets.pinterest.com/js/pinit.js"></script>
+<script src="//assets.pinterest.com/js/pinit.js" async></script>
 <script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/us_US/all.js#xfbml=1";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script>
 {/block:permalinkpage}
-
 {block:IfGoogleAnalyticsWebPropertyID}
 <script> (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','https://www.google-analytics.com/analytics.js','ga'); ga('create', '{text:Google Analytics Web Property ID}', 'auto'); ga('send', 'pageview');</script>
 {/block:IfGoogleAnalyticsWebPropertyID}
-
-<script>
-var elem = document.querySelector('.container');
-var infScroll = new InfiniteScroll( elem, {
-  path: '.pagination_next',
-  append: '.post',
-  history: false,
-});
-var infScroll = new InfiniteScroll( '.container', {
-});	
-</script>
-
 </body>

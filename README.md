@@ -10,12 +10,12 @@ The worlds greatest Tumblr Theme. We use the Ultra Tumblr Theme as a framework f
 
 **CSS**
 
-* UIKit (v3.0.0 RC2): https://getuikit.com/
+* UIKit (v3.0.0 RC4): https://getuikit.com/
 
 
 **Javascript**  
 
-* UIKit (v3.0.0 RC2): https://getuikit.com/
+* UIKit (v3.0.0 RC4): https://getuikit.com/
 * IE conditionals: HTML5Shiv, CSS3-Mediaqueries, Selectivizr
 
 
