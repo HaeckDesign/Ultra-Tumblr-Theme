@@ -1,10 +1,6 @@
 # Ultra Tumblr Theme #
 
-The worlds greatest Tumblr Theme. We use the Ultra Tumblr Theme as a framework for clients. It's built using the latest UIKit release for CSS & JS, includes Lazysizes for lazy-loading and Infinite Scroll for endless scrolling.  
-
-
-![Thumbnail](http://haeck.s3.amazonaws.com/ultra/ultra-tumblr-theme-haeck-design.png)
-
+The worlds greatest Tumblr Theme. We use the Ultra Tumblr Theme as a framework for clients. It's built using the latest UIKit release for CSS & JS, includes Lazysizes for lazy-loading and Infinite Scroll for endless scrolling.
 
 ## Built with ##
 
@@ -26,7 +22,9 @@ The worlds greatest Tumblr Theme. We use the Ultra Tumblr Theme as a framework f
 * Google Analytics: http://www.google.com/analytics/
 * Disqus: http://www.disqus.com/
 
----
+
+![Thumbnail](http://haeck.s3.amazonaws.com/ultra/ultra-tumblr-theme-haeck-design.png)
+
 
 #### Changelog ####
 
