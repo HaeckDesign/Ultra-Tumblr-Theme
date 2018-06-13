@@ -27,15 +27,10 @@
 <meta name="msapplication-TileColor" content="#ffc40d">
 <meta name="msapplication-TileImage" content="{Favicon}">
 <meta name="theme-color" content="#ffffff">
+
 <meta name="image:Logo" content=""/>
-<meta name="image:Background" content=""/>
-<meta name="if:Use Black and white Photo" content="" />
-<meta name="if:Use Caption" content="" />
-<meta name="if:Use Bigger Posts" content="" />
-<meta name="if:Use Pagination" content="" />
-<meta name="if:Hide Tags" content="" />
-<meta name="if:Hide Caption" content="" />
-<meta name="if:Place Copyright Notice" content="" />
+<meta name="image:Background" content="#1565C0"/>
+<meta name="if:Black and White Photos" content="" />
 
 <meta name="color:Primary Color" content="#dedede" />
 <meta name="color:Secondary Color" content="#9c9c9c" />
@@ -99,7 +94,7 @@
 <meta name="text:Personal Site URL" content="" />
 <meta name="text:Email Address" content="" />
 <meta name="text:Shop URL" content="" />
-<meta name="text:Description Extension" content="" />
+<meta name="text:Extended Description" content="" />
 <meta name="text:Copyright Text" content="" />
 
 <meta name="text:Disqus Shortname" content="">
@@ -127,9 +122,6 @@
 
 <link href="https://static.tumblr.com/vizevuc/O6op9463q/uikit.ultra.min.css" rel="stylesheet" />
 <script src="https://static.tumblr.com/vizevuc/xJVp8r8xn/uikit.min.js"></script>
-<script src="https://static.tumblr.com/vizevuc/GzFp8r8y1/uikit-icons.min.js" defer></script>
-<script src="https://static.tumblr.com/vizevuc/e33p8qke6/lazy.js" async></script>
-
 <style>
 html { font-family: {font:Body}; background: {color:Background Color}; background: -moz-radial-gradient(center, ellipse cover, {color:Background Gradient Color} 0%, {color:Background Color} 100%); background: -webkit-radial-gradient(center, ellipse cover, {color:Background Gradient Color} 0%,{color:Background Color} 100%); background: radial-gradient(ellipse at center, {color:Background Gradient Color} 0%,{color:Background Color} 100%); } 
 h1,h2,h3,h4,h5,h6, .uk-h1, .uk-h2, .uk-h3, .uk-h4, .uk-h5, .uk-h6, .uk-article-lead, .uk-article-title { font-family: {font:Title} !important; letter-spacing: -0.01em; color: {color:Primary Color} !important;}
@@ -180,6 +172,7 @@ h1.uk-article-title {line-height: 1.25em;}
 <div class="uk-padding-remove uk-box-shadow-medium">
 {/block:permalinkpage}
 
+<noscript><img src="{block:indexpage}{PhotoURL-500}{/block:indexpage}{block:permalinkpage}{PhotoURL-HighRes}{/block:permalinkpage}" alt="{PhotoAlt}" title="{PhotoAlt}" class="uk-width-1-1" /></noscript>
 <img data-original="{block:indexpage}{PhotoURL-500}{/block:indexpage}{block:permalinkpage}{PhotoURL-HighRes}{/block:permalinkpage}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{PhotoAlt}" title="{PhotoAlt}" class="uk-width-1-1 lazy" />
 {block:indexpage}
 <div class="uk-overlay-default uk-position-cover uk-transition-fade"></div>
@@ -247,7 +240,7 @@ h1.uk-article-title {line-height: 1.25em;}
 
 
 {block:Text}
-<div class="uk-panel uk-panel-space uk-panel-box uk-width-1-1 uk-overlay uk-overlay-hover uk-animation-hover">
+<div class="uk-card uk-card-default uk-card-body">
 {block:Title}
 <div class="uk-panel-lead">{Title}</div>
 {/block:Title}
@@ -263,7 +256,7 @@ h1.uk-article-title {line-height: 1.25em;}
 
 
 {block:Quote}
-<div class="uk-panel uk-panel-space uk-panel-box uk-width-1-1 uk-overlay uk-overlay-hover uk-animation-hover">
+<div class="uk-card uk-card-default uk-card-body">
 <blockquote>
 <p>"{Quote}"</p>    
 {block:Source}<small>{Source}</small>{/block:Source}
@@ -570,6 +563,8 @@ h1.uk-article-title {line-height: 1.25em;}
 </div>
 </div>
 
+<script src="https://static.tumblr.com/vizevuc/GzFp8r8y1/uikit-icons.min.js" async></script>
+<script src="https://static.tumblr.com/vizevuc/e33p8qke6/lazy.js" async></script>
 {block:indexpage}
 <script src="https://unpkg.com/infinite-scroll@3.0.4/dist/infinite-scroll.pkgd.min.js"></script>
 <script> var elem = document.querySelector('.container'); var infScroll = new InfiniteScroll( elem, { path: '.pagination_next', append: '.post', history: false, }); var infScroll = new InfiniteScroll( '.container', { }); </script>
