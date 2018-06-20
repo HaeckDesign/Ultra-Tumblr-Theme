@@ -117,14 +117,14 @@
 <meta name="twitter:domain" content="{BlogURL}" />
 <meta property="twitter:title" content="{Title}" />
 <meta property="twitter:description" content="{MetaDescription}" />
-<meta property="og:image" content="{Favicon}" />
-<meta name="twitter:image" content="{Favicon}" />
 
-<link href="https://static.tumblr.com/vizevuc/O6op9463q/uikit.ultra.min.css" rel="stylesheet" />
-<script src="https://static.tumblr.com/vizevuc/xJVp8r8xn/uikit.min.js"></script>
+<link href="https://static.tumblr.com/vizevuc/r88pamp1y/uikit.ultra.min.css" rel="stylesheet" />
+<script src="https://static.tumblr.com/vizevuc/YTjpamp2p/uikit.min.js"></script>
 <style>
 html { font-family: {font:Body}; background: {color:Background Color}; background: -moz-radial-gradient(center, ellipse cover, {color:Background Gradient Color} 0%, {color:Background Color} 100%); background: -webkit-radial-gradient(center, ellipse cover, {color:Background Gradient Color} 0%,{color:Background Color} 100%); background: radial-gradient(ellipse at center, {color:Background Gradient Color} 0%,{color:Background Color} 100%); } 
 h1,h2,h3,h4,h5,h6, .uk-h1, .uk-h2, .uk-h3, .uk-h4, .uk-h5, .uk-h6, .uk-article-lead, .uk-article-title { font-family: {font:Title} !important; letter-spacing: -0.01em; color: {color:Primary Color} !important;}
+.uk-offcanvas-bar .uk-text-lead, footer .uk-text-lead { font-family: {font:Title} !important; letter-spacing: -0.01em;}
+h1.uk-article-title { font-size: {select:Title Size} !important; }
 h1.uk-article-title { font-size: {select:Title Size} !important; }
 .prev, .next, a.uk-button, .caption_header { background: {color:Button Background} !important; color: {color:Button Text} !important;}
 .caption > .caption_header > .uk-article-meta { color: {color:Post Header Text} !important;}
@@ -146,9 +146,9 @@ h1.uk-article-title {line-height: 1.25em;}
 <body>
 <div class="uk-offcanvas-content">
 <header class="uk-section uk-section-small uk-text-center">
-{block:iflogoimage}<a href="{BlogURL}" title="{Title}"><img src="{image:logo}" alt="{Title} Logo" title="{Title} Logo" class="uk-thumbnail uk-border-circle toplogo" /></a>{/block:iflogoimage}
-{block:indexpage}<h1 class="uk-text-lead uk-heading-divider">{Title}</h1>{/block:indexpage}
-{block:PermalinkPage}{block:PostSummary}<h1 class="uk-text-lead uk-heading-divider">{PostSummary}</h1>{/block:PostSummary}{/block:PermalinkPage}
+{block:iflogoimage}<a href="{BlogURL}" title="{Title}"><img src="{image:logo}" alt="{Title} Logo" title="{Title} Logo" class="uk-thumbnail uk-border-circle toplogo" nopin="nopin" /></a>{/block:iflogoimage}
+{block:indexpage}<h1 class="uk-text-lead uk-heading-divider uk-margin-top">{Title}</h1>{/block:indexpage}
+{block:PermalinkPage}{block:PostSummary}<h1 class="uk-text-lead uk-heading-divider uk-margin-top">{PostSummary}</h1>{/block:PostSummary}{/block:PermalinkPage}
 {block:Description}
 {block:indexpage}<h2 id="description" class="uk-text-meta uk-margin">{Description}</h2>{/block:indexpage}
 {block:PermalinkPage}<div id="description" class="uk-text-meta uk-margin">{Description}</div>{/block:PermalinkPage}
@@ -332,32 +332,33 @@ h1.uk-article-title {line-height: 1.25em;}
 
 <div class="uk-card uk-card-default" data-uk-sticky="bottom: true">
 <div class="uk-card-header">
-	<h2 class="uk-text-right uk-h5 uk-margin-small">{DayOfWeek} - {Month} {DayOfMonth}, {Year}</h2>
+	<h2 class="uk-text-right uk-h4 uk-margin-small">{DayOfWeek} - {Month} {DayOfMonth}, {Year}</h2>
     <h3 class="uk-text-right uk-article-meta uk-margin-remove">{block:PostSummary}{PostSummary}{/block:PostSummary}</h3>
 </div>
 
 <div class="uk-card-body uk-text-center uk-link-muted">
 {Caption}
 <small class="uk-text-muted">Originally Posted: {Month} {DayOfMonth} {Year}</small>
-<hr class="uk-margin-small" />
-<div class="uk-flex uk-flex-between uk-flex-middle">
-	<div>
-	<div class="fb-like" data-href="{permalink}" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
-	</div> 
-	<div>
-	<a href="//www.pinterest.com/pin/create/button/?url={permalink}&media={photourl}&description=Found&nbsp;on&nbsp;https://tumblr.com/{name}" data-pin-do="buttonPin" data-pin-save="true" rel="nofollow" target="_blank"></a>
-	</div>
-	<div>
-	<a href="https://twitter.com/share" class="twitter-share-button" data-url="{permalink}" title="Share on Twitter" target="_blank" rel="nofollow">Tweet</a>
-	</div>
+
+<div class="uk-flex uk-flex-around uk-flex-middle uk-margin-medium-top">
 	<div>{likebutton size="24"}</div>
 	<div>{Reblogbutton size="24"}</div>
+	<div><a href="mailto:?Subject={MetaDescription}&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 {URLEncodedUrl}" title="Email Post" target="_blank" data-uk-icon="icon:mail;ratio:1.2;"></a></div>
 	<div>
 	{block:NoteCount} {notecount} {lang:Notes} {/block:NoteCount}
 	</div>
 </div>
 
 <hr class="uk-margin-small" />
+
+<div class="uk-flex uk-flex-between uk-flex-middle uk-flex-stretch">
+    <a href="http://www.facebook.com/sharer.php?u={URLEncodedPermalink}" title="Share on Facebook" target="_blank" class="uk-button uk-button-primary" data-uk-icon="icon:facebook;"></a>
+    <a href="https://plus.google.com/share?url={URLEncodedPermalink}" title="Share on Google+" target="_blank" class="uk-button uk-button-primary" data-uk-icon="icon:google-plus;"></a>
+    <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url={URLEncodedPermalink}" title="Share on LinkedIn" target="_blank" class="uk-button uk-button-primary" data-uk-icon="icon:linkedin;"></a>
+	<a href="//www.pinterest.com/pin/create/button/?url={permalink}" data-pin-do="buttonPin" data-pin-save="true" data-pin-url="{permalink}" data-pin-description="{MetaDescription} via https://tumblr.com/{name}" data-pin-media="{PhotoURL}" rel="nofollow" title="Share on Pinterest" target="_blank" class="uk-button uk-button-primary" data-uk-icon="icon:pinterest;"></a>
+    <a href="http://www.tumblr.com/share/link?url={URLEncodedPermalink}&amp;title={MetaDescription}" title="Share on Tumblr" target="_blank" class="uk-button uk-button-primary" data-uk-icon="icon:tumblr;"></a>
+    <a href="https://twitter.com/share?url={URLEncodedPermalink}&amp;text={MetaDescription}&amp;hashtags=designclubs" title="Share on Twitter" target="_blank" class="uk-button uk-button-primary" data-uk-icon="icon:twitter;"></a>
+</div>
 
 {block:ifnothidetags}{block:HasTags}
 <ul id="tagging" class="uk-subnav uk-subnav-pill uk-flex uk-flex-center uk-text-small uk-margin-top">
@@ -370,7 +371,7 @@ h1.uk-article-title {line-height: 1.25em;}
 {/block:GroupMembers}
 
 {block:PostNotes} 
-<div class="uk-panel uk-panel-scrollable uk-background-muted uk-margin-top">
+<div class="uk-panel uk-panel-scrollable uk-background-muted uk-margin-small-top">
 {block:Posts}
 	<div class="post-padding">
 		<div class="post-padding2">
@@ -416,7 +417,7 @@ h1.uk-article-title {line-height: 1.25em;}
 
 {block:permalinkpage}
 <footer class="uk-section uk-background-secondary uk-margin-large-top uk-position-bottom uk-position-relative">
-<div class="uk-container uk-container-center uk-width-3-4@m">
+<div class="uk-container uk-container-center uk-width-5-6@m">
 	{block:PermalinkPagination}
 		{block:IfDisqusShortname}
 		<span class="uk-text-warning uk-align-right" data-uk-icon="icon:comment"></span>
@@ -464,7 +465,7 @@ h1.uk-article-title {line-height: 1.25em;}
 {/block:ifnotplacecopyrightnotice}
 
 </div>
-<a id="totop-scroller" class="uk-width-1-1 uk-text-muted uk-text-center uk-margin-medium-top" data-uk-scroll data-uk-icon="icon:triangle-up;ratio:1.8;" href="#page"></a>
+<a id="totop-scroller" class="uk-width-1-1 uk-text-muted uk-text-center uk-margin-medium-top" data-uk-scroll data-uk-icon="icon:triangle-up;ratio:2.6;" href="#page"></a>
 </footer>
 
 {/block:permalinkpage}
@@ -504,58 +505,58 @@ h1.uk-article-title {line-height: 1.25em;}
 <div itemscope itemtype="https://schema.org/Organization">
 <ul class="uk-nav uk-nav-default uk-text-center uk-text-center" data-uk-nav>
 {block:iffacebookurl}
-	<li><a href="{text:facebook url}" title="Facebook" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: facebook;">Facebook </a></li>
+	<li><a href="{text:facebook url}" title="Facebook" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: facebook;">Facebook &nbsp;</a></li>
 {/block:iffacebookurl}
 {block:iftwitterusername}
-	<li><a href="https://twitter.com/{text:twitter username}" title="Twitter" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: twitter;">Twitter </a></li>
+	<li><a href="https://twitter.com/{text:twitter username}" title="Twitter" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: twitter;">Twitter &nbsp;</a></li>
 {/block:iftwitterusername}
 {block:ifpinteresturl}
-	<li><a href="https://pinterest.com/{text:pinterest username}" title="Pinterest" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: pinterest;">Pinterest </a></li>
+	<li><a href="https://pinterest.com/{text:pinterest username}" title="Pinterest" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: pinterest;">Pinterest &nbsp;</a></li>
 {/block:ifpinteresturl}
 {block:ifgoogleplusurl}
-	<li><a href="{text:googleplus url}" title="Google Plus" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: google-plus;">Google Plus </a></li>
+	<li><a href="{text:googleplus url}" title="Google Plus" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: google-plus;">Google Plus &nbsp;</a></li>
 {/block:ifgoogleplusurl}	
 {block:ifinstagramusername}
-	<li><a href="http://instagram.com/{text:instagram username}" title="Instagram" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: instagram;">Instagram </a></li>
+	<li><a href="http://instagram.com/{text:instagram username}" title="Instagram" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: instagram;">Instagram &nbsp;</a></li>
 {/block:ifinstagramusername}
 {block:ifspanchatusername}
-	<li><a href="https://snapchat.com/{text:snapchat username}" title="Snapchat" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: snapchat;">Snapchat </a></li>
+	<li><a href="https://snapchat.com/{text:snapchat username}" title="Snapchat" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: snapchat;">Snapchat &nbsp;</a></li>
 {/block:ifspanchatusername}		
 {block:ifstumbleuponurl}
-	<li><a href="{text:stumbleupon username}" title="StumbleUpon" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: stumbleupon;">StumbleUpon </a></li>
+	<li><a href="{text:stumbleupon username}" title="StumbleUpon" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: stumbleupon;">StumbleUpon &nbsp;</a></li>
 {/block:ifstumbleuponurl}	
 {block:ifredditusername}
-	<li><a href="https://reddit.com/~{text:reddit username}" title="Reddit" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: reddit;">Reddit </a></li>
+	<li><a href="https://reddit.com/~{text:reddit username}" title="Reddit" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: reddit;">Reddit &nbsp;</a></li>
 {/block:ifredditusername}		
 {block:ifmediumurl}
-	<li><a href="{text:medium url}" title="Medium" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: medium;">Medium </a></li>
+	<li><a href="{text:medium url}" title="Medium" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: medium;">Medium &nbsp;</a></li>
 {/block:ifmediumurl}
 {block:ifvkurl}
-	<li><a href="{text:vk url}" title="VK" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: vk;">VK </a></li>
+	<li><a href="{text:vk url}" title="VK" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: vk;">VK &nbsp;</a></li>
 {/block:ifvkurl}
 {block:ifbehanceurl}
-	<li><a href="{text:behance url}" title="Behance" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: behance;">Behance </a></li>
+	<li><a href="{text:behance url}" title="Behance" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: behance;">Behance &nbsp;</a></li>
 {/block:ifbehanceurl}
 {block:ifdribbbleurl}
-	<li><a href="{text:dribbble url}" title="Dribbble" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: dribbble;">Dribbble </a></li>
+	<li><a href="{text:dribbble url}" title="Dribbble" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: dribbble;">Dribbble &nbsp;</a></li>
 {/block:ifdribbbleurl}
 {block:ifflickrurl}
-	<li><a href="{text:flickr url}" title="Flickr" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: flickr;">Flickr </a></li>
+	<li><a href="{text:flickr url}" title="Flickr" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: flickr;">Flickr &nbsp;</a></li>
 {/block:ifflickrurl}
 {block:ifsoundcloudurl}
-	<li><a href="{text:soundcloud url}" title="SoundCloud" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: soundcloud;">SoundCloud </a></li>
+	<li><a href="{text:soundcloud url}" title="SoundCloud" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: soundcloud;">SoundCloud &nbsp;</a></li>
 {/block:ifsoundcloudurl}
 {block:ifspotifyurl}
-	<li><a href="{text:spotify url}" title="Spotify" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: spotify;">Spotify </a></li>
+	<li><a href="{text:spotify url}" title="Spotify" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: spotify;">Spotify &nbsp;</a></li>
 {/block:ifspotifyurl}
 {block:ifvimeourl}
-	<li><a href="{text:vimeo url}" title="Vimeo" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: vimeo;">Vimeo </a></li>
+	<li><a href="{text:vimeo url}" title="Vimeo" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: vimeo;">Vimeo &nbsp;</a></li>
 {/block:ifvimeourl}
 {block:ifyoutubeurl}
-	<li><a href="{text:youtube url}" title="YouTube" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: youtube;">YouTube </a></li>
+	<li><a href="{text:youtube url}" title="YouTube" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: youtube;">YouTube &nbsp;</a></li>
 {/block:ifyoutubeurl}
 {block:iftwitchurl}
-	<li><a href="{text:twitch url}" title="Twitch" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: twitch;">Twitch </a></li>
+	<li><a href="{text:twitch url}" title="Twitch" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: twitch;">Twitch &nbsp;</a></li>
 {/block:iftwitchurl}
 </ul>
 </div>
@@ -563,16 +564,12 @@ h1.uk-article-title {line-height: 1.25em;}
 </div>
 </div>
 
-<script src="https://static.tumblr.com/vizevuc/GzFp8r8y1/uikit-icons.min.js" async></script>
+<script src="https://static.tumblr.com/vizevuc/HvWpamp3c/uikit-icons.min.js" async></script>
 <script src="https://static.tumblr.com/vizevuc/e33p8qke6/lazy.js" async></script>
 {block:indexpage}
 <script src="https://unpkg.com/infinite-scroll@3.0.4/dist/infinite-scroll.pkgd.min.js"></script>
 <script> var elem = document.querySelector('.container'); var infScroll = new InfiniteScroll( elem, { path: '.pagination_next', append: '.post', history: false, }); var infScroll = new InfiniteScroll( '.container', { }); </script>
 {/block:indexpage}
-{block:permalinkpage}
-<script src="//assets.pinterest.com/js/pinit.js" async></script>
-<script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/us_US/all.js#xfbml=1";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','twitter-wjs');</script>
-{/block:permalinkpage}
 {block:IfGoogleAnalyticsWebPropertyID}
 <script> (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','https://www.google-analytics.com/analytics.js','ga'); ga('create', '{text:Google Analytics Web Property ID}', 'auto'); ga('send', 'pageview');</script>
 {/block:IfGoogleAnalyticsWebPropertyID}
