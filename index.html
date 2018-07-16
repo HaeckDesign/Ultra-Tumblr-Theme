@@ -29,7 +29,8 @@
 <meta name="theme-color" content="#ffffff">
 
 <meta name="image:Logo" content=""/>
-<meta name="image:Background" content="#1565C0"/>
+<meta name="image:Header" content=""/>
+<meta name="image:Footer" content=""/>
 <meta name="if:Black and White Photos" content="" />
 
 <meta name="color:Primary Color" content="#dedede" />
@@ -111,19 +112,18 @@
 <meta property="twitter:title" content="{Title}" />
 <meta property="twitter:description" content="{MetaDescription}" />
 
-<link href="https://static.tumblr.com/vizevuc/r88pamp1y/uikit.ultra.min.css" rel="stylesheet" />
-<script src="https://static.tumblr.com/vizevuc/YTjpamp2p/uikit.min.js"></script>
+<link href="https://static.tumblr.com/vizevuc/TSMpboqst/uikit.ultra.min.css" rel="stylesheet" />
+<script src="https://static.tumblr.com/vizevuc/orxpboqtg/uikit.min.js"></script>
 <style>
 html { font-family: {font:Body}; background: {color:Background Color}; background: -moz-radial-gradient(center, ellipse cover, {color:Background Gradient Color} 0%, {color:Background Color} 100%); background: -webkit-radial-gradient(center, ellipse cover, {color:Background Gradient Color} 0%,{color:Background Color} 100%); background: radial-gradient(ellipse at center, {color:Background Gradient Color} 0%,{color:Background Color} 100%); } 
 h1,h2,h3,h4,h5,h6, .uk-h1, .uk-h2, .uk-h3, .uk-h4, .uk-h5, .uk-h6, .uk-article-lead, .uk-article-title { font-family: {font:Title} !important; letter-spacing: -0.01em; color: {color:Primary Color} !important;}
 .uk-offcanvas-bar .uk-text-lead, footer .uk-text-lead { font-family: {font:Title} !important; letter-spacing: -0.01em;}
 h1.uk-article-title { font-size: {select:Title Size} !important; }
-h1.uk-article-title { font-size: {select:Title Size} !important; }
 header > .uk-article-meta, header > description, .uk-subnav-pill h4, footer .uk-icon-comment, footer #totop-scroller { color: {color:Secondary Color} !important;}
 body, body p { color: {color:Post Text} !important;}
-a.uk-button-primary { color: {color: Button Text} !important;}
-#sharing > a.uk-button-primary, #prevnext > a.uk-button-primary { background: {color: Button Background} !important;}
 h1.uk-article-title {line-height: 1.25em;}
+.uk-button-primary, a.uk-button-primary, #sharing > a.uk-button-primary, #prevnext > a.uk-button-primary, header.uk-background-primary, footer > .uk-background-primary { color: {color:Button Text};background-color: {color:Button Background}; }
+header.uk-background-primary h1.uk-text-lead, header.uk-background-primary h2#description, footer > .uk-background-primary { color: {color:Button Text} !important; }
 {CustomCSS}
 </style>
 <meta name="google-site-verification" content="{text:Google Site Verification}" />
@@ -132,12 +132,12 @@ h1.uk-article-title {line-height: 1.25em;}
 
 <body>
 <div class="uk-offcanvas-content">
-<header class="uk-section uk-section-small uk-text-center">
+<header class="uk-tile uk-flex uk-flex-column uk-text-center {block:indexpage}{block:IfHeaderImage}uk-tile-small uk-margin-medium-bottom uk-background-blend-multiply uk-background-primary uk-background-image@m uk-background-cover uk-background-fixed" style="background-image: url({image:Header}){/block:IfHeaderImage}{/block:indexpage}">
 {block:iflogoimage}<a href="{BlogURL}" title="{Title}"><img src="{image:logo}" alt="{Title} Logo" title="{Title} Logo" class="uk-thumbnail uk-border-circle toplogo" nopin="nopin" /></a>{/block:iflogoimage}
 {block:indexpage}<h1 class="uk-text-lead uk-heading-divider uk-margin-top">{Title}</h1>{/block:indexpage}
-{block:PermalinkPage}{block:PostSummary}<h1 class="uk-text-lead uk-heading-divider uk-margin-top">{PostSummary}</h1>{/block:PostSummary}{/block:PermalinkPage}
+{block:PermalinkPage}{block:PostSummary}<h1 class="uk-text-lead uk-heading-divider">{PostSummary}</h1>{/block:PostSummary}{/block:PermalinkPage}
 {block:Description}
-{block:indexpage}<h2 id="description" class="uk-text-meta uk-margin">{Description}</h2>{/block:indexpage}
+{block:indexpage}<h2 id="description" class="uk-text-meta uk-margin-remove">{Description}</h2>{/block:indexpage}
 {block:PermalinkPage}<div id="description" class="uk-text-meta uk-margin">{Description}</div>{/block:PermalinkPage}
 {/block:Description}
 </header>
@@ -160,14 +160,13 @@ h1.uk-article-title {line-height: 1.25em;}
 {/block:permalinkpage}
 
 <noscript><img src="{block:indexpage}{PhotoURL-500}{/block:indexpage}{block:permalinkpage}{PhotoURL-HighRes}{/block:permalinkpage}" alt="{PhotoAlt}" title="{PhotoAlt}" class="uk-width-1-1" /></noscript>
-<img data-original="{block:indexpage}{PhotoURL-500}{/block:indexpage}{block:permalinkpage}{PhotoURL-HighRes}{/block:permalinkpage}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{PhotoAlt}" title="{PhotoAlt}" class="uk-width-1-1 lazy" />
+<img data-original="{block:indexpage}{PhotoURL-500}{/block:indexpage}{block:permalinkpage}{PhotoURL-HighRes}{/block:permalinkpage}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{PhotoAlt}" title="{PhotoAlt}" class="uk-responsive-width lazy" />
 {block:indexpage}
 <div class="uk-overlay-default uk-position-cover uk-transition-fade"></div>
-<figcaption class="uk-position-cover uk-transition-fade">
-<span class="uk-position-center uk-flex uk-flex-around">
-	<a href="{ReblogURL}" title="Reblog | {PhotoAlt}" class="uk-animation-fade" target="_blank" data-uk-icon="icon:refresh;ratio:2.4;"></a>&nbsp;
-	<a href="{Permalink}" title="Link | {PhotoAlt}" class="uk-animation-fade" data-uk-icon="icon:plus-circle;ratio:2.4;"></a>
-</span>
+<figcaption class="uk-transition-fade uk-position-cover uk-flex uk-flex-middle uk-flex-center uk-flex-column">
+	<a href="{Permalink}" title="Link | {PhotoAlt}" class="uk-animation-fade" data-uk-icon="icon:plus-circle;ratio:3.4;"></a>
+	<a href="{ReblogURL}" title="Reblog | {PhotoAlt}" class="uk-margin-top uk-animation-fade" target="_blank" data-uk-icon="icon:refresh;ratio:3.4;"></a>
+<noscript><a href="{Permalink}" title="Link | {PhotoAlt}" class="uk-text-center uk-display-inline-block uk-padding uk-link-reset">{PhotoAlt}</a></noscript>
 </figcaption>
 </figure>
 {/block:indexpage}
@@ -192,11 +191,9 @@ h1.uk-article-title {line-height: 1.25em;}
 
 {block:indexpage}
 <div class="uk-overlay-default uk-position-cover uk-transition-fade"></div>
-<figcaption class="uk-position-cover uk-transition-fade">
-<span class="uk-position-center uk-flex uk-flex-around">
-	<a href="{ReblogURL}" title="Reblog | {PhotoAlt}" target="_blank" data-uk-icon="icon:refresh;ratio:2.4;"></a>&nbsp;
-	<a href="{Permalink}" title="Link | {PhotoAlt}" data-uk-icon="icon:plus-circle;ratio:2.4;"></a>
-</span>
+<figcaption class="uk-transition-fade uk-position-cover uk-flex uk-flex-middle uk-flex-center uk-flex-column">
+	<a href="{Permalink}" title="Link | {PhotoAlt}" class="uk-animation-fade" data-uk-icon="icon:plus-circle;ratio:3.4;"></a>
+	<a href="{ReblogURL}" title="Reblog | {PhotoAlt}" class="uk-margin-top uk-animation-fade" target="_blank" data-uk-icon="icon:refresh;ratio:3.4;"></a>
 </figcaption>
 </figure>
 {/block:indexpage}
@@ -335,7 +332,7 @@ h1.uk-article-title {line-height: 1.25em;}
 
 <hr class="uk-margin-small" />
 
-<div id="sharing" class="uk-flex uk-flex-between uk-flex-middle uk-flex-stretch">
+<div id="sharing" class="uk-flex uk-flex-wrap uk-child-width-1-6">
     <a href="http://www.facebook.com/sharer.php?u={URLEncodedPermalink}" title="Share on Facebook" target="_blank" class="uk-button uk-button-primary" data-uk-icon="icon:facebook;"></a>
     <a href="https://plus.google.com/share?url={URLEncodedPermalink}" title="Share on Google+" target="_blank" class="uk-button uk-button-primary" data-uk-icon="icon:google-plus;"></a>
     <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url={URLEncodedPermalink}" title="Share on LinkedIn" target="_blank" class="uk-button uk-button-primary" data-uk-icon="icon:linkedin;"></a>
@@ -401,7 +398,8 @@ h1.uk-article-title {line-height: 1.25em;}
 
 {block:permalinkpage}
 <footer class="uk-section uk-background-secondary uk-margin-large-top uk-position-bottom uk-position-relative">
-<div class="uk-container uk-container-center uk-width-5-6@m">
+
+<div class="uk-container uk-container-center uk-width-5-6@m uk-width-2-3@l">
 	{block:PermalinkPagination}
 		{block:IfDisqusShortname}
 		<span class="uk-text-warning uk-align-right" data-uk-icon="icon:comment"></span>
@@ -421,23 +419,23 @@ h1.uk-article-title {line-height: 1.25em;}
 	{/block:PermalinkPagination}
 </div> 
 
-<div class="copyrightcontainer uk-block uk-text-center uk-clearfix">
+<div class="copyrightcontainer uk-tile uk-text-center uk-clearfix {block:IfFooterImage}uk-tile-large uk-margin-xlarge-top uk-background-blend-multiply uk-background-primary uk-background-image@m uk-background-cover uk-background-fixed" style="background-image: url({image:Footer}){/block:IfFooterImage}">
 {block:ifCustomlink1title}
-<ul class="uk-flex uk-flex-center uk-width-1-1 uk-subnav uk-subnav-line uk-text-center uk-contrast uk-margin-large-top uk-light">
-	<li><a href="{text:Custom link 1 URL}" title="{text:Custom link 1 title}" target="_blank" rel="nofollow">{text:Custom link 1 title}</a></li>
+<div class="uk-flex uk-flex-center uk-flex-wrap uk-button-group">
+	<a href="{text:Custom link 1 URL}" title="{text:Custom link 1 title}" target="_blank" rel="nofollow" class="uk-button uk-button-primary uk-box-shadow-medium uk-box-shadow-hover-small">{text:Custom link 1 title}</a>
 	{block:ifCustomlink2title}
-	<li><a href="{text:Custom link 2 URL}" title="{text:Custom link 2 title}" target="_blank" rel="nofollow">{text:Custom link 2 title}</a></li>
+	<a href="{text:Custom link 2 URL}" title="{text:Custom link 2 title}" target="_blank" rel="nofollow" class="uk-button uk-button-primary uk-box-shadow-medium uk-box-shadow-hover-small">{text:Custom link 2 title}</a>
 	{/block:ifCustomlink2title}
 	{block:ifCustomlink3title}
-	<li><a href="{text:Custom link 3 URL}" title="{text:Custom link 3 title}" target="_blank" rel="nofollow">{text:Custom link 3 title}</a></li>
+	<a href="{text:Custom link 3 URL}" title="{text:Custom link 3 title}" target="_blank" rel="nofollow" class="uk-button uk-button-primary uk-box-shadow-medium uk-box-shadow-hover-small">{text:Custom link 3 title}</a>
 	{/block:ifCustomlink3title}
 	{block:ifCustomlink4title}
-	<li><a href="{text:Custom link 4 URL}" title="{text:Custom link 4 title}" target="_blank" rel="nofollow">{text:Custom link 4 title}</a></li>
+	<a href="{text:Custom link 4 URL}" title="{text:Custom link 4 title}" target="_blank" rel="nofollow" class="uk-button uk-button-primary uk-box-shadow-medium uk-box-shadow-hover-small">{text:Custom link 4 title}</a>
 	{/block:ifCustomlink4title}
 	{block:ifCustomlink5title}
-	<li><a href="{text:Custom link 5 URL}" title="{text:Custom link 5 title}" target="_blank" rel="nofollow">{text:Custom link 5 title}</a></li>
+	<a href="{text:Custom link 5 URL}" title="{text:Custom link 5 title}" target="_blank" rel="nofollow" class="uk-button uk-button-primary uk-box-shadow-medium uk-box-shadow-hover-small">{text:Custom link 5 title}</a>
 	{/block:ifCustomlink5title}
-</ul>
+</div>
 {/block:ifCustomlink1title}
 
 {block:ifplacecopyrightnotice}
@@ -548,7 +546,7 @@ h1.uk-article-title {line-height: 1.25em;}
 </div>
 </div>
 
-<script src="https://static.tumblr.com/vizevuc/HvWpamp3c/uikit-icons.min.js" async></script>
+<script src="https://static.tumblr.com/vizevuc/GkApboqtw/uikit-icons.min.js" async></script>
 <script src="https://static.tumblr.com/vizevuc/e33p8qke6/lazy.js" async></script>
 {block:indexpage}
 <script src="https://unpkg.com/infinite-scroll@3.0.4/dist/infinite-scroll.pkgd.min.js"></script>
