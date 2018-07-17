@@ -111,7 +111,10 @@
 <meta name="twitter:domain" content="{BlogURL}" />
 <meta property="twitter:title" content="{Title}" />
 <meta property="twitter:description" content="{MetaDescription}" />
-
+{block:indexpage}{block:IfHeaderImage}
+<meta property="og:image" content="{HeaderImage}" />
+<meta name="twitter:image" content="{HeaderImage}" />
+{/block:IfHeaderImage}{/block:indexpage}
 <link href="https://static.tumblr.com/vizevuc/TSMpboqst/uikit.ultra.min.css" rel="stylesheet" />
 <script src="https://static.tumblr.com/vizevuc/orxpboqtg/uikit.min.js"></script>
 <style>
@@ -138,7 +141,7 @@ header.uk-background-primary h1.uk-text-lead, header.uk-background-primary h2#de
 {block:PermalinkPage}{block:PostSummary}<h1 class="uk-text-lead uk-heading-divider">{PostSummary}</h1>{/block:PostSummary}{/block:PermalinkPage}
 {block:Description}
 {block:indexpage}<h2 id="description" class="uk-text-meta uk-margin-remove">{Description}</h2>{/block:indexpage}
-{block:PermalinkPage}<div id="description" class="uk-text-meta uk-margin">{Description}</div>{/block:PermalinkPage}
+{block:PermalinkPage}<div id="description" class="uk-text-meta uk-margin-remove">{Description}</div>{/block:PermalinkPage}
 {/block:Description}
 </header>
 
@@ -160,12 +163,12 @@ header.uk-background-primary h1.uk-text-lead, header.uk-background-primary h2#de
 {/block:permalinkpage}
 
 <noscript><img src="{block:indexpage}{PhotoURL-500}{/block:indexpage}{block:permalinkpage}{PhotoURL-HighRes}{/block:permalinkpage}" alt="{PhotoAlt}" title="{PhotoAlt}" class="uk-width-1-1" /></noscript>
-<img data-original="{block:indexpage}{PhotoURL-500}{/block:indexpage}{block:permalinkpage}{PhotoURL-HighRes}{/block:permalinkpage}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{PhotoAlt}" title="{PhotoAlt}" class="uk-responsive-width lazy" />
+<img data-original="{block:indexpage}{PhotoURL-500}{/block:indexpage}{block:permalinkpage}{PhotoURL-HighRes}{/block:permalinkpage}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{PhotoAlt}" title="{PhotoAlt}" class="uk-width-1-1 lazy" />
 {block:indexpage}
 <div class="uk-overlay-default uk-position-cover uk-transition-fade"></div>
 <figcaption class="uk-transition-fade uk-position-cover uk-flex uk-flex-middle uk-flex-center uk-flex-column">
-	<a href="{Permalink}" title="Link | {PhotoAlt}" class="uk-animation-fade" data-uk-icon="icon:plus-circle;ratio:3.4;"></a>
-	<a href="{ReblogURL}" title="Reblog | {PhotoAlt}" class="uk-margin-top uk-animation-fade" target="_blank" data-uk-icon="icon:refresh;ratio:3.4;"></a>
+	<a href="{Permalink}" title="Link | {PhotoAlt}" class="uk-animation-fade" data-uk-icon="icon:plus-circle;ratio:3;"></a>
+	<a href="{ReblogURL}" title="Reblog | {PhotoAlt}" class="uk-margin-small-top uk-animation-fade" target="_blank" data-uk-icon="icon:refresh;ratio:3"></a>
 <noscript><a href="{Permalink}" title="Link | {PhotoAlt}" class="uk-text-center uk-display-inline-block uk-padding uk-link-reset">{PhotoAlt}</a></noscript>
 </figcaption>
 </figure>
@@ -192,8 +195,8 @@ header.uk-background-primary h1.uk-text-lead, header.uk-background-primary h2#de
 {block:indexpage}
 <div class="uk-overlay-default uk-position-cover uk-transition-fade"></div>
 <figcaption class="uk-transition-fade uk-position-cover uk-flex uk-flex-middle uk-flex-center uk-flex-column">
-	<a href="{Permalink}" title="Link | {PhotoAlt}" class="uk-animation-fade" data-uk-icon="icon:plus-circle;ratio:3.4;"></a>
-	<a href="{ReblogURL}" title="Reblog | {PhotoAlt}" class="uk-margin-top uk-animation-fade" target="_blank" data-uk-icon="icon:refresh;ratio:3.4;"></a>
+	<a href="{Permalink}" title="Link | {PhotoAlt}" class="uk-animation-fade" data-uk-icon="icon:plus-circle;ratio:3;"></a>
+	<a href="{ReblogURL}" title="Reblog | {PhotoAlt}" class="uk-margin-small-top uk-animation-fade" target="_blank" data-uk-icon="icon:refresh;ratio:3;"></a>
 </figcaption>
 </figure>
 {/block:indexpage}
@@ -419,7 +422,7 @@ header.uk-background-primary h1.uk-text-lead, header.uk-background-primary h2#de
 	{/block:PermalinkPagination}
 </div> 
 
-<div class="copyrightcontainer uk-tile uk-text-center uk-clearfix {block:IfFooterImage}uk-tile-large uk-margin-xlarge-top uk-background-blend-multiply uk-background-primary uk-background-image@m uk-background-cover uk-background-fixed" style="background-image: url({image:Footer}){/block:IfFooterImage}">
+<div class="copyrightcontainer uk-tile uk-text-center uk-clearfix {block:IfFooterImage}uk-tile-large uk-margin-xlarge-top uk-background-blend-multiply uk-background-primary uk-background-image@m uk-background-cover uk-background-fixed" {block:IfFooterImage}style="background-image: url({image:Footer}){/block:IfFooterImage}">
 {block:ifCustomlink1title}
 <div class="uk-flex uk-flex-center uk-flex-wrap uk-button-group">
 	<a href="{text:Custom link 1 URL}" title="{text:Custom link 1 title}" target="_blank" rel="nofollow" class="uk-button uk-button-primary uk-box-shadow-medium uk-box-shadow-hover-small">{text:Custom link 1 title}</a>
