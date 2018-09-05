@@ -42,9 +42,9 @@
 <meta name="color:Post Text" content="#727272" />
 <meta name="color:Button Text" content="#9c9c9c" />
 <meta name="color:Button Background" content="#dedede" />
-<meta name="select:Max Grid Columns" content="uk-child-width-1-3@l" title="3">
-<meta name="select:Max Grid Columns" content="uk-child-width-1-3@m uk-child-width-1-4@l" title="4">
-<meta name="select:Max Grid Columns" content="uk-child-width-1-3@m uk-child-width-1-4@l uk-child-width-1-5@xl" title="5">
+<meta name="select:Max Grid Columns" content="uk-width-1-3@l" title="3">
+<meta name="select:Max Grid Columns" content="uk-width-1-3@m uk-width-1-4@l" title="4">
+<meta name="select:Max Grid Columns" content="uk-width-1-3@m uk-width-1-4@l uk-width-1-5@xl" title="5">
 <meta name="select:Title Size" content="1.2em" title="1.2em">
 <meta name="select:Title Size" content="1.4em" title="1.4em">
 <meta name="select:Title Size" content="1.6em" title="1.6em">
@@ -97,24 +97,127 @@
 <meta name="text:Google Site Verification" content="" />
 <meta name="text:Bing Site Verification" content="" />
 
-<meta property="og:locale" content="en_US" />
-<meta property="og:title" content="{Title}" />
-<meta property="og:site_name" content="{Title}" />
-<meta property="og:url" content="{BlogURL}" />
-<meta property="og:description" content="{MetaDescription}" />
-<meta property="og:type" content="article" />
-<meta property="article:publisher" content="{text:facebook url}" />
-<meta property="fb:app_id" content="{text:Facebook App ID}" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:site" content="@{text:twitter username}" />
-<meta name="twitter:site:id" content="{text:twitter username}" />
-<meta name="twitter:domain" content="{BlogURL}" />
-<meta property="twitter:title" content="{Title}" />
-<meta property="twitter:description" content="{MetaDescription}" />
-{block:indexpage}{block:IfHeaderImage}
-<meta property="og:image" content="{HeaderImage}" />
-<meta name="twitter:image" content="{HeaderImage}" />
-{/block:IfHeaderImage}{/block:indexpage}
+<meta property="og:site_name" content="{Title}"/>
+{block:IndexPage}
+<meta property="og:title" content="{block:TagPage}&quot;{PlaintextTag}&quot; - {/block:TagPage}"/>
+<meta property="og:url" content="{blogURL}{block:TagPage}tagged/{URLSafeTag}{/block:TagPage}"/>
+<meta property="og:type" content="blog" />
+<meta property="og:description" content="{MetaDescription} {block:TagPage}{PlaintextDescription}{/block:TagPage}"/>
+<meta property="og:image" content="{PortraitURL-128}"/>
+{/block:IndexPage}
+{block:PermalinkPage}
+<meta property="og:url" content="{Permalink}"/>
+<meta property="og:type" content="article"/>
+{block:Posts}
+{block:Text}
+<meta property="og:title" content="{PlaintextTitle}"/>
+<meta property="og:description" content="{PlaintextBody}"/>
+<meta property="og:image" content="{PortraitURL-128}"/>
+{/block:Text}
+{block:Photo}
+<meta property="og:title" content="{PlaintextTitle}"/>
+<meta property="og:image" content="{PhotoURL-HighRes}"/>
+{block:Caption}<meta property="og:description" content="{PlaintextCaption}"/>{/block:Caption}
+{/block:Photo}
+{block:Photoset}
+{block:Photos}
+<meta property="og:image" content="{PhotoURL-HighRes}"/>
+{/block:Photos}
+{block:Caption}<meta property="og:description" content="{PlaintextCaption}"/>{/block:Caption}
+{/block:Photoset}
+{block:Quote}
+<meta property="og:title" content="{PlaintextQuote}"/>
+<meta property="og:description" content="{PlaintextSource}"/>
+<meta property="og:image" content="{PortraitURL-128}"/>
+{/block:Quote}
+{block:Link}
+<meta property="og:title" content="{PlaintextName}"/>
+<meta property="og:description" content="{PlaintextDescription}"/>
+{block:Thumbnail}<meta property="og:image" content="{Thumbnail}"/>{/block:Thumbnail}
+{/block:Link}
+{block:Chat}
+<meta property="og:title" content="{PlaintextTitle}"/>
+<meta property="og:description" content="{block:Lines}{block:Label}{Label}: {/block:Label}{Line} &bull; {/block:Lines}"/>
+<meta property="og:image" content="{PortraitURL-128}"/>
+{/block:Chat}
+{block:Audio}
+<meta property="og:title" content="{block:Artist}{Artist} - {/block:Artist}{block:TrackName}{TrackName}{/block:TrackName}"/>
+<meta property="og:description" content="{PlaintextCaption}"/>
+{block:AlbumArt}<meta property="og:image" content="{AlbumArtURL}"/>{/block:AlbumArt}
+{/block:Audio}
+{block:Video}
+{block:Caption}<meta property="og:description" content="{PlaintextCaption}"/>{/block:Caption}
+{block:VideoThumbnail}<meta property="og:image" content="{VideoThumbnailURL}"/>{/block:VideoThumbnail}
+{/block:Video}
+{block:Answer}
+<meta property="og:title" content="{PlaintextQuestion}"/>
+<meta property="og:description" content="{PlaintextAnswer}"/>
+<meta property="og:image" content="{PortraitURL-128}"/>
+{/block:Answer}
+{/block:Posts}
+{/block:PermalinkPage}
+<!-- Meta Data /source: http://goo.gl/TZ4wFT -->
+{block:PermalinkPage}
+<meta name="twitter:url" content="{Permalink}"/>
+<meta name="twitter:site" content="@{text:twitter username}">
+{block:Posts}
+{block:Text}
+<meta name="twitter:card" content="summary">
+{block:Title}<meta name="twitter:title" content="{PlaintextTitle}"/>{/block:Title}
+<meta name="twitter:description" content="{PlaintextBody}"/>
+<meta name="twitter:image" content="{PortraitURL-128}"/>
+{/block:Text}
+{block:Photo}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{PlaintextTitle}"/>
+<meta name="twitter:image" content="{PhotoURL-500}"/>
+{block:Caption}<meta name="twitter:description" content="{PlaintextCaption}"/>{/block:Caption}
+{/block:Photo}
+{block:Photoset}
+<meta name="twitter:card" content="summary_large_image">
+{block:Photos}<meta name="twitter:image" content="{PhotoURL-500}"/>{/block:Photos}
+{block:Caption}<meta name="twitter:description" content="{PlaintextCaption}"/>{/block:Caption}
+{/block:Photoset}
+{block:Quote}
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{PlaintextQuote}"/>
+<meta name="twitter:description" content="{PlaintextSource}"/>
+<meta name="twitter:image" content="{PortraitURL-128}"/>
+{/block:Quote}
+{block:Link}
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{PlaintextName}"/>
+<meta name="twitter:description" content="{PlaintextDescription}"/>
+{block:Thumbnail}<meta name="twitter:image" content="{Thumbnail}"/>{/block:Thumbnail}
+{/block:Link}
+{block:Chat}
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{PlaintextTitle}"/>
+<meta name="twitter:description" content="{block:Lines}{block:Label}{Label}: {/block:Label}{Line} &bull; {/block:Lines}"/>
+<meta name="twitter:image" content="{PortraitURL-128}"/>
+{/block:Chat}
+{block:Audio}
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{block:Artist}{Artist} - {/block:Artist}{block:TrackName}{TrackName}{/block:TrackName}"/>
+<meta name="twitter:description" content="{PlaintextCaption}"/>
+{block:AlbumArt}<meta name="twitter:image" content="{AlbumArtURL}"/>{/block:AlbumArt}
+{/block:Audio}
+{block:Video}
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{PlaintextTitle}"/>
+{block:Caption}<meta name="twitter:description" content="{PlaintextCaption}"/>{/block:Caption}
+{block:VideoThumbnail}<meta name="twitter:image" content="{VideoThumbnailURL}"/>{/block:VideoThumbnail}
+{/block:Video}
+{block:Answer}
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{PlaintextQuestion}"/>
+<meta name="twitter:description" content="{PlaintextAnswer}"/>
+<meta name="twitter:image" content="{PortraitURL-128}"/>
+{/block:Answer}
+{/block:Posts}
+{/block:PermalinkPage}
+
+
 <link href="https://static.tumblr.com/vizevuc/Qbbpelbvj/uikit.ultra.min.css" rel="stylesheet" />
 <script src="https://static.tumblr.com/vizevuc/Np1pelbw1/uikit.min.js"></script>
 <style>
@@ -135,10 +238,10 @@ header.uk-background-primary h1.uk-text-lead, header.uk-background-primary h2#de
 
 <body>
 <div class="uk-offcanvas-content">
-<header class="uk-tile uk-flex uk-flex-column uk-text-center {block:indexpage}{block:IfHeaderImage}uk-tile-small uk-margin-medium-bottom uk-background-blend-multiply uk-background-primary uk-background-image@m uk-background-cover uk-background-fixed" style="background-image: url({image:Header}){/block:IfHeaderImage}{/block:indexpage}">
+<header class="uk-tile uk-tile-small uk-flex uk-flex-column uk-text-center {block:indexpage}{block:IfHeaderImage}uk-margin-medium-bottom uk-background-blend-multiply uk-background-primary uk-background-image@m uk-background-cover uk-background-fixed" style="background-image: url({image:Header}){/block:IfHeaderImage}{/block:indexpage}">
 {block:iflogoimage}<a href="{BlogURL}" title="{Title}"><img src="{image:logo}" alt="{Title} Logo" title="{Title} Logo" class="uk-thumbnail uk-border-circle toplogo" nopin="nopin" /></a>{/block:iflogoimage}
 {block:indexpage}<h1 class="uk-text-lead uk-heading-divider uk-margin-top">{Title}</h1>{/block:indexpage}
-{block:PermalinkPage}{block:PostSummary}<h1 class="uk-text-lead uk-heading-divider">{PostSummary}</h1>{/block:PostSummary}{/block:PermalinkPage}
+{block:PermalinkPage}{block:PostSummary}<h1 class="uk-text-lead uk-heading-divider uk-margin-top">{PostSummary}</h1>{/block:PostSummary}{/block:PermalinkPage}
 {block:Description}
 {block:indexpage}<h2 id="description" class="uk-text-meta uk-margin-remove">{Description}</h2>{/block:indexpage}
 {block:PermalinkPage}<div id="description" class="uk-text-meta uk-margin-remove">{Description}</div>{/block:PermalinkPage}
@@ -146,10 +249,10 @@ header.uk-background-primary h1.uk-text-lead, header.uk-background-primary h2#de
 </header>
 
 <div id="container" class="uk-container uk-container-center uk-width-5-6@m uk-clearfix">
-<div id="content" {block:IndexPage}class="container uk-grid uk-grid-medium uk-child-width-1-2@s {select:Max Grid Columns}" data-uk-grid="masonry: true;" {/block:IndexPage} {block:permalinkpage}class="uk-grid uk-grid-small uk-child-width-1-2@m" data-uk-grid{/block:permalinkpage}>
+<div id="content" {block:IndexPage}class="container uk-grid uk-grid-medium" data-uk-grid="masonry: true;" {/block:IndexPage} {block:permalinkpage}class="uk-grid uk-grid-small" data-uk-grid{/block:permalinkpage}>
 
 {block:Posts}
-<div class="post infscr {block:chat}chat-post{/block:chat} {block:quote}quote-post{/block:quote} {block:text}caption-post{/block:text} {block:photoset}caption-post{/block:photoset} {block:audio}caption-post{/block:audio} {block:photo}caption-post{/block:photo} {block:video}caption-post{/block:video} {block:link}link-post{/block:link} {block:Answer}text-post{/block:Answer}" id="{postID}">
+<div class="post infscr {block:IndexPage}uk-width-1-2@s {select:Max Grid Columns}{/block:IndexPage} {block:permalinkpage}{block:chat}chat-post{/block:chat} {block:quote}quote-post{/block:quote} {block:text}caption-post uk-width-1-1{/block:text} {block:photoset}caption-post{/block:photoset} {block:audio}caption-post{/block:audio} {block:photo}caption-post uk-width-1-2@m{/block:photo} {block:video}caption-post{/block:video} {block:link}link-post{/block:link} {block:Answer}text-post{/block:Answer}{/block:permalinkpage}" id="{postID}">
 
 {block:Photo}
 
@@ -163,7 +266,7 @@ header.uk-background-primary h1.uk-text-lead, header.uk-background-primary h2#de
 {/block:permalinkpage}
 
 <noscript><img src="{block:indexpage}{PhotoURL-500}{/block:indexpage}{block:permalinkpage}{PhotoURL-HighRes}{/block:permalinkpage}" alt="{PhotoAlt}" title="{PhotoAlt}" class="uk-width-1-1" /></noscript>
-<img data-original="{block:indexpage}{PhotoURL-500}{/block:indexpage}{block:permalinkpage}{PhotoURL-HighRes}{/block:permalinkpage}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{PhotoAlt}" title="{PhotoAlt}" class="uk-width-1-1 lazy" />
+<img data-src="{block:indexpage}{PhotoURL-500}{/block:indexpage}{block:permalinkpage}{PhotoURL-HighRes}{/block:permalinkpage}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{PhotoAlt}" title="{PhotoAlt}" class="uk-width-1-1" data-uk-img data-uk-height />
 {block:indexpage}
 <div class="uk-overlay-default uk-position-cover uk-transition-fade"></div>
 <figcaption class="uk-transition-fade uk-position-cover uk-flex uk-flex-middle uk-flex-center uk-flex-column">
@@ -227,15 +330,14 @@ header.uk-background-primary h1.uk-text-lead, header.uk-background-primary h2#de
 
 
 {block:Text}
-<div class="uk-card uk-card-default uk-card-body">
+<div class="uk-card uk-card-default">
 {block:Title}
-<div class="uk-panel-lead">{Title}</div>
+<div class="uk-card-header"><div class="uk-card-title uk-text-primary uk-margin-top">{Title}</div></div>
 {/block:Title}
-<div class="uk-panel-body">{Body}</div>
+<div class="uk-card-body">{Body}</div>
 {block:indexpage}
-<div class="uk-overlay-panel uk-overlay-background uk-overlay-fade uk-flex uk-flex-center uk-flex-middle uk-text-center">
-	<a href="{ReblogURL}" title="Reblog | {Title}" target="_blank" data-uk-icon="icon:refresh;ratio:2.4;"></a>&nbsp;
-	<a href="{Permalink}" title="Link | {Title}" data-uk-icon="icon:plus-circle;ratio:2.4;"></a>
+<div class="uk-card-footer uk-flex uk-flex-center uk-flex-middle uk-text-center">
+	<a href="{Permalink}" title="Link | {Title}" class="uk-button uk-button-small uk-button-default uk-width-1-1" data-uk-icon="icon:triangle-right;ratio:0.9;">Read More</a>
 </div>
 {/block:indexpage}
 </div>
@@ -315,7 +417,7 @@ header.uk-background-primary h1.uk-text-lead, header.uk-background-primary h2#de
 
 
 {block:permalinkpage}
-<div>
+<div class="uk-width-expand@m">
 
 <div class="uk-card uk-card-default" data-uk-sticky="bottom: true">
 <div class="uk-card-header">
@@ -359,7 +461,7 @@ header.uk-background-primary h1.uk-text-lead, header.uk-background-primary h2#de
 {block:Posts}
 	<div class="post-padding">
 		<div class="post-padding2">
-			{PostNotes-16}
+			{PostNotes}
 		</div>
 	</div>
 {/block:Posts}
@@ -450,7 +552,7 @@ header.uk-background-primary h1.uk-text-lead, header.uk-background-primary h2#de
 {/block:ifnotplacecopyrightnotice}
 
 </div>
-<a id="totop-scroller" class="uk-width-1-1 uk-text-muted uk-text-center uk-margin-medium-top" data-uk-scroll data-uk-icon="icon:triangle-up;ratio:2.6;" href="#page"></a>
+<a id="totop-scroller" class="uk-width-1-1 uk-text-muted uk-text-center uk-margin-large-top" data-uk-scroll data-uk-icon="icon:triangle-up;ratio:2.8;" href="#page"></a>
 </footer>
 
 {/block:permalinkpage}
@@ -549,8 +651,10 @@ header.uk-background-primary h1.uk-text-lead, header.uk-background-primary h2#de
 </div>
 </div>
 
-<script src="https://static.tumblr.com/vizevuc/9Vppelbw9/uikit-icons.min.js" async></script>
+<script src="https://static.tumblr.com/vizevuc/9Vppelbw9/uikit-icons.min.js" defer></script>
+{block:permalinkpage}
 <script src="https://static.tumblr.com/vizevuc/e33p8qke6/lazy.js" async></script>
+{/block:permalinkpage}
 {block:indexpage}
 <script src="https://unpkg.com/infinite-scroll@3.0.4/dist/infinite-scroll.pkgd.min.js"></script>
 <script> var elem = document.querySelector('.container'); var infScroll = new InfiniteScroll( elem, { path: '.pagination_next', append: '.post', history: false, }); var infScroll = new InfiniteScroll( '.container', { }); </script>
