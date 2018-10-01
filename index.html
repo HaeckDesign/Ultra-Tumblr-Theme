@@ -23,16 +23,13 @@
 <link rel="icon" type="image/png" href="{Favicon}" sizes="16x16">
 <link rel="manifest" href="/manifest.json">
 <link rel="alternate" type="application/rss+xml" href="{RSS}">
-
 <meta name="msapplication-TileColor" content="#ffc40d">
 <meta name="msapplication-TileImage" content="{Favicon}">
 <meta name="theme-color" content="#ffffff">
-
 <meta name="image:Logo" content=""/>
 <meta name="image:Header" content=""/>
 <meta name="image:Footer" content=""/>
 <meta name="if:Black and White Photos" content="" />
-
 <meta name="color:Primary Color" content="#dedede" />
 <meta name="color:Secondary Color" content="#9c9c9c" />
 <meta name="color:Background Color" content="#f2f2f2" />
@@ -52,7 +49,6 @@
 <meta name="select:Title Size" content="2.2em" title="2.2em">
 <meta name="select:Title Size" content="2.6em" title="2.6em">
 <meta name="select:Title Size" content="3.2em" title="3.2em">
-
 <meta name="text:Custom link 1 URL" content="" />
 <meta name="text:Custom link 1 title" content="" />
 <meta name="text:Custom link 2 URL" content="" />
@@ -63,7 +59,6 @@
 <meta name="text:Custom link 4 title" content="" />
 <meta name="text:Custom link 5 URL" content="" />
 <meta name="text:Custom link 5 title" content="" />
-
 <meta name="text:Facebook URL" content="" />
 <meta name="text:Twitter Username" content="" />
 <meta name="text:Pinterest URL" content="" />
@@ -90,14 +85,13 @@
 <meta name="text:Shop URL" content="" />
 <meta name="text:Extended Description" content="" />
 <meta name="text:Copyright Text" content="" />
-
 <meta name="text:Disqus Shortname" content="">
 <meta name="text:Facebook App ID" content="">
 <meta name="text:Google Analytics Web Property ID" content="">
 <meta name="text:Google Site Verification" content="" />
 <meta name="text:Bing Site Verification" content="" />
-
 <meta property="og:site_name" content="{Title}"/>
+
 {block:IndexPage}
 <meta property="og:title" content="{block:TagPage}&quot;{PlaintextTag}&quot; - {/block:TagPage}"/>
 <meta property="og:url" content="{blogURL}{block:TagPage}tagged/{URLSafeTag}{/block:TagPage}"/>
@@ -156,7 +150,7 @@
 {/block:Answer}
 {/block:Posts}
 {/block:PermalinkPage}
-<!-- Meta Data /source: http://goo.gl/TZ4wFT -->
+
 {block:PermalinkPage}
 <meta name="twitter:url" content="{Permalink}"/>
 <meta name="twitter:site" content="@{text:twitter username}">
@@ -216,10 +210,9 @@
 {/block:Answer}
 {/block:Posts}
 {/block:PermalinkPage}
-
-
-<link href="https://static.tumblr.com/vizevuc/Qbbpelbvj/uikit.ultra.min.css" rel="stylesheet" />
-<script src="https://static.tumblr.com/vizevuc/Np1pelbw1/uikit.min.js"></script>
+<! -- Upload CSS and JS By Editing HTML and Adding Theme Assets -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.17/css/uikit.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.17/js/uikit.min.js"></script>
 <style>
 html { font-family: {font:Body}; background: {color:Background Color}; background: -moz-radial-gradient(center, ellipse cover, {color:Background Gradient Color} 0%, {color:Background Color} 100%); background: -webkit-radial-gradient(center, ellipse cover, {color:Background Gradient Color} 0%,{color:Background Color} 100%); background: radial-gradient(ellipse at center, {color:Background Gradient Color} 0%,{color:Background Color} 100%); } 
 h1,h2,h3,h4,h5,h6, .uk-h1, .uk-h2, .uk-h3, .uk-h4, .uk-h5, .uk-h6, .uk-article-lead, .uk-article-title { font-family: {font:Title} !important; letter-spacing: -0.01em; color: {color:Primary Color} !important;}
@@ -557,6 +550,8 @@ header.uk-background-primary h1.uk-text-lead, header.uk-background-primary h2#de
 
 {/block:permalinkpage}
 
+<div class="uk-text-center uk-text-muted uk-margin"><a href="https://gitlab.com/HaeckDesign/ultra" title="Ultra Tumblr Theme - Haeck Design" target="_blank">Ultra Tumblr Theme</a> by Haeck Design</div>
+	
 <a data-uk-toggle="target: #offmenu" class="uk-position-top-left uk-position-small uk-position-fixed uk-position-z-index" data-uk-icon="icon: menu;ratio:1.8"></a>
 <div id="offmenu" class="uk-offcanvas" data-uk-offcanvas="mode:push;">
 <div class="uk-offcanvas-bar">
@@ -576,7 +571,7 @@ header.uk-background-primary h1.uk-text-lead, header.uk-background-primary h2#de
 	<li><a href="/submit" title="{SubmitLabel}" data-uk-icon="icon:cloud-upload;">{SubmitLabel} </a></li>
 {/block:SubmissionsEnabled}
 {block:AskEnabled}
-	<li><a class="iframe" id="ask_form" href="http://www.tumblr.com/ask_form/{name}.tumblr.com" title="{AskLabel}" data-uk-icon="icon:question;">{AskLabel} </a></li>
+	<li><a class="iframe" id="ask_form" href="https://www.tumblr.com/ask_form/{name}.tumblr.com" title="{AskLabel}" data-uk-icon="icon:question;">{AskLabel} </a></li>
 {/block:AskEnabled}
 {block:ifwebsiteurl}
 	<li><a href="{text:websiteurl url}" title="Website" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: globe;">Website </a></li>
@@ -592,58 +587,58 @@ header.uk-background-primary h1.uk-text-lead, header.uk-background-primary h2#de
 <div itemscope itemtype="https://schema.org/Organization">
 <ul class="uk-nav uk-nav-default uk-text-center uk-text-center" data-uk-nav>
 {block:iffacebookurl}
-	<li><a href="{text:facebook url}" title="Facebook" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: facebook;">Facebook &nbsp;</a></li>
+	<li><a href="{text:facebook url}" title="Facebook" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: facebook;">Facebook </a></li>
 {/block:iffacebookurl}
 {block:iftwitterusername}
-	<li><a href="https://twitter.com/{text:twitter username}" title="Twitter" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: twitter;">Twitter &nbsp;</a></li>
+	<li><a href="https://twitter.com/{text:twitter username}" title="Twitter" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: twitter;">Twitter </a></li>
 {/block:iftwitterusername}
 {block:ifpinteresturl}
-	<li><a href="https://pinterest.com/{text:pinterest username}" title="Pinterest" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: pinterest;">Pinterest &nbsp;</a></li>
+	<li><a href="https://pinterest.com/{text:pinterest username}" title="Pinterest" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: pinterest;">Pinterest </a></li>
 {/block:ifpinteresturl}
 {block:ifgoogleplusurl}
-	<li><a href="{text:googleplus url}" title="Google Plus" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: google-plus;">Google Plus &nbsp;</a></li>
+	<li><a href="{text:googleplus url}" title="Google Plus" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: google-plus;">Google Plus </a></li>
 {/block:ifgoogleplusurl}	
 {block:ifinstagramusername}
-	<li><a href="http://instagram.com/{text:instagram username}" title="Instagram" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: instagram;">Instagram &nbsp;</a></li>
+	<li><a href="{text:instagram username}" title="Instagram" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: instagram;">Instagram </a></li>
 {/block:ifinstagramusername}
 {block:ifspanchatusername}
-	<li><a href="https://snapchat.com/{text:snapchat username}" title="Snapchat" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: snapchat;">Snapchat &nbsp;</a></li>
+	<li><a href="https://snapchat.com/{text:snapchat username}" title="Snapchat" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: snapchat;">Snapchat </a></li>
 {/block:ifspanchatusername}		
 {block:ifstumbleuponurl}
-	<li><a href="{text:stumbleupon username}" title="StumbleUpon" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: stumbleupon;">StumbleUpon &nbsp;</a></li>
+	<li><a href="{text:stumbleupon username}" title="StumbleUpon" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: stumbleupon;">StumbleUpon </a></li>
 {/block:ifstumbleuponurl}	
 {block:ifredditusername}
-	<li><a href="https://reddit.com/~{text:reddit username}" title="Reddit" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: reddit;">Reddit &nbsp;</a></li>
+	<li><a href="https://reddit.com/~{text:reddit username}" title="Reddit" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: reddit;">Reddit </a></li>
 {/block:ifredditusername}		
 {block:ifmediumurl}
-	<li><a href="{text:medium url}" title="Medium" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: medium;">Medium &nbsp;</a></li>
+	<li><a href="{text:medium url}" title="Medium" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: medium;">Medium </a></li>
 {/block:ifmediumurl}
 {block:ifvkurl}
-	<li><a href="{text:vk url}" title="VK" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: vk;">VK &nbsp;</a></li>
+	<li><a href="{text:vk url}" title="VK" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: vk;">VK </a></li>
 {/block:ifvkurl}
 {block:ifbehanceurl}
-	<li><a href="{text:behance url}" title="Behance" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: behance;">Behance &nbsp;</a></li>
+	<li><a href="{text:behance url}" title="Behance" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: behance;">Behance </a></li>
 {/block:ifbehanceurl}
 {block:ifdribbbleurl}
-	<li><a href="{text:dribbble url}" title="Dribbble" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: dribbble;">Dribbble &nbsp;</a></li>
+	<li><a href="{text:dribbble url}" title="Dribbble" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: dribbble;">Dribbble </a></li>
 {/block:ifdribbbleurl}
 {block:ifflickrurl}
-	<li><a href="{text:flickr url}" title="Flickr" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: flickr;">Flickr &nbsp;</a></li>
+	<li><a href="{text:flickr url}" title="Flickr" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: flickr;">Flickr </a></li>
 {/block:ifflickrurl}
 {block:ifsoundcloudurl}
-	<li><a href="{text:soundcloud url}" title="SoundCloud" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: soundcloud;">SoundCloud &nbsp;</a></li>
+	<li><a href="{text:soundcloud url}" title="SoundCloud" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: soundcloud;">SoundCloud </a></li>
 {/block:ifsoundcloudurl}
 {block:ifspotifyurl}
-	<li><a href="{text:spotify url}" title="Spotify" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: spotify;">Spotify &nbsp;</a></li>
+	<li><a href="{text:spotify url}" title="Spotify" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: spotify;">Spotify </a></li>
 {/block:ifspotifyurl}
 {block:ifvimeourl}
-	<li><a href="{text:vimeo url}" title="Vimeo" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: vimeo;">Vimeo &nbsp;</a></li>
+	<li><a href="{text:vimeo url}" title="Vimeo" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: vimeo;">Vimeo </a></li>
 {/block:ifvimeourl}
 {block:ifyoutubeurl}
-	<li><a href="{text:youtube url}" title="YouTube" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: youtube;">YouTube &nbsp;</a></li>
+	<li><a href="{text:youtube url}" title="YouTube" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: youtube;">YouTube </a></li>
 {/block:ifyoutubeurl}
 {block:iftwitchurl}
-	<li><a href="{text:twitch url}" title="Twitch" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: twitch;">Twitch &nbsp;</a></li>
+	<li><a href="{text:twitch url}" title="Twitch" target="_blank" rel="nofollow" itemprop="sameAs" data-uk-icon="icon: twitch;">Twitch </a></li>
 {/block:iftwitchurl}
 </ul>
 </div>
@@ -651,7 +646,7 @@ header.uk-background-primary h1.uk-text-lead, header.uk-background-primary h2#de
 </div>
 </div>
 
-<script src="https://static.tumblr.com/vizevuc/9Vppelbw9/uikit-icons.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.17/js/uikit-icons.min.js"></script>
 {block:permalinkpage}
 <script src="https://static.tumblr.com/vizevuc/e33p8qke6/lazy.js" async></script>
 {/block:permalinkpage}
