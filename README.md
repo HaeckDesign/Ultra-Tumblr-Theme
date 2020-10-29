@@ -28,7 +28,8 @@ The worlds greatest Tumblr Theme. We use the Ultra Tumblr Theme as a framework f
 
 #### Changelog ####
 
-**Version 1.2:** UIKit v3, Added Infinite Scroll  
+**Version 1.3:** Update Prep
+**Version 1.2:** UIKit v3, Added Infinite Scroll
 **Version 1.1:** UIKit v2, Added LazySizes
 
 ---
